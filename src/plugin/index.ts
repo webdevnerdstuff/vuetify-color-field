@@ -1,5 +1,7 @@
-import VPluginTemplate from './VPluginTemplate.vue';
+import VColorPickerField from './VColorPickerField.vue';
 
-export default {
-	VPluginTemplate
+export {
+	VColorPickerField
 };
+
+export default VColorPickerField;
