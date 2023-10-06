@@ -1,10 +1,10 @@
 {
-	"name": "vuetify-plugin-template",
-	"version": "1.0.0",
-	"description": "Vuetify Plugin Template is a template to help you get starting building your own plugin/component for Vuetify.",
+	"name": "vuetify-color-picker-field",
+	"version": "1.0.0-beta.1",
+	"description": "A Vuetify VTextField Color Picker Component",
 	"private": false,
-	"main": "dist/vuetify-plugin-template.cjs.js",
-	"module": "dist/vuetify-plugin-template.es.js",
+	"main": "dist/vuetify-color-picker-field.cjs.js",
+	"module": "dist/vuetify-color-picker-field.es.js",
 	"types": "dist/types/index.d.ts",
 	"scripts": {
 		"dev": "vite",
@@ -31,13 +31,13 @@
 		"LICENSE.md",
 		"README.md"
 	],
-	"repository": "https://github.com/webdevnerdstuff/vuetify-plugin-template",
+	"repository": "https://github.com/webdevnerdstuff/vuetify-color-picker-field",
 	"bugs": {
-		"url": "https://github.com/webdevnerdstuff/vuetify-plugin-template/issues"
+		"url": "https://github.com/webdevnerdstuff/vuetify-color-picker-field/issues"
 	},
-	"homepage": "https://webdevnerdstuff.github.io/vuetify-plugin-template/",
+	"homepage": "https://webdevnerdstuff.github.io/vuetify-color-picker-field/",
 	"keywords": [
-		"vuetify-plugin-template",
+		"vuetify-color-picker-field",
 		"vuetify",
 		"vue",
 		"vue3",
