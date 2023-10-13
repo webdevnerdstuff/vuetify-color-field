@@ -469,6 +469,7 @@ function setCardStyles(): void {
 	// 	positionHelper.style.left = styles.left as string;
 	// 	positionHelper.style.right = styles.right as string;
 	// 	positionHelper.style.bottom = styles.bottom as string;
+	// 	positionHelper.style.display = 'block';
 	// }
 	// ! END DEBUG HELPER ! //
 
@@ -479,14 +480,10 @@ function setCardStyles(): void {
 
 function updateModelValue(value: any, source = 'textField') {
 	console.log('======= updateModelValue', value, source);
-	let returnColor = value;
+	let returnColor = value ?? '';
 
 	if (value === '#') {
 		returnColor = props.defaultColor;
-	}
-
-	if (!value) {
-		returnColor = '#';
 	}
 
 	if (returnColor.length < 7) {
@@ -503,7 +500,6 @@ function updateModelValue(value: any, source = 'textField') {
 			returnColor = value.substr(0, 7);
 		}
 	}
-
 
 	colorPickerModelValue.value = returnColor;
 	modelValue.value = returnColor;
@@ -549,7 +545,7 @@ function updateMode(mode: Mode) {
 .position-elm-helper {
 	background-color: #f00;
 	border-radius: 50%;
-	display: block;
+	display: none;
 	height: 10px;
 	left: 0;
 	position: absolute;
