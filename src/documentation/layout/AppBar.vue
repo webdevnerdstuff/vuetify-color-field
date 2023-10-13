@@ -24,7 +24,7 @@
 			<v-icon icon="mdi:mdi-home"></v-icon>
 		</v-app-bar-nav-icon>
 
-		<div class="site-title">Vuetify Plugin Template</div>
+		<div class="site-title">Vuetify Color Picker Field</div>
 
 		<v-spacer></v-spacer>
 
@@ -121,7 +121,7 @@ const links = store.links;
 const themeName = ref('dark');
 const drawer = ref(true);
 
-const menuItems = [...menuStore.vuetifyLinks];
+const menuItems = [...menuStore.vuetifyLinks, ...menuStore.componentItems];
 
 const iconSize = ref({
 	height: 32,

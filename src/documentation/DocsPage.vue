@@ -40,7 +40,7 @@
 			<v-row>
 				<v-col cols="12">
 					<CodeBlock
-						code="pnpm add vuetify-plugin-template"
+						code="pnpm add vuetify-color-picker-field"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 						lang="plain"
 						:prismjs="codeBlockSettings.plugin === 'prismjs'"
@@ -56,7 +56,7 @@
 				</v-col>
 				<v-col cols="12">
 					<CodeBlock
-						code="npm i vuetify-plugin-template"
+						code="npm i vuetify-color-picker-field"
 						highlightjs
 						lang="plain"
 					>
