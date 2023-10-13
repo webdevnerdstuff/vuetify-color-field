@@ -135,21 +135,6 @@
 					unplugin-auto-import
 				</v-list-item>
 
-				<v-list-item
-					href="https://miragejs.com/"
-					target="_blank"
-				>
-					<template #prepend>
-						<v-img
-							class="me-8"
-							src="https://miragejs.com/favicon.svg"
-							width="24"
-						></v-img>
-					</template>
-
-					Mirage JS - To use as a mock server if you need (database included in playground configs)
-				</v-list-item>
-
 				<v-list-item>
 					<template #prepend>
 						<v-icon icon="mdi:mdi-seesaw"></v-icon>
