@@ -1,1 +1,1 @@
-export const componentName = 'v-plugin-template';
+export const componentName = 'v-color-picker-field';

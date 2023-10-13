@@ -6,6 +6,33 @@ export const useMenuStore = defineStore('menu', () => {
 	const coreStore = useCoreStore();
 	const links = coreStore.links;
 
+	const componentItems = [
+		{
+			href: '#components-v-text-field',
+			icon: 'mdi:mdi-minus',
+			key: 'v-inline-text-field',
+			link: `${links.vuetify}en/api/v-text-field/`,
+			title: 'VInlineTextField',
+			topTitle: 'VTextField',
+		},
+		{
+			href: '#components-v-color-picker',
+			icon: 'mdi:mdi-eyedropper',
+			key: 'v-inline-text-field',
+			link: `${links.vuetify}en/api/v-color-picker/`,
+			title: 'VColorPicker',
+			topTitle: 'VColorPicker',
+		},
+		{
+			href: '#components-v-card',
+			icon: 'mdi:mdi-card-outline',
+			key: 'v-inline-text-field',
+			link: `${links.vuetify}en/api/v-card/`,
+			title: 'VCard',
+			topTitle: 'VCard',
+		},
+	];
+
 	const vuetifyLinks = [
 		{
 			icon: 'mdi:mdi-github',
@@ -89,6 +116,7 @@ export const useMenuStore = defineStore('menu', () => {
 	];
 
 	return {
+		componentItems,
 		menuItems,
 		vuetifyLinks,
 	};

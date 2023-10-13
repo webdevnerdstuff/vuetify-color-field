@@ -70,12 +70,12 @@ app.mount('#app');`;
 const usageIndividual = `import { createApp } from 'vue';
 import App from './App.vue';
 import {
-  VPluginTemplate
-} from 'vuetify-plugin-template';
+  VColorPickerField
+} from 'vuetify-color-picker-field';
 
 const app = createApp(App);
 
-app.component('VPluginTemplate', VPluginTemplate);
+app.use('VColorPickerField', VColorPickerField);
 
 app.mount('#app');`;
 </script>

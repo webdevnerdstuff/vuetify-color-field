@@ -6,7 +6,7 @@ import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 import AutoImport from 'unplugin-auto-import/vite';
 
-const baseUrl = '/vuetify-plugin-template/';
+const baseUrl = '/vuetify-color-picker-field/';
 const playgroundUrl = baseUrl + 'playground/';
 
 
