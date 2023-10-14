@@ -3,7 +3,7 @@
 		ref="fieldContainerRef"
 		class="v-color-picker-field"
 	>
-		<!-- Dot Option -->
+		<!-- ================================================== Dot Option -->
 		<div
 			v-if="dotField"
 			ref="dotFieldRef"
@@ -20,7 +20,7 @@
 							<div
 								class="me-2"
 								:style="dotStyles"
-								@click="toggleColorPicker"
+								@click="toggleColorPicker('dotField')"
 							></div>
 							<label class="v-label">{{ label }}</label>
 						</div>
@@ -45,7 +45,7 @@
 			</div>
 		</div>
 
-		<!-- VTextField Option -->
+		<!-- ================================================== VTextField Option -->
 		<v-text-field
 			v-else
 			ref="textFieldRef"
@@ -56,8 +56,8 @@
 			:hint="hint"
 			:model-value="modelValue"
 			:persistent-hint="persistentHint"
-			:readonly="readonly"
-			@click:control="toggleColorPicker('textField')"
+			:readonly="textFieldReadonly"
+			@click:control="toggleCheck('textField')"
 			@mouseenter="closePickerStop"
 			@mouseleave="closePicker"
 			@update:model-value="updateModelValue($event, 'textField')"
@@ -80,7 +80,7 @@
 				<ColorPickerIcon
 					:color="hoverIconColor"
 					:icon="prependIcon"
-					@click="toggleColorPicker"
+					@click="toggleColorPicker('textFieldIcon')"
 				/>
 			</template>
 
@@ -91,8 +91,8 @@
 				<ColorPickerIcon
 					:color="hoverIconColor"
 					:icon="prependInnerIcon"
+					@click="toggleCheck('textFieldIcon')"
 				/>
-				<!-- @click="toggleColorPicker" -->
 			</template>
 
 			<template
@@ -102,7 +102,7 @@
 				<ColorPickerIcon
 					:color="hoverIconColor"
 					:icon="appendIcon"
-					@click="toggleColorPicker"
+					@click="toggleColorPicker('textFieldIcon')"
 				/>
 			</template>
 
@@ -113,22 +113,20 @@
 				<ColorPickerIcon
 					:color="hoverIconColor"
 					:icon="appendInnerIcon"
+					@click="toggleCheck('textFieldIcon')"
 				/>
-				<!-- @click="toggleColorPicker" -->
 			</template>
-
-			<!-- @update:model-value="updateModelValue" -->
 
 			<!-- Label Slot -->
 			<template
 				v-if="slots.label || label"
 				#label
 			>
-
 				<slot
 					v-if="slots.label"
 					name="label"
 				></slot>
+
 				<div v-else-if="label">
 					{{ label }}
 					<span
@@ -140,7 +138,7 @@
 		</v-text-field>
 	</div>
 
-	<!-- Card Picker Container  -->
+	<!-- ================================================== Card Picker Container  -->
 	<Teleport to="body">
 		<div class="position-elm-helper"></div>
 
@@ -156,11 +154,11 @@
 				<v-color-picker
 					v-model="colorPickerModelValue"
 					class="v-color-selection"
+					:disabled="readonly || defaults.VColorPicker?.disabled"
 					:mode="pickerMode"
 					@update:mode="updateMode"
 					@update:model-value="updateModelValue($event, 'colorPicker')"
 				></v-color-picker>
-				<!-- @update:model-value="updateModelValue" -->
 			</v-card>
 		</v-defaults-provider>
 	</Teleport>
@@ -199,8 +197,8 @@ const emit = defineEmits(['update:modelValue']);
 
 // -------------------------------------------------- Props //
 const props = withDefaults(defineProps<Props>(), {
-	// appendIcon: 'mdi:mdi-palette',
-	// appendInnerIcon: 'mdi:mdi-palette',
+	appendIcon: 'mdi:mdi-palette',
+	appendInnerIcon: 'mdi:mdi-palette',
 	cardProps: () => ({}) as const,
 	color: undefined,
 	colorPickerProps: () => ({}) as const,
@@ -224,9 +222,10 @@ const props = withDefaults(defineProps<Props>(), {
 	name: 'color',
 	persistentCard: false,
 	persistentHint: false,
-	// prependIcon: 'mdi:mdi-palette',
+	prependIcon: 'mdi:mdi-palette',
 	prependInnerIcon: 'mdi:mdi-palette',
 	readonly: false,
+	readonlyInput: false,
 	required: false,
 });
 
@@ -317,7 +316,12 @@ const dotStyles = computed(() => useDotStyles({
 const textFieldClasses = computed(() => useTextFieldClasses({
 	name: props.name,
 	readonly: props.readonly,
+	readonlyInput: props.readonlyInput,
 }));
+
+const textFieldReadonly = computed(() => {
+	return props.readonly || props.readonlyInput;
+});
 
 const hoverIconColor = computed<string | undefined>(() => {
 	if (props.iconHoverColor === false) {
@@ -355,9 +359,30 @@ function closePicker() {
 	console.log('closePicker');
 }
 
+
+// ------------------------- Toggle Check //
+// ? Checks to prevent double triggers //
+function toggleCheck(trigger: string) {
+	if (trigger === 'textField' && !props.readonlyInput && !props.readonly) {
+		return;
+	}
+
+	if (trigger === 'textFieldIcon' && (props.readonlyInput || props.readonly)) {
+		return;
+	}
+
+	toggleColorPicker(trigger);
+}
 // ------------------------- Toggle Color Picker //
-function toggleColorPicker(e, trigger = 'na'): void {
-	console.log('trigger', trigger, e);
+
+function toggleColorPicker(trigger = 'na'): void {
+	console.log('trigger', trigger);
+
+	// console.log(props.readonlyInput);
+	// if (trigger === 'textField') {
+	// 	return;
+	// }
+
 	const defaultCoords = { left: 0, right: 0, top: 0, width: 0 };
 	let fieldContainer = fieldContainerRef.value;
 
@@ -517,31 +542,6 @@ function updateMode(mode: Mode) {
 </script>
 
 <style lang="scss" scoped>
-.v-color-picker-field {
-	&--dot-field {
-		overflow: visible;
-		position: relative;
-	}
-
-	// &--text-field {
-	// 	&-readonly {
-	// 		:deep(.v-field__input) {
-	// 			cursor: pointer !important;
-	// 		}
-	// 	}
-	// }
-
-	&-card {
-		position: absolute;
-		z-index: 999999;
-
-		.v-color-picker {
-			max-width: 100% !important;
-			width: 100% !important;
-		}
-	}
-}
-
 .position-elm-helper {
 	background-color: #f00;
 	border-radius: 50%;
