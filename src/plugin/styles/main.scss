@@ -1,1 +1,29 @@
 // :root {}
+
+.v-color-picker-field {
+	&--dot-field {
+		overflow: visible;
+		position: relative;
+	}
+
+	&--text-field {
+		&-readonly,
+		&-readonly-input {
+			.v-field {
+				* {
+					cursor: pointer !important;
+				}
+			}
+		}
+	}
+
+	&-card {
+		position: absolute;
+		z-index: 999999;
+
+		.v-color-picker {
+			max-width: 100% !important;
+			width: 100% !important;
+		}
+	}
+}
