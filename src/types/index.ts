@@ -65,6 +65,7 @@ export interface Props {
 	prependIcon?: VTextField['$props']['prependIcon'];
 	prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | string | false;
 	readonly?: VTextField['$props']['readonly'];
+	readonlyInput?: boolean | null | undefined;
 	required?: boolean;
 }
 
@@ -131,6 +132,7 @@ export interface UseTextFieldClasses {
 		options: {
 			name?: Props['name'];
 			readonly?: boolean | null;
+			readonlyInput: Props['readonlyInput'];
 		}
 	): object;
 }
