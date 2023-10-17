@@ -52,6 +52,7 @@ export interface Props {
 		borderWidth?: number;
 		cursor?: string;
 		height?: string | number;
+		showValue?: boolean | null | undefined;
 		width?: string | number;
 	};
 	hint?: string;
@@ -60,13 +61,17 @@ export interface Props {
 	iconHoverColor?: VIcon['$props']['color'] | boolean;
 	label?: string;
 	name?: any;
+	open?: boolean | null | undefined;
 	persistentCard?: boolean;
 	persistentHint?: boolean;
+	persistentPlaceholder?: VTextField['$props']['persistentPlaceholder'];
+	placeholder?: VTextField['$props']['placeholder'];
 	prependIcon?: VTextField['$props']['prependIcon'];
 	prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | string | false;
 	readonly?: VTextField['$props']['readonly'];
 	readonlyInput?: boolean | null | undefined;
 	required?: boolean;
+	theme?: VTextField['$props']['theme'];
 }
 
 export interface ColorPickerIconProps {
@@ -142,6 +147,14 @@ export interface UseHintClasses {
 		options: {
 			hintAlign?: Props['hintAlign'];
 			hintColor?: Props['hintColor'];
+		}
+	): object;
+}
+
+export interface UseCardClasses {
+	(
+		options: {
+			fullWidth?: boolean;
 		}
 	): object;
 }
