@@ -1,4 +1,5 @@
 import {
+	UseCardClasses,
 	UseDotContainerClass,
 	UseDotFieldClass,
 	UseHintClasses,
@@ -31,7 +32,6 @@ export const useDotFieldClasses: UseDotFieldClass = (options) => {
 // ------------------------------------------------ Text Field //
 export const useTextFieldClasses: UseTextFieldClasses = (options) => {
 	const { name, readonly, readonlyInput } = options;
-	console.log(options);
 
 	return {
 		[`${componentName}--text-field-${name}`]: true,
@@ -50,4 +50,15 @@ export const useHintClasses: UseHintClasses = (options) => {
 		'text-left': hintAlign === 'left',
 		'text-right': hintAlign === 'right',
 	};
+};
+
+// -------------------------------------------------- Card //
+export const useCardClasses: UseCardClasses = (options) => {
+	const { fullWidth } = options;
+
+	return {
+		[`${componentName}--card`]: true,
+		[`${componentName}--card-full-width`]: fullWidth,
+	};
+
 };
