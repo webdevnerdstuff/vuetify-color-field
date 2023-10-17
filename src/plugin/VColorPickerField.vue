@@ -10,8 +10,6 @@
 			v-bind="$attrs"
 			class="v-text-field"
 			:class="dotContainerClass"
-			@mouseenter="closePickerStop"
-			@mouseleave="closePicker"
 		>
 			<div class="v-input__control">
 				<div class="v-field v-field--focused">
@@ -20,9 +18,17 @@
 							<div
 								class="me-2"
 								:style="dotStyles"
-								@click="toggleColorPicker('dotField')"
+								@click="toggleColorPicker"
 							></div>
-							<label class="v-label">{{ label }}</label>
+							<label
+								v-if="label"
+								class="v-label mr-1"
+							>{{ label }} </label>
+							<div
+								v-else-if="placeholder && !modelValue || persistentPlaceholder"
+								class="v-label mr-1"
+							>{{ placeholder }}</div>
+							<div v-if="dotFieldProps.showValue">{{ modelValue }}</div>
 						</div>
 					</div>
 				</div>
@@ -56,11 +62,12 @@
 			:hint="hint"
 			:model-value="modelValue"
 			:persistent-hint="persistentHint"
+			:persistent-placeholder="persistentPlaceholder"
+			:placeholder="placeholder"
 			:readonly="textFieldReadonly"
+			:theme="themeAll"
 			@click:control="toggleCheck('textField')"
-			@mouseenter="closePickerStop"
-			@mouseleave="closePicker"
-			@update:model-value="updateModelValue($event, 'textField')"
+			@update:model-value="updateModelValue"
 		>
 			<template
 				v-for="(_, slot) in slots"
@@ -80,7 +87,7 @@
 				<ColorPickerIcon
 					:color="hoverIconColor"
 					:icon="prependIcon"
-					@click="toggleColorPicker('textFieldIcon')"
+					@click="toggleColorPicker"
 				/>
 			</template>
 
@@ -102,7 +109,7 @@
 				<ColorPickerIcon
 					:color="hoverIconColor"
 					:icon="appendIcon"
-					@click="toggleColorPicker('textFieldIcon')"
+					@click="toggleColorPicker"
 				/>
 			</template>
 
@@ -145,19 +152,19 @@
 		<v-defaults-provider :defaults="defaults">
 			<v-card
 				v-if="colorPickerOpen"
-				class="v-color-picker-field-card"
+				:class="cardClasses"
 				:style="cardStyles"
+				:theme="defaults.VCard?.theme ?? themeAll"
 				:width="textFieldProperties.width"
-				@mouseenter="closePickerStop"
-				@mouseleave="closePicker"
 			>
 				<v-color-picker
 					v-model="colorPickerModelValue"
 					class="v-color-selection"
 					:disabled="readonly || defaults.VColorPicker?.disabled"
 					:mode="pickerMode"
+					:theme="defaults.VColorPicker?.theme ?? themeAll"
 					@update:mode="updateMode"
-					@update:model-value="updateModelValue($event, 'colorPicker')"
+					@update:model-value="updateModelValue"
 				></v-color-picker>
 			</v-card>
 		</v-defaults-provider>
@@ -174,6 +181,7 @@ import {
 } from '@/types';
 import { useConvertToUnit } from '@/plugin/composables/helpers';
 import {
+	useCardClasses,
 	useDotContainerClass,
 	useDotFieldClasses,
 	useHintClasses,
@@ -192,13 +200,17 @@ defineOptions({
 
 const attrs = useAttrs();
 const slots = useSlots();
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits([
+	'update',
+	'update:mode',
+	'update:modelValue',
+]);
 
 
 // -------------------------------------------------- Props //
 const props = withDefaults(defineProps<Props>(), {
-	appendIcon: 'mdi:mdi-palette',
-	appendInnerIcon: 'mdi:mdi-palette',
+	appendIcon: undefined,
+	appendInnerIcon: undefined,
 	cardProps: () => ({}) as const,
 	color: undefined,
 	colorPickerProps: () => ({}) as const,
@@ -212,17 +224,20 @@ const props = withDefaults(defineProps<Props>(), {
 		borderWidth: 2,
 		cursor: 'pointer',
 		height: 20,
+		showValue: false,
 		width: 20,
 	}) as const,
 	hint: '',
 	hintAlign: 'left',
 	hintColor: 'default',
 	iconHoverColor: undefined,
-	label: '',
+	label: undefined,
 	name: 'color',
 	persistentCard: false,
 	persistentHint: false,
-	prependIcon: 'mdi:mdi-palette',
+	persistentPlaceholder: false,
+	placeholder: undefined,
+	prependIcon: undefined,
 	prependInnerIcon: 'mdi:mdi-palette',
 	readonly: false,
 	readonlyInput: false,
@@ -271,7 +286,6 @@ const defaults = ref<VuetifyDefaults>({
 	// global: {	},
 });
 
-// console.log('defaults', defaults.value);
 
 
 // -------------------------------------------------- Data #
@@ -283,6 +297,7 @@ const fieldContainerRef = ref<HtmlRefElement>(null);
 const colorPickerModelValue = ref<any>(attrs.modelValue);
 const modelValue = ref<any>(attrs.modelValue);
 const pickerMode = ref<Mode>(defaults.value.VColorPicker?.mode);
+const themeAll = ref(props.theme ?? undefined);
 let textFieldProperties = reactive<TextFieldProperties>({
 	bottom: 0,
 	height: 0,
@@ -348,17 +363,13 @@ const hintStyles = computed(() => useHintStyles({
 	persistentHint: props.persistentHint,
 }));
 
+// ------------------------- Card #
+const cardClasses = computed(() => useCardClasses({
+	fullWidth: defaults.value.VCard?.fullWidth,
+}));
+
 
 // -------------------------------------------------- Methods //
-// TODO: Add debounce to hide field //
-function closePickerStop() {
-	console.log('closePickerStop');
-}
-
-function closePicker() {
-	console.log('closePicker');
-}
-
 
 // ------------------------- Toggle Check //
 // ? Checks to prevent double triggers //
@@ -371,18 +382,11 @@ function toggleCheck(trigger: string) {
 		return;
 	}
 
-	toggleColorPicker(trigger);
+	toggleColorPicker();
 }
 // ------------------------- Toggle Color Picker //
 
-function toggleColorPicker(trigger = 'na'): void {
-	console.log('trigger', trigger);
-
-	// console.log(props.readonlyInput);
-	// if (trigger === 'textField') {
-	// 	return;
-	// }
-
+function toggleColorPicker(): void {
 	const defaultCoords = { left: 0, right: 0, top: 0, width: 0 };
 	let fieldContainer = fieldContainerRef.value;
 
@@ -498,13 +502,10 @@ function setCardStyles(): void {
 	// }
 	// ! END DEBUG HELPER ! //
 
-	console.log({ styles });
-
 	cardStyles.value = styles;
 }
 
-function updateModelValue(value: any, source = 'textField') {
-	console.log('======= updateModelValue', value, source);
+function updateModelValue(value: any) {
 	let returnColor = value ?? '';
 
 	if (value === '#') {
@@ -529,14 +530,13 @@ function updateModelValue(value: any, source = 'textField') {
 	colorPickerModelValue.value = returnColor;
 	modelValue.value = returnColor;
 	emit('update:modelValue', returnColor);
+	emit('update', returnColor);
 }
 
 function updateMode(mode: Mode) {
-	console.log('mode', mode);
 	pickerMode.value = mode;
-	console.log('colorPickerModelValue.value', colorPickerModelValue.value);
 	modelValue.value = colorPickerModelValue.value;
-	//
+	emit('update:mode', mode);
 }
 
 </script>
