@@ -17,13 +17,25 @@
 		}
 	}
 
-	&-card {
+	&--card {
 		position: absolute;
 		z-index: 999999;
 
 		.v-color-picker {
-			max-width: 100% !important;
 			width: 100% !important;
+
+
+			&-canvas {
+				canvas {
+					width: 100%;
+				}
+			}
+		}
+
+		&-full-width {
+			.v-color-picker {
+				max-width: 100% !important;
+			}
 		}
 	}
 }
