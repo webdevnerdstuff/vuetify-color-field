@@ -18,7 +18,10 @@
 
 		<!-- ====================================================== Main Container -->
 		<v-main class="pb-10">
-			<v-container class="px-7">
+			<v-container
+				class="px-7"
+				style="max-width: 1368px;"
+			>
 				<DocsPage :codeBlockOptions="codeBlockSettings" />
 			</v-container>
 		</v-main>

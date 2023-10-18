@@ -3,7 +3,6 @@
 		v-model="color"
 		dot-field
 		hint="Hello World"
-		hint-color="#00ff00"
 	/>
 </template>
 
@@ -15,7 +14,6 @@ const templateCode = `<template>
     v-model="color"
     dot-field
     hint="Hello World"
-    hint-color="#00ff00"
   />
 </template>
 `;
@@ -26,7 +24,6 @@ const scriptCode = `\<script setup\>
 
 defineExpose({
 	exampleCode: {
-		desc: 'A simple example of a color picker field using the <code class="ic">dot-field</code> prop.',
 		name: 'Hint Prop',
 		script: scriptCode,
 		template: templateCode,

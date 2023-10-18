@@ -1,19 +1,19 @@
 <template>
 	<v-col
 		v-if="code.name"
-		class="offset-lg-2 offset-xl-3 v-col-sm-12 v-col-lg-8 v-col-xl-6 mb-0 pb-0"
+		class="v-col-12 offset-lg-2 offset-xl-1 v-col-sm-12 v-col-lg-8 v-col-xl-10 mb-0 pb-0"
 	>
-		<h2 class="text-info mb-1">{{ code.name }}</h2>
+		<h3 class="text-info mb-1">{{ code.name }}</h3>
 	</v-col>
 
 	<v-col
 		v-if="code.desc"
-		class="offset-lg-2 offset-xl-3 v-col-sm-12 v-col-lg-8 v-col-xl-6 mt-0 pt-0"
+		class="v-col-12 offset-lg-2 offset-xl-1 v-col-sm-12 v-col-lg-8 v-col-xl-10 mt-0 pt-0"
 	>
 		<div v-html="code.desc"></div>
 	</v-col>
 
-	<v-col class="offset-lg-2 offset-xl-3 v-col-sm-12 v-col-lg-8 v-col-xl-6">
+	<v-col class="v-col-12 offset-lg-2 offset-xl-1 v-col-sm-12 v-col-lg-8 v-col-xl-10">
 		<v-sheet
 			border
 			class="overflow-hidden"
@@ -96,7 +96,7 @@
 					:class="showCode && 'border-t'"
 					with-background
 				>
-					<v-col class="offset-md-3 offset-lg-2 offset-xl-3 v-col-sm-12 v-col-md-6 v-col-lg-8 v-col-xl-6">
+					<v-col class="offset-md-4 offset-lg-3 offset-xl-4 v-col-sm-12 v-col-md-4 v-col-lg-6 v-col-xl-4">
 						<slot name="default" />
 					</v-col>
 				</v-theme-provider>

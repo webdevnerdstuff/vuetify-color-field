@@ -26,7 +26,6 @@ const scriptCode = `\<script setup\>
 
 defineExpose({
 	exampleCode: {
-		desc: 'Using the <code class="ic">placeholder</code> prop.',
 		name: 'Placeholder Prop',
 		script: scriptCode,
 		template: templateCode,

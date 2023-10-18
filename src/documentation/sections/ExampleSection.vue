@@ -14,7 +14,7 @@
 		</v-col>
 
 		<!-- ================================================== Text Field Examples -->
-		<v-col cols="12">
+		<v-col :class="h2Classes">
 			<h2 class="text-secondary">Text Field Examples</h2>
 		</v-col>
 
@@ -54,7 +54,7 @@
 		</ExampleContainer>
 
 		<!-- ================================================== Dot Field Examples -->
-		<v-col cols="12">
+		<v-col :class="h2Classes">
 			<h2 class="text-secondary">Dot Field Examples</h2>
 		</v-col>
 
@@ -138,6 +138,7 @@ const refElements = ref({
 
 
 const classes = inject('classes');
+const h2Classes = ref('offset-lg-2 offset-xl-1 v-col-sm-12 v-col-lg-8 v-col-xl-10 mb-0 pb-0');
 
 
 function getTemplateCode(exampleName) {
