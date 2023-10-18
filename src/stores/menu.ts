@@ -64,19 +64,14 @@ export const useMenuStore = defineStore('menu', () => {
 			title: 'Description',
 		},
 		{
-			href: '#features',
-			icon: 'mdi:mdi-tools',
-			title: 'Features',
-		},
-		{
 			href: '#usage',
 			icon: 'mdi:mdi-power-plug-outline',
 			title: 'Usage',
 		},
 		{
-			href: '#example',
+			href: '#examples',
 			icon: 'mdi:mdi-code-json',
-			title: 'Example',
+			title: 'Examples',
 		},
 		{
 			href: '#props',
