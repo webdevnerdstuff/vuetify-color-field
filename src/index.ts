@@ -9,3 +9,5 @@ const install = (app: App) => {
 VColorPickerField.install = install;
 
 export default VColorPickerField as unknown as Plugin;
+
+export { VColorPickerField };
