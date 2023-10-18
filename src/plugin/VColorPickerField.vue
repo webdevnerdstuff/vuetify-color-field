@@ -28,7 +28,7 @@
 								v-else-if="placeholder && !modelValue || persistentPlaceholder"
 								class="v-label mr-1"
 							>{{ placeholder }}</div>
-							<div v-if="dotFieldProps.showValue">{{ modelValue }}</div>
+							<div v-if="!hideValue">{{ modelValue }}</div>
 						</div>
 					</div>
 				</div>
@@ -214,7 +214,6 @@ const props = withDefaults(defineProps<Props>(), {
 	cardProps: () => ({}) as const,
 	color: undefined,
 	colorPickerProps: () => ({}) as const,
-	defaultColor: '',
 	density: 'default',
 	dotField: false,
 	dotFieldProps: () => ({
@@ -224,12 +223,12 @@ const props = withDefaults(defineProps<Props>(), {
 		borderWidth: 2,
 		cursor: 'pointer',
 		height: 20,
-		showValue: false,
 		width: 20,
 	}) as const,
+	hideValue: false,
 	hint: '',
 	hintAlign: 'left',
-	hintColor: 'default',
+	hintColor: undefined,
 	iconHoverColor: undefined,
 	label: undefined,
 	name: 'color',
@@ -302,7 +301,6 @@ let textFieldProperties = reactive<TextFieldProperties>({
 	bottom: 0,
 	height: 0,
 	left: 0,
-	// maxWidth: 'auto',
 	right: 0,
 	top: 0,
 	width: 0,
@@ -418,9 +416,8 @@ function toggleColorPicker(): void {
 		bottom: 'initial',
 		height: inputHeight as number,
 		left: positionLeft,
-		// maxWidth: inputWidth,
 		right: positionRight,
-		top: fieldElementCoords?.top ?? 0,
+		top: (window.scrollY + fieldElementCoords?.top ?? 0),
 		width: defaults.value.VCard?.fullWidth ? inputWidth : 'auto',
 	};
 
@@ -470,7 +467,6 @@ function setCardStyles(): void {
 		borderWidth?: string;
 		bottom?: string | number;
 		left?: string | number;
-		// maxWidth?: string | number;
 		minWidth?: string;
 		padding?: string;
 		right?: string | number;
@@ -482,7 +478,6 @@ function setCardStyles(): void {
 		borderWidth: useConvertToUnit({ value: defaults.value.VCard?.borderWidth ?? 0 }),
 		bottom: useConvertToUnit({ value: bottom }),
 		left: useConvertToUnit({ value: left }),
-		// maxWidth: useConvertToUnit({ value: textFieldProperties.maxWidth }),
 		minWidth: useConvertToUnit({ value: textFieldProperties.width }),
 		padding: useConvertToUnit({ value: defaults.value.VCard?.padding }),
 		right: useConvertToUnit({ value: right }),
@@ -507,10 +502,6 @@ function setCardStyles(): void {
 
 function updateModelValue(value: any) {
 	let returnColor = value ?? '';
-
-	if (value === '#') {
-		returnColor = props.defaultColor;
-	}
 
 	if (returnColor.length < 7) {
 		modelValue.value = returnColor;
