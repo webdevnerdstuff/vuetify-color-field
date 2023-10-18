@@ -41,14 +41,11 @@ export const useTextFieldClasses: UseTextFieldClasses = (options) => {
 	};
 };
 
-export const useHintClasses: UseHintClasses = (options) => {
-	const { hintAlign, hintColor } = options;
+export const useHintClasses: UseHintClasses = () => {
+	// const {  } = options;
 
 	return {
 		[`${componentName}--text-field`]: true,
-		[`text-${hintColor}`]: hintColor,
-		'text-left': hintAlign === 'left',
-		'text-right': hintAlign === 'right',
 	};
 };
 

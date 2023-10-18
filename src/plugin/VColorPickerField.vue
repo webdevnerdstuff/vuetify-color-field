@@ -227,8 +227,6 @@ const props = withDefaults(defineProps<Props>(), {
 	}) as const,
 	hideValue: false,
 	hint: '',
-	hintAlign: 'left',
-	hintColor: undefined,
 	iconHoverColor: undefined,
 	label: undefined,
 	name: 'color',
@@ -349,15 +347,10 @@ const hoverIconColor = computed<string | undefined>(() => {
 });
 
 // ------------------------- Hint #
-const hintClasses = computed(() => useHintClasses({
-	hintAlign: props.hintAlign,
-	hintColor: props.hintColor,
-}));
+const hintClasses = computed(() => useHintClasses());
 
 const hintStyles = computed(() => useHintStyles({
 	dotHintActive,
-	hintAlign: props.hintAlign,
-	hintColor: props.hintColor,
 	persistentHint: props.persistentHint,
 }));
 

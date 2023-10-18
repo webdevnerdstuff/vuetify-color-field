@@ -55,7 +55,6 @@ export interface Props {
 	};
 	hideValue?: boolean | null | undefined;
 	hint?: string;
-	hintAlign?: 'left' | 'right';
 	hintColor?: string | undefined;
 	iconHoverColor?: VIcon['$props']['color'] | boolean;
 	label?: string;
@@ -143,10 +142,7 @@ export interface UseTextFieldClasses {
 
 export interface UseHintClasses {
 	(
-		options: {
-			hintAlign?: Props['hintAlign'];
-			hintColor?: Props['hintColor'];
-		}
+		options?: {}
 	): object;
 }
 
@@ -175,8 +171,6 @@ export interface UseHintStyles {
 	(
 		options: {
 			dotHintActive: MaybeRef<boolean>;
-			hintAlign: Props['hintAlign'];
-			hintColor: Props['hintColor'];
 			persistentHint: MaybeRef<Props['persistentHint']>;
 		}
 	): CSSProperties;

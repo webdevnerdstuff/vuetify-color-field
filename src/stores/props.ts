@@ -92,12 +92,6 @@ const componentProps = [
 		type: 'xxx',
 	},
 	{
-		default: 'left',
-		desc: 'Applies alignment to the hint',
-		name: 'hint-align',
-		type: 'string | undefined',
-	},
-	{
 		default: 'undefined',
 		desc: 'Applies specified color to the hint',
 		name: 'hint-color',

@@ -31,26 +31,15 @@ export const useDotStyles: UseDotStyle = (options) => {
 };
 
 export const useHintStyles: UseHintStyles = (options) => {
-	const { dotHintActive, hintAlign, hintColor, persistentHint } = options;
+	const { dotHintActive, persistentHint } = options;
 
 	const styles: {
-		color?: string;
 		textAlign?: string;
 		transform?: string;
-	} = {
-		color: hintColor,
-	};
+	} = {};
 
 	if (!persistentHint && !unref(dotHintActive)) {
 		styles.transform = 'translateY(-20px)';
-	}
-
-	if (hintAlign === 'left') {
-		styles.textAlign = 'text-left';
-	}
-
-	if (hintAlign === 'right') {
-		styles.textAlign = 'text-right';
 	}
 
 	return styles as CSSProperties;
