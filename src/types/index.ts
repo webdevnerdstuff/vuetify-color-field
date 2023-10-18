@@ -42,7 +42,6 @@ export interface Props {
 	colorPickerProps?: VColorPicker['$props'] & {
 		hideModeSwitch?: boolean;
 	};
-	defaultColor?: string;
 	density?: VTextField['$props']['density'];
 	dotField?: boolean;
 	dotFieldProps?: {
@@ -52,12 +51,12 @@ export interface Props {
 		borderWidth?: number;
 		cursor?: string;
 		height?: string | number;
-		showValue?: boolean | null | undefined;
 		width?: string | number;
 	};
+	hideValue?: boolean | null | undefined;
 	hint?: string;
 	hintAlign?: 'left' | 'right';
-	hintColor?: string;
+	hintColor?: string | undefined;
 	iconHoverColor?: VIcon['$props']['color'] | boolean;
 	label?: string;
 	name?: any;
