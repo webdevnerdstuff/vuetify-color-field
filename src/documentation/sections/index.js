@@ -3,7 +3,6 @@ import DependenciesSection from './DependenciesSection.vue';
 import DescriptionSection from './DescriptionSection.vue';
 import EventsSection from './EventsSection.vue';
 import ExampleSection from './ExampleSection.vue';
-import FeaturesSection from './FeaturesSection.vue';
 import LegalSection from './LegalSection.vue';
 import LicenseSection from './LicenseSection.vue';
 import PlaygroundSection from './PlaygroundSection.vue';
@@ -16,7 +15,6 @@ export {
 	DependenciesSection,
 	DescriptionSection,
 	EventsSection,
-	FeaturesSection,
 	ExampleSection,
 	LegalSection,
 	LicenseSection,

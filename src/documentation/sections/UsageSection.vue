@@ -15,18 +15,6 @@
 			<v-row>
 				<v-col cols="12">
 					<CodeBlock
-						:code="usageAll"
-						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
-						label="Load all components"
-						lang="javascript"
-						:prismjs="codeBlockSettings.plugin === 'prismjs'"
-						:theme="codeBlockSettings.theme"
-					>
-					</CodeBlock>
-				</v-col>
-
-				<v-col cols="12">
-					<CodeBlock
 						:code="usageIndividual"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 						label="Load individual components"
@@ -55,27 +43,13 @@ const props = defineProps({
 const codeBlockSettings = computed(() => props.codeBlockOptions);
 const classes = inject('classes');
 
-const usageAll = `import { createApp } from 'vue';
-import App from './App.vue';
-import * as MyComponents from './index';
-
-const app = createApp(App);
-
-for (const prop in MyComponents) {
-  app.component(prop, MyComponents[prop]);
-}
-
-app.mount('#app');`;
-
 const usageIndividual = `import { createApp } from 'vue';
 import App from './App.vue';
-import {
-  VColorPickerField
-} from 'vuetify-color-picker-field';
+import { VColorPickerField } from 'vuetify-color-picker-field';
 
 const app = createApp(App);
 
-app.use('VColorPickerField', VColorPickerField);
+app.component('VColorPickerField', VColorPickerField);
 
 app.mount('#app');`;
 </script>

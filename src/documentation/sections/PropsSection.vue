@@ -13,6 +13,14 @@
 			</h2>
 
 			<div>
+				The base component props are either the <code class="ic">v-text-field</code> component or the <code
+					class="ic">dot</code> field. When using the <code class="ic">v-text-field</code>, you can use the regular props
+				that are available for that component. When using the <code class="ic">dot</code> field, some of the <code
+					class="ic"
+				>v-text-field</code> are available, but due to the nature of an input field, some are not compatible.
+			</div>
+
+			<div>
 				For component specific props, please refer to the <a
 					:href="store.links.vuetify"
 					target="_blank"

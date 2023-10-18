@@ -11,7 +11,7 @@
 
 		<v-col class="mb-4">
 			<h1 class="v-heading text-h3 text-sm-h3 mb-4">
-				Vuetify Plugin Template
+				Vuetify Color Picker Field
 			</h1>
 			<v-chip
 				color="primary"
@@ -70,14 +70,11 @@
 	<!-- Description -->
 	<DescriptionSection />
 
-	<!-- Description -->
-	<FeaturesSection />
-
 	<!-- Usage -->
 	<UsageSection :codeBlockOptions="codeBlockOptions" />
 
 	<!-- Example -->
-	<ExampleSection />
+	<ExampleSection :codeBlockOptions="codeBlockOptions" />
 
 	<!-- Components -->
 	<!-- <ComponentsSection :codeBlockOptions="codeBlockOptions" /> -->
@@ -113,7 +110,6 @@ import {
 	DescriptionSection,
 	EventsSection,
 	ExampleSection,
-	FeaturesSection,
 	LegalSection,
 	LicenseSection,
 	PlaygroundSection,
