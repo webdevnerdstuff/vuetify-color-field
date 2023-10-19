@@ -50,7 +50,7 @@
 						<v-btn
 							density="comfortable"
 							icon
-							@click="showCode = !showCode"
+							@click="showCodeBlocks"
 						>
 							<v-icon :icon="showCode ? 'mdi-chevron-up' : 'mdi:mdi-code-tags'"></v-icon>
 						</v-btn>
@@ -108,7 +108,7 @@
 
 <script setup>
 
-
+const emit = defineEmits(['closePicker']);
 const props = defineProps({
 	code: {
 		required: true,
@@ -124,6 +124,11 @@ const codeBlockSettings = computed(() => props.codeBlockOptions);
 const hasRendered = ref(true);
 const showCode = ref(false);
 const template = ref('template');
+
+function showCodeBlocks() {
+	showCode.value = !showCode.value;
+	emit('closePicker', showCode.value);
+}
 
 </script>
 

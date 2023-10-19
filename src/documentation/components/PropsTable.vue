@@ -54,9 +54,10 @@
 					</template>
 
 					<template #[`item.type`]="{ item }">
-						<td class="text-success">
-							{{ item.type }}
-						</td>
+						<td
+							class="text-success"
+							v-html="item.type"
+						></td>
 					</template>
 
 					<template #[`item.default`]="{ item }">
@@ -108,4 +109,8 @@ const search = ref('');
 </script>
 
 <style lang="scss" scoped>
+td {
+	padding-bottom: 10px !important;
+	padding-top: 10px !important;
+}
 </style>

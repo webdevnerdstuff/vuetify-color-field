@@ -21,8 +21,12 @@
 		<ExampleContainer
 			:code="getTemplateCode('TFSimpleExampleRef')"
 			:codeBlockOptions="codeBlockOptions"
+			@closePicker="closePicker('TFSimpleExampleRef');"
 		>
-			<TFSimpleExample ref="TFSimpleExampleRef" />
+			<TFSimpleExample
+				ref="TFSimpleExampleRef"
+				:open="refElementsOpen.TFSimpleExampleRef"
+			/>
 		</ExampleContainer>
 
 		<ExampleContainer
@@ -136,17 +140,31 @@ const refElements = ref({
 	TFSimpleExampleRef,
 });
 
+const refElementsOpen = ref({
+	DFHintExampleRef: null,
+	DFLabelExampleRef: null,
+	DFPlaceholderExampleRef: null,
+	DFSimpleExampleRef: null,
+	TFIconHoverColorExampleRef: null,
+	TFIconsExampleRef: null,
+	TFReadonlyExampleRef: null,
+	TFReadonlyInputExampleRef: null,
+	TFSimpleExampleRef: null,
+});
 
 const classes = inject('classes');
 const h2Classes = ref('offset-lg-2 offset-xl-1 v-col-sm-12 v-col-lg-8 v-col-xl-10 mb-0 pb-0');
 
 
 function getTemplateCode(exampleName) {
-	console.log('getTemplateCode', exampleName);
 	const el = refElements.value[exampleName];
 	const example = el?.exampleCode ?? { code: '', desc: undefined, name: undefined, template: '' };
-	console.log(example);
+
 	return example;
+}
+
+function closePicker(key) {
+	refElementsOpen.value[key] = new Date().getTime().toString();
 }
 
 

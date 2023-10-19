@@ -1,51 +1,54 @@
 <template>
 	<VColorPickerField
-		v-model="color"
+		v-model="colorA"
 		prepend-icon="mdi:mdi-eyedropper"
 		:prepend-inner-icon="false"
 	/>
 
 	<VColorPickerField
-		v-model="color"
+		v-model="colorB"
 		prepend-inner-icon="mdi:mdi-eyedropper"
 	/>
 
 	<VColorPickerField
-		v-model="color"
+		v-model="colorC"
 		append-inner-icon="mdi:mdi-eyedropper"
 		:prepend-inner-icon="false"
 	/>
 
 	<VColorPickerField
-		v-model="color"
+		v-model="colorD"
 		append-icon="mdi:mdi-eyedropper"
 		:prepend-inner-icon="false"
 	/>
 </template>
 
 <script setup>
-const color = ref('#ff0000');
+const colorA = ref('#ff0000');
+const colorB = ref('#ff0000');
+const colorC = ref('#ff0000');
+const colorD = ref('#ff0000');
 
 const templateCode = `<template>
   <VColorPickerField
-    v-model="color"
+    v-model="colorA"
     prepend-icon="mdi:mdi-eyedropper"
     :prepend-inner-icon="false"
   >
 
   <VColorPickerField
-    v-model="color"
+    v-model="colorB"
     prepend-inner-icon="mdi:mdi-eyedropper"
   />
 
   <VColorPickerField
-    v-model="color"
+    v-model="colorC"
     append-inner-icon="mdi:mdi-eyedropper"
     :prepend-inner-icon="false"
   />
 
   <VColorPickerField
-    v-model="color"
+    v-model="colorD"
     append-icon="mdi:mdi-eyedropper"
     :prepend-inner-icon="false"
   />
@@ -53,7 +56,10 @@ const templateCode = `<template>
 `;
 
 const scriptCode = `\<script setup\>
-  const color = ref('#ff0000');
+  const colorA = ref('#ff0000');
+  const colorB = ref('#ff0000');
+  const colorC = ref('#ff0000');
+  const colorD = ref('#ff0000');
 \</script\>`;
 
 defineExpose({
