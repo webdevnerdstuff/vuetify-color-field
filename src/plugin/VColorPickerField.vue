@@ -20,8 +20,17 @@
 								:style="dotStyles"
 								@click="toggleColorPicker"
 							></div>
+							<div
+								v-if="slots['label']"
+								class="mr-1"
+							>
+								<slot
+									v-if="slots['label']"
+									name="label"
+								/>
+							</div>
 							<label
-								v-if="label"
+								v-else-if="label"
 								class="v-label mr-1"
 							>{{ label }} </label>
 							<div
@@ -60,13 +69,16 @@
 			:color="color"
 			:density="density"
 			:hint="hint"
+			:messages="messages"
 			:model-value="modelValue"
 			:persistent-hint="persistentHint"
 			:persistent-placeholder="persistentPlaceholder"
 			:placeholder="placeholder"
 			:readonly="textFieldReadonly"
 			:theme="themeAll"
+			@click:clear="toggleColorPicker('clear')"
 			@click:control="toggleCheck('textField')"
+			@keyup.enter="toggleColorPicker('keyup')"
 			@update:model-value="updateModelValue"
 		>
 			<template
@@ -74,7 +86,6 @@
 				#[slot]="scope"
 			>
 				<slot
-					v-if="!slots['prepend']"
 					:name="slot"
 					v-bind="{ ...scope }"
 				/>
@@ -151,7 +162,7 @@
 
 		<v-defaults-provider :defaults="defaults">
 			<v-card
-				v-if="colorPickerOpen"
+				ref="cardRef"
 				:class="cardClasses"
 				:style="cardStyles"
 				:theme="defaults.VCard?.theme ?? themeAll"
@@ -173,6 +184,7 @@
 
 <script setup lang="ts">
 import {
+	CardStylesObject,
 	HtmlRefElement,
 	Mode,
 	Props,
@@ -192,6 +204,7 @@ import {
 	useHintStyles,
 } from '@/plugin/composables/styles';
 import ColorPickerIcon from '@/plugin/components/ColorPickerIcon.vue';
+import useDetectOutsideClick from '@/plugin/directives/useDetectOutsideClick';
 
 
 defineOptions({
@@ -229,8 +242,9 @@ const props = withDefaults(defineProps<Props>(), {
 	hint: '',
 	iconHoverColor: undefined,
 	label: undefined,
+	messages: undefined,
 	name: 'color',
-	persistentCard: false,
+	open: undefined,
 	persistentHint: false,
 	persistentPlaceholder: false,
 	placeholder: undefined,
@@ -266,9 +280,6 @@ const defaultCardProps: Props['cardProps'] = {
 // ------------------------- VColorPicker //
 const defaultColorPickerProps: Props['colorPickerProps'] = {
 	elevation: 0,
-	hideModeSwitch: true,
-	// mode: 'hex',
-	// modes: ['hex'],
 };
 
 const defaults = ref<VuetifyDefaults>({
@@ -284,9 +295,10 @@ const defaults = ref<VuetifyDefaults>({
 });
 
 
-
 // -------------------------------------------------- Data #
-const cardStyles = ref({});
+// TODO: figure out the correct cardRef type that works with element.$el //
+const cardRef = ref<any>(null);
+const cardStyles = ref<CardStylesObject>({});
 const colorPickerOpen = ref<boolean>(false);
 const dotFieldRef = ref<HtmlRefElement>(null);
 const dotHintActive = ref<boolean>(false);
@@ -306,6 +318,24 @@ let textFieldProperties = reactive<TextFieldProperties>({
 
 const { dotField, dotFieldProps } = toRefs(props);
 
+
+// -------------------------------------------------- Watch #
+watch(() => attrs.modelValue, (newVal) => {
+	updateModelValue(newVal);
+});
+
+watch(() => props.open, () => {
+	toggleColorPicker('open-prop');
+});
+
+
+useDetectOutsideClick(fieldContainerRef, (e: Event) => {
+	const element = unref(cardRef.value);
+
+	if (e.target !== element && !element.$el?.contains(e.target) && colorPickerOpen.value) {
+		toggleColorPicker('outside');
+	}
+});
 
 // -------------------------------------------------- Computed #
 // ------------------------- Dot Selector #
@@ -377,14 +407,33 @@ function toggleCheck(trigger: string) {
 }
 // ------------------------- Toggle Color Picker //
 
-function toggleColorPicker(): void {
+function toggleColorPicker(trigger?: string | Event): void {
 	const defaultCoords = { left: 0, right: 0, top: 0, width: 0 };
 	let fieldContainer = fieldContainerRef.value;
+
+	// Only close the color picker if it is open on keyup & clear event //
+	if (!colorPickerOpen.value && (trigger === 'keyup' || trigger === 'clear')) {
+
+		// If clear, reset the model values //
+		if (trigger === 'clear') {
+			updateModelValues('');
+		}
+
+		return;
+	}
+
+	colorPickerOpen.value = !colorPickerOpen.value;
 
 	// Determine if the field is a dot field or a text field //
 	if (props.dotField) {
 		fieldContainer = dotFieldRef?.value?.querySelector('.v-input__control');
 		dotHintActive.value = !dotHintActive.value;
+	}
+
+	// If color picker is closed no further action is needed //
+	if (!colorPickerOpen.value) {
+		cardStyles.value.display = 'none';
+		return;
 	}
 
 	const fieldElementCoords = fieldContainer?.getBoundingClientRect() ?? defaultCoords;
@@ -414,7 +463,6 @@ function toggleColorPicker(): void {
 		width: defaults.value.VCard?.fullWidth ? inputWidth : 'auto',
 	};
 
-	colorPickerOpen.value = !colorPickerOpen.value;
 	setCardStyles();
 }
 
@@ -424,7 +472,7 @@ function setCardStyles(): void {
 	let bottom: string | number = 'initial';
 	let offsetTop = defaults.value.VCard?.fieldOffset ?? 0;
 
-	if (props.hint) {
+	if (props.hint || props.messages) {
 		offsetTop += defaults.value.VCard?.verticalOffset ?? 0;
 	}
 
@@ -454,22 +502,12 @@ function setCardStyles(): void {
 		}
 	}
 
-	const styles: {
-		borderColor?: string;
-		borderStyle?: string;
-		borderWidth?: string;
-		bottom?: string | number;
-		left?: string | number;
-		minWidth?: string;
-		padding?: string;
-		right?: string | number;
-		top?: string | number;
-		width?: string | number;
-	} = {
+	const styles: CardStylesObject = {
 		borderColor: defaults.value.VCard?.borderColor ?? 'transparent',
 		borderStyle: defaults.value.VCard?.borderStyle ?? 'solid',
 		borderWidth: useConvertToUnit({ value: defaults.value.VCard?.borderWidth ?? 0 }),
 		bottom: useConvertToUnit({ value: bottom }),
+		display: 'block',
 		left: useConvertToUnit({ value: left }),
 		minWidth: useConvertToUnit({ value: textFieldProperties.width }),
 		padding: useConvertToUnit({ value: defaults.value.VCard?.padding }),
@@ -511,10 +549,14 @@ function updateModelValue(value: any) {
 		}
 	}
 
-	colorPickerModelValue.value = returnColor;
-	modelValue.value = returnColor;
-	emit('update:modelValue', returnColor);
-	emit('update', returnColor);
+	updateModelValues(returnColor);
+}
+
+function updateModelValues(val: any) {
+	colorPickerModelValue.value = val;
+	modelValue.value = val;
+	emit('update:modelValue', val);
+	emit('update', val);
 }
 
 function updateMode(mode: Mode) {
