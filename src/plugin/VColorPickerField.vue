@@ -205,6 +205,7 @@ import {
 } from '@/plugin/composables/styles';
 import ColorPickerIcon from '@/plugin/components/ColorPickerIcon.vue';
 import useDetectOutsideClick from '@/plugin/directives/useDetectOutsideClick';
+import type { VCard } from 'vuetify/components';
 
 
 defineOptions({
@@ -296,8 +297,7 @@ const defaults = ref<VuetifyDefaults>({
 
 
 // -------------------------------------------------- Data #
-// TODO: figure out the correct cardRef type that works with element.$el //
-const cardRef = ref<any>(null);
+const cardRef = ref<VCard | null>(null);
 const cardStyles = ref<CardStylesObject>({});
 const colorPickerOpen = ref<boolean>(false);
 const dotFieldRef = ref<HtmlRefElement>(null);
@@ -330,9 +330,9 @@ watch(() => props.open, () => {
 
 
 useDetectOutsideClick(fieldContainerRef, (e: Event) => {
-	const element = unref(cardRef.value);
+	const element = unref(cardRef);
 
-	if (e.target !== element && !element.$el?.contains(e.target) && colorPickerOpen.value) {
+	if (e.target !== element && !element?.$el?.contains(e.target) && colorPickerOpen.value) {
 		toggleColorPicker('outside');
 	}
 });
