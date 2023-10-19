@@ -37,34 +37,31 @@ const propsHeaders = [
 const props = {
 	appendIcon: undefined,
 	appendInnerIcon: undefined,
-	cardProps: () => ({}) as const,
-	color: undefined,
-	colorPickerProps: () => ({}) as const,
-	defaultColor: undefined,
-	density: 'default',
-	dotField: false,
-	dotFieldProps: () => ({
-		borderColor: '#ccc',
-		borderRadius: '50%',
-		borderStyle: 'solid',
-		borderWidth: 2,
-		cursor: 'pointer',
-		height: 20,
-		showValue: false,
-		width: 20,
-	}) as const,
-	hint: '',
-	hintAlign: 'left',
-	hintColor: 'default',
-	iconHoverColor: undefined,
-	label: undefined,
-	name: 'color',
+	// cardProps: () => ({}) as const,
+	// color: undefined,
+	// colorPickerProps: () => ({}) as const,
+	// density: 'default',
+	// dotField: false,
+	// dotFieldProps: () => ({
+	// 	borderColor: '#ccc',
+	// 	borderRadius: '50%',
+	// 	borderStyle: 'solid',
+	// 	borderWidth: 2,
+	// 	cursor: 'pointer',
+	// 	height: 20,
+	// 	showValue: false,
+	// 	width: 20,
+	// }) as const,
+	// hint: '',
+	// iconHoverColor: undefined,
+	// label: undefined,
+	// name: 'color',
 	persistentCard: false,
-	persistentHint: false,
+	// persistentHint: false,
 	persistentPlaceholder: false,
 	placeholder: undefined,
-	prependIcon: undefined,
-	prependInnerIcon: 'mdi:mdi-palette',
+	// prependIcon: undefined,
+	// prependInnerIcon: 'mdi:mdi-palette',
 	readonly: false,
 	readonlyInput: false,
 	required: false,
@@ -74,10 +71,51 @@ console.log(props);
 
 const componentProps = [
 	{
-		default: 'undefined',
+		default: `VCard defaults & <pre class="ic"><code>{
+  align: 'bottom left',
+  border: false,
+  borderColor: 'transparent',
+  borderStyle: 'solid',
+  borderWidth: 2,
+  closeDelay: 500,
+  color: '',
+  elevation: 5,
+  fieldOffset: props.dotField ? 0 : 10,
+  fullWidth: false,
+  hover: false,
+  loading: false,
+  padding: 4,
+  ripple: false,
+  tag: 'div',
+  verticalOffset: 28,
+}</code></pre>`,
 		desc: 'Props for the <code="ic">v-card</code> component that contains the <code="ic">v-color-picker</code> component. For additional props see [v-card props table]',
 		name: 'card-props',
-		type: 'VCard[\'$props\']',
+		type: `VCard['$props'] & <pre class="ic"><code>{
+  align?: string | undefined;
+  borderColor?: string;
+  borderStyle?: string;
+  borderWidth?: number;
+  closeDelay?: number;
+  fieldOffset?: number;
+  fullWidth?: boolean;
+  padding?: number;
+  verticalOffset?: number;
+}</code></pre>`,
+	},
+	{
+		default: 'undefined',
+		desc: 'This functions normally as the <code class="ic">v-text-field</code> color prop, but also is used for the <code class="ic">icon-hover-color</code> when that prop is not set.',
+		name: 'color',
+		type: 'string | undefined',
+	},
+	{
+		default: `VColorPicker defaults & <pre class="ic"><code>{
+  elevation: 0,
+}</code></pre>`,
+		desc: 'Props for the <code="ic">v-color-picker</code> component. For additional props see [v-color-picker props table]',
+		name: 'color-picker-props',
+		type: 'VColorPicker[\'$props\']',
 	},
 	{
 		default: 'false',
@@ -86,16 +124,32 @@ const componentProps = [
 		type: 'boolean',
 	},
 	{
-		default: 'xxx',
-		desc: 'Props for the <code="ic">v-card</code> dot field when the <code class="ic">dot-field</code> prop is <code class="ic">true</code>. For additional props see [dot-field-props table]',
+		default: `<pre class="ic"><code>{
+  borderColor: '#ccc',
+  borderRadius: '50%',
+  borderStyle: 'solid',
+  borderWidth: 2,
+  cursor: 'pointer',
+  height: 20,
+  width: 20,
+}</code></pre>`,
+		desc: 'Props for the <code="ic">v-card</code> dot field when the <code class="ic">dot-field</code> prop is <code class="ic">true</code>.',
 		name: 'dot-field-props',
-		type: 'xxx',
+		type: `<pre class="ic"><code>{
+  borderColor?: string;
+  borderRadius?: string;
+  borderStyle?: string;
+  borderWidth?: number;
+  cursor?: string;
+  height?: string | number;
+  width?: string | number;
+}</code></pre>`,
 	},
 	{
-		default: 'undefined',
-		desc: 'Applies specified color to the hint',
-		name: 'hint-color',
-		type: 'string | undefined',
+		default: 'false',
+		desc: 'Hides the selected value. Used only when the <code class="ic">dot-field</code> is set to <code class="ic">true</code>.',
+		name: 'hide-value',
+		type: 'boolean',
 	},
 	{
 		default: 'undefined',
@@ -104,10 +158,16 @@ const componentProps = [
 		type: 'string | undefined',
 	},
 	{
+		default: 'undefined',
+		desc: 'Renders the <code class="ic">v-color-picker</code> open by default display. Make sure to use the <code class="ic">onMounted</code> method to set the <code class="ic">open</code> prop after the component has mounted for proper placement of the picker in relation to the field.',
+		name: 'open',
+		type: 'boolean | null | undefined',
+	},
+	{
 		default: 'false',
-		desc: 'Forces the <code class="ic">v-card</code> and <code class="ic">v-color-picker</code> to always be visible.',
-		name: 'persistent-card',
-		type: 'boolean',
+		desc: 'Used to disable the <code class="ic">v-text-field</code> input, and <code class="ic">v-color-picker</code> component. This will also make clicking on the field open the color picker.',
+		name: 'readonly',
+		type: 'boolean | null | undefined',
 	},
 	{
 		default: 'false',
@@ -115,7 +175,6 @@ const componentProps = [
 		name: 'readonly-input',
 		type: 'boolean | null | undefined',
 	},
-
 ];
 
 
