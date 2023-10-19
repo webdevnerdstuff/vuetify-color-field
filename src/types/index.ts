@@ -58,9 +58,9 @@ export interface Props {
 	hintColor?: string | undefined;
 	iconHoverColor?: VIcon['$props']['color'] | boolean;
 	label?: string;
+	messages?: VTextField['$props']['messages'];
 	name?: any;
 	open?: boolean | null | undefined;
-	persistentCard?: boolean;
 	persistentHint?: boolean;
 	persistentPlaceholder?: VTextField['$props']['persistentPlaceholder'];
 	placeholder?: VTextField['$props']['placeholder'];
@@ -82,7 +82,6 @@ export interface VuetifyDefaults {
 	VColorPicker: Props['colorPickerProps'];
 	global?: any;
 }
-
 
 export interface TextFieldProperties {
 	bottom: string | number | undefined;
@@ -176,3 +175,16 @@ export interface UseHintStyles {
 	): CSSProperties;
 }
 
+export interface CardStylesObject {
+	borderColor?: string;
+	borderStyle?: string;
+	borderWidth?: string;
+	bottom?: string | number;
+	display?: string;
+	left?: string | number;
+	minWidth?: string;
+	padding?: string;
+	right?: string | number;
+	top?: string | number;
+	width?: string | number;
+}
