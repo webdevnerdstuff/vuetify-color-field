@@ -10,9 +10,10 @@
 		</v-col>
 
 		<v-col class="mb-4">
-			<h1 class="v-heading text-h3 text-sm-h3 mb-4">
+			<h1 class="v-heading text-h3 text-sm-h3 mb-1">
 				Vuetify Color Field
 			</h1>
+			<p class="mb-4 text-grey-darken-1">by WebDevNerdStuff</p>
 			<v-chip
 				color="primary"
 				size="small"

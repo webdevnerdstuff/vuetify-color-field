@@ -11,11 +11,11 @@
 						v-model="color"
 						:append-icon="VColorFieldProps.appendIcon"
 						:append-inner-icon="VColorFieldProps.appendInnerIcon"
-						:card-props="VColorFieldProps.cardProps"
 						:cardFieldWidth="VColorFieldProps.cardFieldWidth"
 						:cardOffsetX="VColorFieldProps.cardOffsetX"
 						:cardOffsetY="VColorFieldProps.cardOffsetY"
 						:cardPadding="VColorFieldProps.cardPadding"
+						:cardProps="VColorFieldProps.cardProps"
 						:clearable="VColorFieldProps.clearable"
 						:color="VColorFieldProps.color"
 						:color-picker-props="VColorFieldProps.colorPickerProps"
@@ -39,14 +39,13 @@
 						:pipSlot="VColorFieldProps.pipSlot"
 						:placeholder="VColorFieldProps.placeholder"
 						:prepend-icon="VColorFieldProps.prependIcon"
-						:prependInnerIcon="VColorFieldProps.prependInnerIcon"
+						:prepend-inner-icon="VColorFieldProps.prependInnerIcon"
 						:readonly="VColorFieldProps.readonly"
-						:readonly-input="VColorFieldProps.readonlyInput"
+						:readonlyInput="VColorFieldProps.readonlyInput"
 						:required="VColorFieldProps.required"
 						:theme="VColorFieldProps.theme"
 						:variant="VColorFieldProps.variant"
 					>
-
 						<!-- <template #prepend="{ toggleColorPicker }">
 							<v-icon
 								icon="$vuetify"
@@ -75,7 +74,6 @@
 							/>
 						</template> -->
 
-
 						<!-- <template #label>
 							Color
 						</template> -->
@@ -103,13 +101,10 @@ const VColorFieldProps = ref({
 		elevation: 5,
 		loading: false,
 		tag: 'div',
-		// theme: 'light',
-		// verticalOffset: 28,
 	},
 	clearable: true,
 	color: '',
 	colorPickerProps: {
-		// disabled: true,
 		// mode: 'hex',
 		// modes: ['hex'],
 		// showSwatches: true,
@@ -127,23 +122,18 @@ const VColorFieldProps = ref({
 	persistentHint: true,
 	persistentPlaceholder: false,
 	pip: true,
-	pipBorder: undefined,
-	// pipBorderRadius: '50%',
-	// pipIcon: 'mdi:mdi-circle',
+	pipBorder: 'none',
+	pipBorderRadius: '50%',
+	pipIcon: '$vuetify',
 	pipSize: 'default',
 	pipSlot: undefined,
 	placeholder: 'Select Color',
 	prependIcon: undefined,
-	prependInnerIcon: undefined,
+	prependInnerIcon: null,
 	readonly: undefined,
 	readonlyInput: undefined,
 	required: false,
 	theme: 'dark',
 	variant: 'filled',
 });
-
-
 </script>
-
-<style lang="scss" scoped>
-</style>

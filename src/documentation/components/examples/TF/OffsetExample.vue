@@ -1,12 +1,12 @@
 <template>
 	<VColorField
 		v-model="colorA"
-		cardOffsetX="-36"
+		card-offset-x="-36"
 	/>
 
 	<VColorField
 		v-model="colorB"
-		cardOffsetY="25"
+		card-offset-y="25"
 	/>
 </template>
 
@@ -17,12 +17,12 @@ const colorB = ref(null);
 const templateCode = `<template>
   <VColorField
     v-model="colorA"
-    cardOffsetX="-36"
+    card-offset-x="-36"
   />
 
   <VColorField
     v-model="colorB"
-    cardOffsetY="25"
+    card-offset-y="25"
   />
 </template>
 `;
@@ -34,7 +34,7 @@ const scriptCode = `\<script setup\>
 
 defineExpose({
 	exampleCode: {
-		desc: 'Using the <code class="ic">cardOffsetX</code> & <code class="ic">cardOffsetY</code> prop to offset the color picker card.',
+		desc: 'Using the <code class="ic">card-offset-x</code> & <code class="ic">card-offset-y</code> prop to offset the color picker card.',
 		script: scriptCode,
 		template: templateCode,
 	}
