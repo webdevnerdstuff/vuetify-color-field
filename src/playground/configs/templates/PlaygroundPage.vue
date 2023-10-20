@@ -1,5 +1,6 @@
 <template>
 	<v-row>
+
 		<v-col
 			class="offset-4 mt-15 pt-15"
 			cols="4"
@@ -11,36 +12,75 @@
 						:append-icon="VColorPickerFieldProps.appendIcon"
 						:append-inner-icon="VColorPickerFieldProps.appendInnerIcon"
 						:card-props="VColorPickerFieldProps.cardProps"
+						:cardFieldWidth="VColorPickerFieldProps.cardFieldWidth"
+						:cardOffsetX="VColorPickerFieldProps.cardOffsetX"
+						:cardOffsetY="VColorPickerFieldProps.cardOffsetY"
+						:cardPadding="VColorPickerFieldProps.cardPadding"
+						:clearable="VColorPickerFieldProps.clearable"
 						:color="VColorPickerFieldProps.color"
 						:color-picker-props="VColorPickerFieldProps.colorPickerProps"
 						:density="VColorPickerFieldProps.density"
-						:dot-field="VColorPickerFieldProps.dotField"
-						:dot-field-props="VColorPickerFieldProps.dotFieldProps"
 						:hint="VColorPickerFieldProps.hint"
 						:hint-align="VColorPickerFieldProps.hintAlign"
-						:hint-color="VColorPickerFieldProps.hintColor"
 						:icon-hover-color="VColorPickerFieldProps.iconHoverColor"
 						:label="VColorPickerFieldProps.label"
+						:messages="VColorPickerFieldProps.messages"
 						:name="VColorPickerFieldProps.name"
-						:persistent-card="VColorPickerFieldProps.persistentCard"
+						:open="VColorPickerFieldProps.open"
 						:persistent-hint="VColorPickerFieldProps.persistentHint"
 						:persistent-placeholder="VColorPickerFieldProps.persistentPlaceholder"
+						:pip="VColorPickerFieldProps.pip"
+						:pipBorder="VColorPickerFieldProps.pipBorder"
+						:pipBorderRadius="VColorPickerFieldProps.pipBorderRadius"
+						:pipHeight="VColorPickerFieldProps.pipHeight"
+						:pipIcon="VColorPickerFieldProps.pipIcon"
+						:pipRadius="VColorPickerFieldProps.pipRadius"
+						:pipSize="VColorPickerFieldProps.pipSize"
+						:pipSlot="VColorPickerFieldProps.pipSlot"
+						:placeholder="VColorPickerFieldProps.placeholder"
 						:prepend-icon="VColorPickerFieldProps.prependIcon"
-						:prepend-inner-icon="VColorPickerFieldProps.prependInnerIcon"
+						:prependInnerIcon="VColorPickerFieldProps.prependInnerIcon"
 						:readonly="VColorPickerFieldProps.readonly"
 						:readonly-input="VColorPickerFieldProps.readonlyInput"
 						:required="VColorPickerFieldProps.required"
 						:theme="VColorPickerFieldProps.theme"
 						:variant="VColorPickerFieldProps.variant"
 					>
-						<!-- <template #prepend-inner>
-							BOB
-						</template>
-						<template #append-inner>
-							STU
-						</template> -->
-					</VColorPickerField>
 
+						<!-- <template #prepend="{ toggleColorPicker }">
+							<v-icon
+								icon="$vuetify"
+								@click="toggleColorPicker"
+							/>
+						</template> -->
+
+						<!-- <template #prepend-inner="{ toggleColorPicker }">
+							<v-icon
+								icon="$vuetify"
+								@click="toggleColorPicker"
+							/>
+						</template> -->
+
+						<!-- <template #append-inner="{ toggleColorPicker }">
+							<v-icon
+								icon="$vuetify"
+								@click="toggleColorPicker"
+							/>
+						</template> -->
+
+						<!-- <template #append="{ toggleColorPicker }">
+							<v-icon
+								icon="$vuetify"
+								@click="toggleColorPicker"
+							/>
+						</template> -->
+
+
+						<!-- <template #label>
+							Color
+						</template> -->
+
+					</VColorPickerField>
 				</v-container>
 			</v-card>
 		</v-col>
@@ -53,50 +93,55 @@ const color = ref(null);
 const VColorPickerFieldProps = ref({
 	appendIcon: undefined,
 	appendInnerIcon: undefined,
+	cardFieldWidth: false,
+	cardOffsetX: 0,
+	cardOffsetY: 5,
+	cardPadding: 4,
 	cardProps: {
-		// align: 'top left',
-		// fullWidth: true,
-		// padding: 5,
+		border: false,
+		color: '',
+		elevation: 5,
+		loading: false,
+		tag: 'div',
 		// theme: 'light',
+		// verticalOffset: 28,
 	},
-	color: undefined,
+	clearable: true,
+	color: '',
 	colorPickerProps: {
 		// disabled: true,
-		mode: 'hex',
-		modes: ['hex'],
-		showSwatches: true,
-		// theme: 'light',
+		// mode: 'hex',
+		// modes: ['hex'],
+		// showSwatches: true,
 	},
 	density: undefined,
-	dotField: false,
-	dotFieldProps: {
-		borderColor: '#ccc',
-		borderRadius: '50%',
-		borderStyle: 'solid',
-		borderWidth: 2,
-		cursor: 'pointer',
-		height: 20,
-		showValue: true,
-		width: 20,
-	},
 	hint: undefined,
 	hintAlign: undefined,
-	hintColor: undefined,
 	iconHoverColor: undefined,
 	label: undefined,
+	messages: undefined,
+	// messages: 'This is a string message',
+	// messages: ['This is a message', 'This is another message'],
 	name: 'color',
-	persistentCard: false,
-	persistentHint: undefined,
+	open: 'bottom left',
+	persistentHint: true,
 	persistentPlaceholder: false,
-	placeholder: undefined,
+	pip: true,
+	pipBorder: undefined,
+	// pipBorderRadius: '50%',
+	// pipIcon: 'mdi:mdi-circle',
+	pipSize: 'default',
+	pipSlot: undefined,
+	placeholder: 'Select Color',
 	prependIcon: undefined,
-	prependInnerIcon: 'mdi:mdi-palette',
+	prependInnerIcon: undefined,
 	readonly: undefined,
 	readonlyInput: undefined,
 	required: false,
 	theme: 'dark',
 	variant: 'filled',
-})
+});
+
 
 </script>
 

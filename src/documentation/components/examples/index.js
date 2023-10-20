@@ -8,18 +8,12 @@ import TFReadonlyExample from './TF/ReadonlyExample.vue';
 import TFIconsExample from './TF/IconsExample.vue';
 
 // Dot Field Examples //
-import DFSimpleExample from './DF/SimpleExample.vue';
-import DFHintExample from './DF/HintExample.vue';
-import DFLabelExample from './DF/LabelExample.vue';
-import DFPlaceholderExample from './DF/PlaceholderExample.vue';
+import PIPSimpleExample from './DF/SimpleExample.vue';
 
 
 export {
-	DFHintExample,
-	DFLabelExample,
-	DFPlaceholderExample,
-	DFSimpleExample,
 	ExampleContainer,
+	PIPSimpleExample,
 	TFIconHoverColorExample,
 	TFIconsExample,
 	TFReadonlyExample,

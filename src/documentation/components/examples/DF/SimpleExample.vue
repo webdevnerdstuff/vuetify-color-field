@@ -1,7 +1,7 @@
 <template>
 	<VColorPickerField
 		v-model="color"
-		dot-field
+		pip
 	/>
 </template>
 
@@ -11,7 +11,7 @@ const color = ref(null);
 const templateCode = `<template>
   <VColorPickerField
     v-model="color"
-    dot-field
+    pip
   />
 </template>
 `;

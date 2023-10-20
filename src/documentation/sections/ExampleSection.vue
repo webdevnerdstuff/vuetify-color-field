@@ -57,16 +57,16 @@
 			<TFIconsExample ref="TFIconsExampleRef" />
 		</ExampleContainer>
 
-		<!-- ================================================== Dot Field Examples -->
+		<!-- ================================================== Pip Examples -->
 		<v-col :class="h2Classes">
-			<h2 class="text-secondary">Dot Field Examples</h2>
+			<h2 class="text-secondary">Pip Examples</h2>
 		</v-col>
 
 		<ExampleContainer
-			:code="getTemplateCode('DFSimpleExampleRef')"
+			:code="getTemplateCode('PIPSimpleExampleRef')"
 			:codeBlockOptions="codeBlockOptions"
 		>
-			<DFSimpleExample ref="DFSimpleExampleRef" />
+			<PIPSimpleExample ref="PIPSimpleExampleRef" />
 		</ExampleContainer>
 
 		<ExampleContainer
@@ -96,11 +96,8 @@
 <script setup>
 import { inject } from 'vue';
 import {
-	DFHintExample,
-	DFLabelExample,
-	DFPlaceholderExample,
-	DFSimpleExample,
 	ExampleContainer,
+	PIPSimpleExample,
 	TFIconHoverColorExample,
 	TFReadonlyExample,
 	TFReadonlyInputExample,
@@ -122,17 +119,11 @@ const TFReadonlyInputExampleRef = ref(null);
 const TFReadonlyExampleRef = ref(null);
 const TFIconsExampleRef = ref(null);
 
-// Dot Field Refs //
-const DFSimpleExampleRef = ref(null);
-const DFHintExampleRef = ref(null);
-const DFLabelExampleRef = ref(null);
-const DFPlaceholderExampleRef = ref(null);
+// Pip Refs //
+const PIPSimpleExampleRef = ref(null);
 
 const refElements = ref({
-	DFHintExampleRef,
-	DFLabelExampleRef,
-	DFPlaceholderExampleRef,
-	DFSimpleExampleRef,
+	PIPSimpleExampleRef,
 	TFIconHoverColorExampleRef,
 	TFIconsExampleRef,
 	TFReadonlyExampleRef,
@@ -141,10 +132,7 @@ const refElements = ref({
 });
 
 const refElementsOpen = ref({
-	DFHintExampleRef: null,
-	DFLabelExampleRef: null,
-	DFPlaceholderExampleRef: null,
-	DFSimpleExampleRef: null,
+	PIPSimpleExampleRef: null,
 	TFIconHoverColorExampleRef: null,
 	TFIconsExampleRef: null,
 	TFReadonlyExampleRef: null,
