@@ -33,16 +33,20 @@ export interface PipProps {
 	pipSlot?: string | undefined;
 }
 
+export interface VCardProps extends Omit<VCard['$props'],
+	'$children'
+> {
+	fullWidth?: boolean;
+	offsetX?: number;
+	offsetY?: number;
+	padding?: number;
+	verticalOffset?: number;
+}
+
 export interface Props extends PipProps {
 	appendIcon?: VTextField['$props']['appendIcon'];
 	appendInnerIcon?: VTextField['$props']['appendInnerIcon'];
-	cardProps?: VCard['$props'] & {
-		fullWidth?: boolean;
-		offsetX?: number;
-		offsetY?: number;
-		padding?: number;
-		verticalOffset?: number;
-	};
+	cardProps?: VCardProps;
 	color?: VTextField['$props']['color'];
 	colorPickerProps?: VColorPicker['$props'] & {
 		hideModeSwitch?: boolean;
