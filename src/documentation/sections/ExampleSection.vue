@@ -14,10 +14,6 @@
 		</v-col>
 
 		<!-- ================================================== Text Field Examples -->
-		<v-col :class="h2Classes">
-			<h2 class="text-secondary">Text Field Examples</h2>
-		</v-col>
-
 		<ExampleContainer
 			:code="getTemplateCode('TFSimpleExampleRef')"
 			:codeBlockOptions="codeBlockOptions"
@@ -57,6 +53,13 @@
 			<TFIconsExample ref="TFIconsExampleRef" />
 		</ExampleContainer>
 
+		<ExampleContainer
+			:code="getTemplateCode('TFOffsetExampleRef')"
+			:codeBlockOptions="codeBlockOptions"
+		>
+			<TFOffsetExample ref="TFOffsetExampleRef" />
+		</ExampleContainer>
+
 		<!-- ================================================== Pip Examples -->
 		<v-col :class="h2Classes">
 			<h2 class="text-secondary">Pip Examples</h2>
@@ -70,25 +73,25 @@
 		</ExampleContainer>
 
 		<ExampleContainer
-			:code="getTemplateCode('DFHintExampleRef')"
+			:code="getTemplateCode('PIPIconExampleRef')"
 			:codeBlockOptions="codeBlockOptions"
 		>
-			<DFHintExample ref="DFHintExampleRef" />
+			<PIPIconExample ref="PIPIconExampleRef" />
 		</ExampleContainer>
 
 		<ExampleContainer
-			:code="getTemplateCode('DFLabelExampleRef')"
+			:code="getTemplateCode('PIPSizeExampleRef')"
 			:codeBlockOptions="codeBlockOptions"
 		>
-			<DFLabelExample ref="DFLabelExampleRef" />
+			<PIPSizeExample ref="PIPSizeExampleRef" />
 		</ExampleContainer>
 
-		<ExampleContainer
+		<!-- <ExampleContainer
 			:code="getTemplateCode('DFPlaceholderExampleRef')"
 			:codeBlockOptions="codeBlockOptions"
 		>
 			<DFPlaceholderExample ref="DFPlaceholderExampleRef" />
-		</ExampleContainer>
+		</ExampleContainer> -->
 
 	</v-row>
 </template>
@@ -97,11 +100,14 @@
 import { inject } from 'vue';
 import {
 	ExampleContainer,
+	PIPIconExample,
 	PIPSimpleExample,
+	PIPSizeExample,
 	TFIconHoverColorExample,
 	TFReadonlyExample,
 	TFReadonlyInputExample,
 	TFIconsExample,
+	TFOffsetExample,
 	TFSimpleExample,
 } from '@/documentation/components/examples';
 
@@ -118,23 +124,32 @@ const TFIconHoverColorExampleRef = ref(null);
 const TFReadonlyInputExampleRef = ref(null);
 const TFReadonlyExampleRef = ref(null);
 const TFIconsExampleRef = ref(null);
+const TFOffsetExampleRef = ref(null);
 
 // Pip Refs //
 const PIPSimpleExampleRef = ref(null);
+const PIPIconExampleRef = ref(null);
+const PIPSizeExampleRef = ref(null);
 
 const refElements = ref({
+	PIPIconExampleRef,
 	PIPSimpleExampleRef,
+	PIPSizeExampleRef,
 	TFIconHoverColorExampleRef,
 	TFIconsExampleRef,
+	TFOffsetExampleRef,
 	TFReadonlyExampleRef,
 	TFReadonlyInputExampleRef,
 	TFSimpleExampleRef,
 });
 
 const refElementsOpen = ref({
+	PIPIconExampleRef: null,
 	PIPSimpleExampleRef: null,
+	PIPSizeExampleRef: null,
 	TFIconHoverColorExampleRef: null,
 	TFIconsExampleRef: null,
+	TFOffsetExampleRef: null,
 	TFReadonlyExampleRef: null,
 	TFReadonlyInputExampleRef: null,
 	TFSimpleExampleRef: null,

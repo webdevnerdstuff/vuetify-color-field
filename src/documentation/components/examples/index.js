@@ -6,16 +6,22 @@ import TFIconHoverColorExample from './TF/IconHoverColorExample.vue';
 import TFReadonlyInputExample from './TF/ReadonlyInputExample.vue';
 import TFReadonlyExample from './TF/ReadonlyExample.vue';
 import TFIconsExample from './TF/IconsExample.vue';
+import TFOffsetExample from './TF/OffsetExample.vue';
 
-// Dot Field Examples //
+// Pip Examples //
 import PIPSimpleExample from './PIP/SimpleExample.vue';
+import PIPIconExample from './PIP/IconExample.vue';
+import PIPSizeExample from './PIP/SizeExample.vue';
 
 
 export {
 	ExampleContainer,
+	PIPIconExample,
 	PIPSimpleExample,
+	PIPSizeExample,
 	TFIconHoverColorExample,
 	TFIconsExample,
+	TFOffsetExample,
 	TFReadonlyExample,
 	TFReadonlyInputExample,
 	TFSimpleExample,

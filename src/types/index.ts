@@ -43,9 +43,9 @@ export interface Props extends PipProps {
 	appendIcon?: VTextField['$props']['appendIcon'];
 	appendInnerIcon?: VTextField['$props']['appendInnerIcon'];
 	cardFieldWidth?: boolean;
-	cardOffsetX?: number;
-	cardOffsetY?: number;
-	cardPadding?: number;
+	cardOffsetX?: number | string;
+	cardOffsetY?: number | string;
+	cardPadding?: number | string;
 	cardProps?: VCardProps;
 	color?: VTextField['$props']['color'];
 	colorPickerProps?: VColorPicker['$props'] & {
@@ -62,7 +62,7 @@ export interface Props extends PipProps {
 	persistentPlaceholder?: VTextField['$props']['persistentPlaceholder'];
 	placeholder?: VTextField['$props']['placeholder'];
 	prependIcon?: VTextField['$props']['prependIcon'];
-	prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | false;
+	prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | null | false;
 	readonly?: VTextField['$props']['readonly'];
 	readonlyInput?: boolean | null | undefined;
 	required?: boolean;

@@ -26,7 +26,6 @@
 							:headers="headers"
 							hide-default-footer
 							:items="items"
-							:search="search"
 						>
 							<template #item="{ item }">
 								<tr>

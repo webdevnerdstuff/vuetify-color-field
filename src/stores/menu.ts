@@ -31,6 +31,14 @@ export const useMenuStore = defineStore('menu', () => {
 			title: 'VCard',
 			topTitle: 'VCard',
 		},
+		{
+			href: '#components-v-icon',
+			icon: '$vuetify',
+			key: 'v-icon',
+			link: `${links.vuetify}en/api/v-icon/`,
+			title: 'VIcon',
+			topTitle: 'VIcon',
+		},
 	];
 
 	const vuetifyLinks = [

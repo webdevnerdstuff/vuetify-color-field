@@ -64,7 +64,7 @@ const scriptCode = `\<script setup\>
 
 defineExpose({
 	exampleCode: {
-		desc: 'Using the built in <code class="ic">v-text-field</code> <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, and <code class="ic">append-icon</code> props. By default the <code class="ic">prepend-inner-icon</code> prop is used.',
+		desc: 'Using the built in <code class="ic">VTextField</code> <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, and <code class="ic">append-icon</code> props. By default the <code class="ic">prepend-inner-icon</code> prop is used.',
 		name: 'Icon Props',
 		script: scriptCode,
 		template: templateCode,

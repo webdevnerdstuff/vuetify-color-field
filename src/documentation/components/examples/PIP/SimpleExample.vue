@@ -22,7 +22,7 @@ const scriptCode = `\<script setup\>
 
 defineExpose({
 	exampleCode: {
-		desc: 'A simple example of a color picker field using the <code class="ic">dot-field</code> prop.',
+		desc: 'A simple example of a color picker field using the <code class="ic">pip</code> prop.',
 		script: scriptCode,
 		template: templateCode,
 	}

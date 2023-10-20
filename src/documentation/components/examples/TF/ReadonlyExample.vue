@@ -22,7 +22,7 @@ const scriptCode = `\<script setup\>
 
 defineExpose({
 	exampleCode: {
-		desc: 'Using the <code class="ic">readonly</code> prop will put the <code class="ic">v-text-field</code> and <code class="ic">v-color-picker</code> components into readonly mode. Clicking on the field will still open the color picker.',
+		desc: 'Using the <code class="ic">readonly</code> prop will put the <code class="ic">VTextField</code> and <code class="ic">VColorPicker</code> components into readonly mode. Clicking on the field will still open the color picker.',
 		name: 'Readonly Prop',
 		script: scriptCode,
 		template: templateCode,
