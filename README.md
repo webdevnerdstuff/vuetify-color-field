@@ -1,17 +1,17 @@
 <p align="center">
-  <img alt="Vuetify Logo" width="100" src="https://raw.githubusercontent.com/webdevnerdstuff/vuetify-plugin-template/main/src/assets/vuetify-logo.svg">
+  <img alt="Vuetify Logo" width="100" src="https://raw.githubusercontent.com/webdevnerdstuff/vuetify-color-picker-field/main/src/assets/vuetify-logo.svg">
 </p>
 
 <p>
-  <h1 align="center">Vuetify Plugin Template</h1>
+  <h1 align="center">Vuetify Color Picker Field</h1>
 </p>
 
 <p align="center">
-  <!-- <a href="https://www.npmjs.com/package/vuetify-plugin-template">
-    <img src="https://img.shields.io/npm/v/vuetify-plugin-template?color=1867c0&logo=npm" alt="NPM Package">
+  <!-- <a href="https://www.npmjs.com/package/vuetify-color-picker-field">
+    <img src="https://img.shields.io/npm/v/vuetify-color-picker-field?color=1867c0&logo=npm" alt="NPM Package">
   </a>
   &nbsp; -->
-  <a href="https://github.com/webdevnerdstuff/vuetify-plugin-template">
+  <a href="https://github.com/webdevnerdstuff/vuetify-color-picker-field">
     <img src="https://img.shields.io/badge/GitHub-WebDevNerdStuff-brightgreen.svg?logo=github" alt="@WebDevNerdStuff">
   </a>
 </p>
@@ -19,15 +19,11 @@
 
 ## Description
 
-Vuetify Plugin Template is a template to help you get starting building your own plugin/component for Vuetify (v3).
-
-## Features
- 
-See [Documentation & Demo](https://webdevnerdstuff.github.io/vuetify-plugin-template/#features) page for a list of features.
+Vuetify Color Picker Field is a Vuetify VTextField Color Picker Component
 
 ## Documentation
  
-[Documentation & Demo](https://webdevnerdstuff.github.io/vuetify-plugin-template/) 
+[Documentation & Demo](https://webdevnerdstuff.github.io/vuetify-color-picker-field/) 
 
 ## Dependencies
  
@@ -37,13 +33,13 @@ See [Documentation & Demo](https://webdevnerdstuff.github.io/vuetify-plugin-temp
 
 ## Change Log
  
-[CHANGELOG](https://github.com/webdevnerdstuff/vuetify-plugin-template/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/webdevnerdstuff/vuetify-color-picker-field/blob/master/CHANGELOG.md)
 
 
 ## License
 
 Copyright (c) 2023 WebDevNerdStuff  
-Licensed under the [MIT license](https://github.com/webdevnerdstuff/vuetify-plugin-template/blob/master/LICENSE.md).
+Licensed under the [MIT license](https://github.com/webdevnerdstuff/vuetify-color-picker-field/blob/master/LICENSE.md).
 
 
 ## Legal
