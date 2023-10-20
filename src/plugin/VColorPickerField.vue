@@ -3,66 +3,8 @@
 		ref="fieldContainerRef"
 		class="v-color-picker-field"
 	>
-		<!-- ================================================== Dot Option -->
-		<div
-			v-if="dotField"
-			ref="dotFieldRef"
-			v-bind="$attrs"
-			class="v-text-field"
-			:class="dotContainerClass"
-		>
-			<div class="v-input__control">
-				<div class="v-field v-field--focused">
-					<div :class="dotFieldClasses">
-						<div class="v-field__input d-flex align-center py-0">
-							<div
-								class="me-2"
-								:style="dotStyles"
-								@click="toggleColorPicker"
-							></div>
-							<div
-								v-if="slots['label']"
-								class="mr-1"
-							>
-								<slot
-									v-if="slots['label']"
-									name="label"
-								/>
-							</div>
-							<label
-								v-else-if="label"
-								class="v-label mr-1"
-							>{{ label }} </label>
-							<div
-								v-else-if="placeholder && !modelValue || persistentPlaceholder"
-								class="v-label mr-1"
-							>{{ placeholder }}</div>
-							<div v-if="!hideValue">{{ modelValue }}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="v-input__details">
-				<div
-					class="v-messages"
-					role="alert"
-				>
-					<div
-						class="v-messages__message"
-						:class="hintClasses"
-						style="transform-origin: center top 0;"
-						:style="hintStyles"
-					>
-						{{ hint }}
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- ================================================== VTextField Option -->
+		<!-- ================================================== VTextField -->
 		<v-text-field
-			v-else
 			ref="textFieldRef"
 			v-bind="$attrs"
 			:class="textFieldClasses"
@@ -81,57 +23,139 @@
 			@keyup.enter="toggleColorPicker('keyup')"
 			@update:model-value="updateModelValue"
 		>
+			<!-- ========================= Pass Slots -->
 			<template
 				v-for="(_, slot) in slots"
 				#[slot]="scope"
 			>
 				<slot
+					v-if="!slots['prepend'] && !slots['prepend-inner'] && !slots['append-inner'] && !slots['append']"
 					:name="slot"
 					v-bind="{ ...scope }"
 				/>
 			</template>
 
+			<!-- ========================= Prepend Slot -->
 			<template
-				v-if="prependIcon && !slots['prepend']"
+				v-if="slots.prepend"
+				#[`prepend`]="props"
+			>
+				<slot
+					name="prepend"
+					v-bind="{
+						...props,
+						toggleColorPicker,
+					}"
+				/>
+			</template>
+
+			<template
+				v-if="(prependIcon || (pipSlot === 'prepend' && pip)) && !slots['prepend']"
 				#prepend
 			>
+				<PipComponent
+					v-if="pip"
+					v-bind="pipProps"
+					@click="toggleColorPicker"
+				/>
 				<ColorPickerIcon
+					v-else-if="prependIcon"
 					:color="hoverIconColor"
 					:icon="prependIcon"
 					@click="toggleColorPicker"
 				/>
 			</template>
 
+			<!-- ========================= Prepend Inner Slot -->
 			<template
-				v-if="prependInnerIcon && !slots['prepend-inner']"
+				v-if="slots['prepend-inner']"
+				#[`prepend-inner`]="props"
+			>
+				<slot
+					name="prepend-inner"
+					v-bind="{
+						...props,
+						toggleColorPicker,
+					}"
+				/>
+			</template>
+
+			<template
+				v-if="(prependInnerIcon || (pipSlot === 'prepend-inner' && pip)) && !slots['prepend-inner']"
 				#prepend-inner
 			>
+				<PipComponent
+					v-if="pip"
+					v-bind="pipProps"
+					@click="toggleColorPicker"
+				/>
 				<ColorPickerIcon
+					v-else-if="prependInnerIcon"
 					:color="hoverIconColor"
 					:icon="prependInnerIcon"
 					@click="toggleCheck('textFieldIcon')"
 				/>
 			</template>
 
+			<!-- ========================= Append Inner Slot -->
 			<template
-				v-if="appendIcon && !slots['append']"
-				#append
+				v-if="slots['append-inner']"
+				#[`append-inner`]="props"
 			>
-				<ColorPickerIcon
-					:color="hoverIconColor"
-					:icon="appendIcon"
-					@click="toggleColorPicker"
+				<slot
+					name="append-inner"
+					v-bind="{
+						...props,
+						toggleColorPicker,
+					}"
 				/>
 			</template>
 
 			<template
-				v-if="appendInnerIcon && !slots['append-inner']"
+				v-if="(appendInnerIcon || (pipSlot === 'append-inner' && pip)) && !slots['append-inner']"
 				#append-inner
 			>
+				<PipComponent
+					v-if="pip"
+					v-bind="pipProps"
+					@click="toggleColorPicker"
+				/>
 				<ColorPickerIcon
+					v-else-if="appendInnerIcon"
 					:color="hoverIconColor"
 					:icon="appendInnerIcon"
 					@click="toggleCheck('textFieldIcon')"
+				/>
+			</template>
+
+			<!-- ========================= Append Slot -->
+			<template
+				v-if="slots.append"
+				#[`append`]="props"
+			>
+				<slot
+					name="append"
+					v-bind="{
+						...props,
+						toggleColorPicker,
+					}"
+				/>
+			</template>
+
+			<template
+				v-if="(appendIcon || (pipSlot === 'append' && pip)) && !slots['append']"
+				#append
+			>
+				<PipComponent
+					v-if="pip"
+					v-bind="pipProps"
+					@click="toggleColorPicker"
+				/>
+				<ColorPickerIcon
+					v-else-if="appendIcon"
+					:color="hoverIconColor"
+					:icon="appendIcon"
+					@click="toggleColorPicker"
 				/>
 			</template>
 
@@ -162,6 +186,7 @@
 
 		<v-defaults-provider :defaults="defaults">
 			<v-card
+				v-bind="defaultCardProps"
 				ref="cardRef"
 				:class="cardClasses"
 				:style="cardStyles"
@@ -191,20 +216,16 @@ import {
 	TextFieldProperties,
 	VuetifyDefaults,
 } from '@/types';
-import { useConvertToUnit } from '@/plugin/composables/helpers';
+import {
+	useConvertToUnit,
+	useDetectOutsideClick,
+} from '@/plugin/composables/helpers';
 import {
 	useCardClasses,
-	useDotContainerClass,
-	useDotFieldClasses,
-	useHintClasses,
 	useTextFieldClasses,
 } from '@/plugin/composables/classes';
-import {
-	useDotStyles,
-	useHintStyles,
-} from '@/plugin/composables/styles';
 import ColorPickerIcon from '@/plugin/components/ColorPickerIcon.vue';
-import useDetectOutsideClick from '@/plugin/directives/useDetectOutsideClick';
+import PipComponent from '@/plugin/components/PipComponent.vue';
 import type { VCard } from 'vuetify/components';
 
 
@@ -229,25 +250,21 @@ const props = withDefaults(defineProps<Props>(), {
 	color: undefined,
 	colorPickerProps: () => ({}) as const,
 	density: 'default',
-	dotField: false,
-	dotFieldProps: () => ({
-		borderColor: '#ccc',
-		borderRadius: '50%',
-		borderStyle: 'solid',
-		borderWidth: 2,
-		cursor: 'pointer',
-		height: 20,
-		width: 20,
-	}) as const,
 	hideValue: false,
 	hint: '',
 	iconHoverColor: undefined,
 	label: undefined,
 	messages: undefined,
 	name: 'color',
-	open: undefined,
+	open: 'bottom left',
 	persistentHint: false,
 	persistentPlaceholder: false,
+	pip: false,
+	pipBorder: '3px solid rgb(var(--v-theme-on-surface))',
+	pipBorderRadius: '50%',
+	pipIcon: undefined,
+	pipSize: 'default',
+	pipSlot: 'prepend-inner',
 	placeholder: undefined,
 	prependIcon: undefined,
 	prependInnerIcon: 'mdi:mdi-palette',
@@ -260,21 +277,13 @@ const props = withDefaults(defineProps<Props>(), {
 // -------------------------------------------------- Defaults //
 // ------------------------- VCard //
 const defaultCardProps: Props['cardProps'] = {
-	align: 'bottom left',
-	border: false,
-	borderColor: 'transparent',
-	borderStyle: 'solid',
-	borderWidth: 2,
-	closeDelay: 500,
-	color: '',
 	elevation: 5,
-	fieldOffset: props.dotField ? 0 : 10,
 	fullWidth: false,
-	hover: false,
+	hover: true,
 	loading: false,
+	offsetX: 0,
+	offsetY: 5,
 	padding: 4,
-	ripple: false,
-	tag: 'div',
 	verticalOffset: 28,
 };
 
@@ -292,7 +301,6 @@ const defaults = ref<VuetifyDefaults>({
 		...defaultColorPickerProps,
 		...props.colorPickerProps,
 	},
-	// global: {	},
 });
 
 
@@ -300,8 +308,6 @@ const defaults = ref<VuetifyDefaults>({
 const cardRef = ref<VCard | null>(null);
 const cardStyles = ref<CardStylesObject>({});
 const colorPickerOpen = ref<boolean>(false);
-const dotFieldRef = ref<HtmlRefElement>(null);
-const dotHintActive = ref<boolean>(false);
 const fieldContainerRef = ref<HtmlRefElement>(null);
 const colorPickerModelValue = ref<any>(attrs.modelValue);
 const modelValue = ref<any>(attrs.modelValue);
@@ -316,7 +322,16 @@ let textFieldProperties = reactive<TextFieldProperties>({
 	width: 0,
 });
 
-const { dotField, dotFieldProps } = toRefs(props);
+// ------------------------- Pip //
+const pipProps = ref({
+	density: props.density,
+	modelValue,
+	pip: props.pip,
+	pipBorder: props.pipBorder,
+	pipBorderRadius: props.pipBorderRadius,
+	pipIcon: props.pipIcon,
+	pipSize: props.pipSize,
+});
 
 
 // -------------------------------------------------- Watch #
@@ -324,34 +339,8 @@ watch(() => attrs.modelValue, (newVal) => {
 	updateModelValue(newVal);
 });
 
-watch(() => props.open, () => {
-	toggleColorPicker('open-prop');
-});
-
-
-useDetectOutsideClick(fieldContainerRef, (e: Event) => {
-	const element = unref(cardRef);
-
-	if (e.target !== element && !element?.$el?.contains(e.target) && colorPickerOpen.value) {
-		toggleColorPicker('outside');
-	}
-});
 
 // -------------------------------------------------- Computed #
-// ------------------------- Dot Selector #
-const dotContainerClass = computed(() => useDotContainerClass({
-	density: props.density,
-}));
-
-const dotFieldClasses = computed(() => useDotFieldClasses({
-	name: props.name,
-}));
-
-const dotStyles = computed(() => useDotStyles({
-	dotField,
-	dotFieldProps,
-	modelValue,
-}));
 
 // ------------------------- Text Field #
 const textFieldClasses = computed(() => useTextFieldClasses({
@@ -376,14 +365,6 @@ const hoverIconColor = computed<string | undefined>(() => {
 	return props.color ?? undefined;
 });
 
-// ------------------------- Hint #
-const hintClasses = computed(() => useHintClasses());
-
-const hintStyles = computed(() => useHintStyles({
-	dotHintActive,
-	persistentHint: props.persistentHint,
-}));
-
 // ------------------------- Card #
 const cardClasses = computed(() => useCardClasses({
 	fullWidth: defaults.value.VCard?.fullWidth,
@@ -405,11 +386,11 @@ function toggleCheck(trigger: string) {
 
 	toggleColorPicker();
 }
-// ------------------------- Toggle Color Picker //
 
+// ------------------------- Toggle Color Picker //
 function toggleColorPicker(trigger?: string | Event): void {
 	const defaultCoords = { left: 0, right: 0, top: 0, width: 0 };
-	let fieldContainer = fieldContainerRef.value;
+	const fieldContainer = fieldContainerRef.value;
 
 	// Only close the color picker if it is open on keyup & clear event //
 	if (!colorPickerOpen.value && (trigger === 'keyup' || trigger === 'clear')) {
@@ -423,12 +404,6 @@ function toggleColorPicker(trigger?: string | Event): void {
 	}
 
 	colorPickerOpen.value = !colorPickerOpen.value;
-
-	// Determine if the field is a dot field or a text field //
-	if (props.dotField) {
-		fieldContainer = dotFieldRef?.value?.querySelector('.v-input__control');
-		dotHintActive.value = !dotHintActive.value;
-	}
 
 	// If color picker is closed no further action is needed //
 	if (!colorPickerOpen.value) {
@@ -444,15 +419,13 @@ function toggleColorPicker(trigger?: string | Event): void {
 	let positionLeft = fieldElementCoords?.left ?? 0;
 	let positionRight = fieldElementCoords?.right ?? 0;
 
-	if (!props.dotField) {
-		const fieldInputContainer: HtmlRefElement = fieldContainerRef?.value?.querySelector('.v-field__input');
-		const fieldContainerInputCoords = fieldInputContainer?.getBoundingClientRect() ?? defaultCoords;
+	const fieldInputContainer: HtmlRefElement = fieldContainerRef?.value?.querySelector('.v-field__input');
+	const fieldContainerInputCoords = fieldInputContainer?.getBoundingClientRect() ?? defaultCoords;
 
-		inputHeight = fieldInputContainer?.offsetHeight;
-		inputWidth = fieldInputContainer?.offsetWidth ?? 0;
-		positionLeft = fieldContainerInputCoords.left;
-		positionRight = fieldContainerInputCoords.right - fieldContainerInputCoords.width;
-	}
+	inputHeight = fieldInputContainer?.offsetHeight;
+	inputWidth = fieldInputContainer?.offsetWidth ?? 0;
+	positionLeft = fieldContainerInputCoords.left;
+	positionRight = fieldContainerInputCoords.right - fieldContainerInputCoords.width;
 
 	textFieldProperties = {
 		bottom: 'initial',
@@ -470,42 +443,40 @@ function toggleColorPicker(trigger?: string | Event): void {
 function setCardStyles(): void {
 	let top: string | number = Number(textFieldProperties.top) + Number(textFieldProperties.height);
 	let bottom: string | number = 'initial';
-	let offsetTop = defaults.value.VCard?.fieldOffset ?? 0;
+	let offsetY = Number(defaults.value.VCard?.offsetY) ?? 0;
+	const offsetX = Number(defaults.value.VCard?.offsetX) ?? 0;
 
 	if (props.hint || props.messages) {
-		offsetTop += defaults.value.VCard?.verticalOffset ?? 0;
+		offsetY += defaults.value.VCard?.verticalOffset ?? 0;
 	}
 
-	top = top + offsetTop;
+	top = top + offsetY;
 
 	// Top/Bottom Card Alignment //
-	if (defaults.value.VCard?.align?.includes('top')) {
-		bottom = (window.innerHeight - top) + Number(textFieldProperties.height) + (offsetTop * 2);
+	if (props.open?.includes('top')) {
+		bottom = (window.innerHeight - top) + Number(textFieldProperties.height) + (offsetY * 2);
 		top = 'initial';
 	}
 
 	// Left/Right Card Alignment //
-	let left = textFieldProperties.left;
-	let right = textFieldProperties.right;
+	let left: string | number = Number(textFieldProperties.left) + offsetX;
+	let right: string | number = textFieldProperties.right ?? 0;
 
 	if (defaults.value.VCard?.fullWidth) {
-		left = textFieldProperties.left;
+		left = textFieldProperties.left as number;
 		right = 'initial';
 	}
 	else {
-		left = textFieldProperties.left;
 		right = 'initial';
 
-		if (defaults.value.VCard?.align?.includes('right')) {
-			left = 'initial';
-			right = textFieldProperties.right;
+		if (props.open?.includes('right')) {
+			left = 'initial' as string;
+			right = Number(textFieldProperties.right) + offsetX;
 		}
 	}
 
 	const styles: CardStylesObject = {
-		borderColor: defaults.value.VCard?.borderColor ?? 'transparent',
-		borderStyle: defaults.value.VCard?.borderStyle ?? 'solid',
-		borderWidth: useConvertToUnit({ value: defaults.value.VCard?.borderWidth ?? 0 }),
+		border: defaults.value.VCard?.border ?? 'transparent',
 		bottom: useConvertToUnit({ value: bottom }),
 		display: 'block',
 		left: useConvertToUnit({ value: left }),
@@ -516,21 +487,19 @@ function setCardStyles(): void {
 		width: useConvertToUnit({ value: textFieldProperties.width }),
 	};
 
-	// ! DEBUG HELPER ! //
-	// const positionHelper: HTMLDivElement | null | undefined = document.querySelector('.position-elm-helper');
-
-	// if (positionHelper) {
-	// 	positionHelper.style.top = styles.top as string;
-	// 	positionHelper.style.left = styles.left as string;
-	// 	positionHelper.style.right = styles.right as string;
-	// 	positionHelper.style.bottom = styles.bottom as string;
-	// 	positionHelper.style.display = 'block';
-	// }
-	// ! END DEBUG HELPER ! //
-
 	cardStyles.value = styles;
 }
 
+// ------------------------- Toggle Color Picker Click Outside Trigger //
+useDetectOutsideClick(fieldContainerRef, (e) => {
+	const element = unref(cardRef);
+
+	if (e.target !== element && !element?.$el?.contains(e.target) && colorPickerOpen.value) {
+		toggleColorPicker('outside');
+	}
+});
+
+// ------------------------- Update Models //
 function updateModelValue(value: any) {
 	let returnColor = value ?? '';
 
@@ -559,12 +528,12 @@ function updateModelValues(val: any) {
 	emit('update', val);
 }
 
+// ------------------------- Update Color Picker Mode //
 function updateMode(mode: Mode) {
 	pickerMode.value = mode;
 	modelValue.value = colorPickerModelValue.value;
 	emit('update:mode', mode);
 }
-
 </script>
 
 <style lang="scss" scoped>

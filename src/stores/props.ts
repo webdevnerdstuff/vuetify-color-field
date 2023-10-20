@@ -41,17 +41,6 @@ const props = {
 	// color: undefined,
 	// colorPickerProps: () => ({}) as const,
 	// density: 'default',
-	// dotField: false,
-	// dotFieldProps: () => ({
-	// 	borderColor: '#ccc',
-	// 	borderRadius: '50%',
-	// 	borderStyle: 'solid',
-	// 	borderWidth: 2,
-	// 	cursor: 'pointer',
-	// 	height: 20,
-	// 	showValue: false,
-	// 	width: 20,
-	// }) as const,
 	// hint: '',
 	// iconHoverColor: undefined,
 	// label: undefined,
@@ -80,7 +69,7 @@ const componentProps = [
   closeDelay: 500,
   color: '',
   elevation: 5,
-  fieldOffset: props.dotField ? 0 : 10,
+  fieldOffset: props.pip ? 0 : 10,
   fullWidth: false,
   hover: false,
   loading: false,
@@ -119,36 +108,8 @@ const componentProps = [
 	},
 	{
 		default: 'false',
-		desc: 'This replaces the <code class="ic">v-text-field</code> component with a dot that changes to the selected color.',
-		name: 'dot-field',
-		type: 'boolean',
-	},
-	{
-		default: `<pre class="ic"><code>{
-  borderColor: '#ccc',
-  borderRadius: '50%',
-  borderStyle: 'solid',
-  borderWidth: 2,
-  cursor: 'pointer',
-  height: 20,
-  width: 20,
-}</code></pre>`,
-		desc: 'Props for the <code="ic">v-card</code> dot field when the <code class="ic">dot-field</code> prop is <code class="ic">true</code>.',
-		name: 'dot-field-props',
-		type: `<pre class="ic"><code>{
-  borderColor?: string;
-  borderRadius?: string;
-  borderStyle?: string;
-  borderWidth?: number;
-  cursor?: string;
-  height?: string | number;
-  width?: string | number;
-}</code></pre>`,
-	},
-	{
-		default: 'false',
-		desc: 'Hides the selected value. Used only when the <code class="ic">dot-field</code> is set to <code class="ic">true</code>.',
-		name: 'hide-value',
+		desc: 'TBD',
+		name: 'pip',
 		type: 'boolean',
 	},
 	{
@@ -156,12 +117,6 @@ const componentProps = [
 		desc: 'The hover color for the <code class="ic">v-icon</code> component within the <code class="ic">prepend</code>, <code class="ic">prepend-inner</code>, <code class="ic">append-inner</code>, and <code class="ic">append</code> slots when using <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, and <code class="ic">append-icon</code> props. If <code class="ic">false</code> the hover color will be the same as the <code class="ic">v-text-field</code> color.',
 		name: 'icon-hover-color',
 		type: 'string | undefined',
-	},
-	{
-		default: 'undefined',
-		desc: 'Renders the <code class="ic">v-color-picker</code> open by default display. Make sure to use the <code class="ic">onMounted</code> method to set the <code class="ic">open</code> prop after the component has mounted for proper placement of the picker in relation to the field.',
-		name: 'open',
-		type: 'boolean | null | undefined',
 	},
 	{
 		default: 'false',
@@ -177,12 +132,64 @@ const componentProps = [
 	},
 ];
 
+const vCardProps = [
+	{
+		default: ``,
+		desc: '',
+		name: 'align',
+		type: ``,
+	},
+	{
+		default: ``,
+		desc: '',
+		name: 'border-color',
+		type: ``,
+	},
+	{
+		default: ``,
+		desc: '',
+		name: 'border-style',
+		type: ``,
+	},
+	{
+		default: ``,
+		desc: '',
+		name: 'border-width',
+		type: ``,
+	},
+	{
+		default: ``,
+		desc: '',
+		name: 'field-offset',
+		type: ``,
+	},
+	{
+		default: ``,
+		desc: '',
+		name: 'full-width',
+		type: ``,
+	},
+	{
+		default: ``,
+		desc: '',
+		name: 'padding',
+		type: ``,
+	},
+	{
+		default: ``,
+		desc: '',
+		name: 'vertical-offset',
+		type: ``,
+	},
+];
+
 
 export const usePropsStore = defineStore('props', {
 	state: () => {
 		return {
 			componentProps,
 			propsHeaders,
+			vCardProps,
 		};
 	},
 });

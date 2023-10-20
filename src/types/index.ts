@@ -2,8 +2,8 @@
 /* eslint-disable no-unused-vars */
 import {
 	CSSProperties,
-	MaybeRef,
 } from 'vue';
+import type { IconOptions } from 'vuetify';
 import type {
 	VCard,
 	VColorPicker,
@@ -24,17 +24,22 @@ export type HtmlRefElement = HTMLDivElement | null | undefined;
 
 
 // -------------------------------------------------- Props //
-export interface Props {
+export interface PipProps {
+	pip?: boolean,
+	pipBorder?: string | null | undefined;
+	pipIcon?: VIcon['$props']['icon'],
+	pipBorderRadius?: string;
+	pipSize?: VIcon['$props']['size'];
+	pipSlot?: string | undefined;
+}
+
+export interface Props extends PipProps {
 	appendIcon?: VTextField['$props']['appendIcon'];
 	appendInnerIcon?: VTextField['$props']['appendInnerIcon'];
 	cardProps?: VCard['$props'] & {
-		align?: string | undefined;
-		borderColor?: string;
-		borderStyle?: string;
-		borderWidth?: number;
-		closeDelay?: number;
-		fieldOffset?: number;
 		fullWidth?: boolean;
+		offsetX?: number;
+		offsetY?: number;
 		padding?: number;
 		verticalOffset?: number;
 	};
@@ -43,16 +48,6 @@ export interface Props {
 		hideModeSwitch?: boolean;
 	};
 	density?: VTextField['$props']['density'];
-	dotField?: boolean;
-	dotFieldProps?: {
-		borderColor?: string;
-		borderRadius?: string;
-		borderStyle?: string;
-		borderWidth?: number;
-		cursor?: string;
-		height?: string | number;
-		width?: string | number;
-	};
 	hideValue?: boolean | null | undefined;
 	hint?: string;
 	hintColor?: string | undefined;
@@ -60,17 +55,21 @@ export interface Props {
 	label?: string;
 	messages?: VTextField['$props']['messages'];
 	name?: any;
-	open?: boolean | null | undefined;
+	open?: string | undefined;
 	persistentHint?: boolean;
 	persistentPlaceholder?: VTextField['$props']['persistentPlaceholder'];
 	placeholder?: VTextField['$props']['placeholder'];
 	prependIcon?: VTextField['$props']['prependIcon'];
-	prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | string | false;
+	prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | false;
 	readonly?: VTextField['$props']['readonly'];
 	readonlyInput?: boolean | null | undefined;
 	required?: boolean;
 	theme?: VTextField['$props']['theme'];
 }
+
+export interface PipComponentProps extends PipProps {
+	modelValue?: any;
+};
 
 export interface ColorPickerIconProps {
 	color?: VIcon['$props']['color'];
@@ -80,17 +79,26 @@ export interface ColorPickerIconProps {
 export interface VuetifyDefaults {
 	VCard: Props['cardProps'];
 	VColorPicker: Props['colorPickerProps'];
-	global?: any;
 }
 
 export interface TextFieldProperties {
 	bottom: string | number | undefined;
 	height: number | string;
 	left: string | number | undefined;
-	// maxWidth: string | number | undefined;
 	right: string | number | undefined;
 	top: string | number | undefined;
 	width: number | string;
+}
+
+// ------------------------ Icons //
+export interface UseGetIcon {
+	(
+		options: {
+			icon: PipProps['pipIcon'],
+			iconOptions: IconOptions | undefined,
+			name: string,
+		}
+	): string;
 }
 
 // -------------------------------------------------- Composables //
@@ -112,20 +120,18 @@ export interface UseConvertToUnit {
 	): string | undefined;
 }
 
-// ------------------------- Classes //
-export interface UseDotContainerClass {
+export interface UseDetectOutsideClick {
 	(
-		options: {
-			density?: Props['density'];
-		}
-	): object;
+		component: any,
+		callback: (event: Event) => void,
+	): void;
 }
 
-export interface UseDotFieldClass {
+// ------------------------- Classes //
+
+export interface UsePipClasses {
 	(
-		options: {
-			name?: Props['name'];
-		}
+		options?: {}
 	): object;
 }
 
@@ -155,30 +161,17 @@ export interface UseCardClasses {
 
 
 // ------------------------- Styles //
-export interface UseDotStyle {
+export interface UsePipStyle {
 	(
 		options: {
-			dotFieldProps: MaybeRef<Props['dotFieldProps']>;
-			dotField: MaybeRef<Props['dotField']>;
-			modelValue: MaybeRef<any>;
+			pipBorder?: Props['pipBorder'];
+			pipBorderRadius?: Props['pipBorderRadius'];
 		}
 	): CSSProperties;
 }
 
-
-export interface UseHintStyles {
-	(
-		options: {
-			dotHintActive: MaybeRef<boolean>;
-			persistentHint: MaybeRef<Props['persistentHint']>;
-		}
-	): CSSProperties;
-}
-
-export interface CardStylesObject {
-	borderColor?: string;
-	borderStyle?: string;
-	borderWidth?: string;
+export interface CardStylesObject extends CSSProperties {
+	border?: string | number;
 	bottom?: string | number;
 	display?: string;
 	left?: string | number;
