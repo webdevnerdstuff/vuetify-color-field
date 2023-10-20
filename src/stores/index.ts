@@ -15,6 +15,7 @@ export const useCoreStore = defineStore('core', () => {
 		license: `${repoBaseUrl}/blob/main/LICENSE.md`,
 		npm: `https://www.npmjs.com/package/${packageName}`,
 		vue: 'https://vuejs.org/',
+		vueUse: 'https://vueuse.org/',
 		vuetify: 'https://vuetifyjs.com/',
 		vuetifyGithub: 'https://github.com/vuetifyjs/vuetify',
 	};

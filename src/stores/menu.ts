@@ -31,6 +31,14 @@ export const useMenuStore = defineStore('menu', () => {
 			title: 'VCard',
 			topTitle: 'VCard',
 		},
+		{
+			href: '#components-v-icon',
+			icon: '$vuetify',
+			key: 'v-icon',
+			link: `${links.vuetify}en/api/v-icon/`,
+			title: 'VIcon',
+			topTitle: 'VIcon',
+		},
 	];
 
 	const vuetifyLinks = [
@@ -64,19 +72,14 @@ export const useMenuStore = defineStore('menu', () => {
 			title: 'Description',
 		},
 		{
-			href: '#features',
-			icon: 'mdi:mdi-tools',
-			title: 'Features',
-		},
-		{
 			href: '#usage',
 			icon: 'mdi:mdi-power-plug-outline',
 			title: 'Usage',
 		},
 		{
-			href: '#example',
+			href: '#examples',
 			icon: 'mdi:mdi-code-json',
-			title: 'Example',
+			title: 'Examples',
 		},
 		{
 			href: '#props',

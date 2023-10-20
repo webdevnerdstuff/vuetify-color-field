@@ -27,6 +27,13 @@
 			>
 				Vue 3
 			</a>
+			<br />
+			<a
+				:href="store.links.vueUse"
+				target="_blank"
+			>
+				VueUse
+			</a>
 		</v-col>
 	</v-row>
 </template>

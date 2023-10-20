@@ -1,56 +1,26 @@
 import { CSSProperties } from 'vue';
 import {
-	UseDotStyle,
-	UseHintStyles,
+	UsePipStyle,
 } from '@/types';
-import {
-	useConvertToUnit,
-} from '@/plugin/composables/helpers';
 
 
-// ------------------------------------------------ Component Container //
-export const useDotStyles: UseDotStyle = (options) => {
-	const { dotField, dotFieldProps, modelValue } = options;
-	const dotOptions = unref(dotFieldProps);
-	let styles = {};
-
-	if (unref(dotField)) {
-		styles = {
-			backgroundColor: modelValue.value,
-			borderColor: dotOptions?.borderColor,
-			borderRadius: useConvertToUnit({ value: dotOptions?.borderRadius }),
-			borderStyle: dotOptions?.borderStyle,
-			borderWidth: useConvertToUnit({ value: dotOptions?.borderWidth }),
-			cursor: dotOptions?.cursor,
-			height: useConvertToUnit({ value: dotOptions?.height }),
-			width: useConvertToUnit({ value: dotOptions?.width }),
-		};
-	}
-
-	return styles as CSSProperties;
-};
-
-export const useHintStyles: UseHintStyles = (options) => {
-	const { dotHintActive, hintAlign, hintColor, persistentHint } = options;
+// ------------------------------------------------ Pip //
+export const usePipStyles: UsePipStyle = (options) => {
+	const { pipBorder, pipBorderRadius } = options;
 
 	const styles: {
-		color?: string;
-		textAlign?: string;
-		transform?: string;
+		backgroundColor: string;
+		border?: string;
+		borderRadius?: string;
+		overflow: string;
 	} = {
-		color: hintColor,
+		backgroundColor: pipBorder && pipBorder !== 'none' ? 'rgb(var(--v-theme-on-surface))' : 'transparent',
+		overflow: 'hidden',
 	};
 
-	if (!persistentHint && !unref(dotHintActive)) {
-		styles.transform = 'translateY(-20px)';
-	}
-
-	if (hintAlign === 'left') {
-		styles.textAlign = 'text-left';
-	}
-
-	if (hintAlign === 'right') {
-		styles.textAlign = 'text-right';
+	if (pipBorder && pipBorder !== 'none') {
+		styles.border = pipBorder;
+		styles.borderRadius = pipBorderRadius;
 	}
 
 	return styles as CSSProperties;

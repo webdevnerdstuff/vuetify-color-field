@@ -13,6 +13,11 @@
 			</h2>
 
 			<div>
+				When using the <code class="ic">v-text-field</code>, you can use the regular props
+				that are available for that component.
+			</div>
+
+			<div>
 				For component specific props, please refer to the <a
 					:href="store.links.vuetify"
 					target="_blank"

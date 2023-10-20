@@ -20,22 +20,6 @@
 			</p>
 		</v-col>
 	</v-row>
-
-	<!-- Please keep this section as an appreciation for my work :) -->
-	<v-row>
-		<v-col
-			class="font-italic text-disabled text-caption"
-			cols="12"
-		>
-			Site built using the <a
-				href="https://github.com/webdevnerdstuff/vuetify-plugin-template"
-				target="_blank"
-			>vuetify-plugin-template</a> by <a
-				href="https://github.com/webdevnerdstuff/"
-				target="_blank"
-			>WebDevNerdStuff</a>
-		</v-col>
-	</v-row>
 </template>
 
 <script setup>
