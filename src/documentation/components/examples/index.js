@@ -8,7 +8,7 @@ import TFReadonlyExample from './TF/ReadonlyExample.vue';
 import TFIconsExample from './TF/IconsExample.vue';
 
 // Dot Field Examples //
-import PIPSimpleExample from './DF/SimpleExample.vue';
+import PIPSimpleExample from './PIP/SimpleExample.vue';
 
 
 export {
