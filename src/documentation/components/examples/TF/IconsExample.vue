@@ -1,22 +1,22 @@
 <template>
-	<VColorPickerField
+	<VColorField
 		v-model="colorA"
 		prepend-icon="mdi:mdi-eyedropper"
 		:prepend-inner-icon="false"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorB"
 		prepend-inner-icon="mdi:mdi-eyedropper"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorC"
 		append-inner-icon="mdi:mdi-eyedropper"
 		:prepend-inner-icon="false"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorD"
 		append-icon="mdi:mdi-eyedropper"
 		:prepend-inner-icon="false"
@@ -30,24 +30,24 @@ const colorC = ref('#ff0000');
 const colorD = ref('#ff0000');
 
 const templateCode = `<template>
-  <VColorPickerField
+  <VColorField
     v-model="colorA"
     prepend-icon="mdi:mdi-eyedropper"
     :prepend-inner-icon="false"
   >
 
-  <VColorPickerField
+  <VColorField
     v-model="colorB"
     prepend-inner-icon="mdi:mdi-eyedropper"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorC"
     append-inner-icon="mdi:mdi-eyedropper"
     :prepend-inner-icon="false"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorD"
     append-icon="mdi:mdi-eyedropper"
     :prepend-inner-icon="false"

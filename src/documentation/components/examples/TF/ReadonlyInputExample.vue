@@ -1,5 +1,5 @@
 <template>
-	<VColorPickerField
+	<VColorField
 		v-model="color"
 		readonly-input
 	/>
@@ -9,7 +9,7 @@
 const color = ref(null);
 
 const templateCode = `<template>
-  <VColorPickerField
+  <VColorField
 	  v-model="color"
 	  readonly-input
   />

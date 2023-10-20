@@ -12,7 +12,7 @@
 				Slots
 			</h2>
 
-			The default slot used for the <code class="ic">VColorPickerField</code> is the <code class="ic">prepend-inner</code>
+			The default slot used for the <code class="ic">VColorField</code> is the <code class="ic">prepend-inner</code>
 			slot. The <code class="ic">VTextField</code> slots are available. For info on the specific slots, please refer to
 			the <a
 				:href="store.links.vuetify"

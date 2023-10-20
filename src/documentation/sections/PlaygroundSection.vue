@@ -16,7 +16,7 @@
 
 			<CodeBlock
 				class="mb-6"
-				code="git clone git@github.com:webdevnerdstuff/vuetify-color-picker-field.git"
+				code="git clone git@github.com:webdevnerdstuff/vuetify-color-field.git"
 				:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 				lang="plain"
 				:prismjs="codeBlockSettings.plugin === 'prismjs'"

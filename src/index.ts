@@ -1,13 +1,13 @@
 import { App, Plugin } from 'vue';
-import { VColorPickerField } from './plugin';
+import { VColorField } from './plugin';
 import './plugin/styles/main.scss';
 
 const install = (app: App) => {
-	app.component('VColorPickerField', VColorPickerField);
+	app.component('VColorField', VColorField);
 };
 
-VColorPickerField.install = install;
+VColorField.install = install;
 
-export default VColorPickerField as unknown as Plugin;
+export default VColorField as unknown as Plugin;
 
-export { VColorPickerField };
+export { VColorField };

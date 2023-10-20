@@ -4,7 +4,7 @@ import packageJson from '@root/package.json';
 
 export const useCoreStore = defineStore('core', () => {
 	const packageName = packageJson.name;
-	const storageName = 'vuetify-color-picker-field';
+	const storageName = 'vuetify-color-field';
 
 	// Links //
 	const repoBaseUrl = `https://github.com/webdevnerdstuff/${packageName}`;

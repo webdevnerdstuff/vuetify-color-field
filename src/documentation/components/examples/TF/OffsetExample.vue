@@ -1,10 +1,10 @@
 <template>
-	<VColorPickerField
+	<VColorField
 		v-model="colorA"
 		cardOffsetX="-36"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorB"
 		cardOffsetY="25"
 	/>
@@ -15,12 +15,12 @@ const colorA = ref(null);
 const colorB = ref(null);
 
 const templateCode = `<template>
-  <VColorPickerField
+  <VColorField
     v-model="colorA"
     cardOffsetX="-36"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorB"
     cardOffsetY="25"
   />

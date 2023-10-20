@@ -1,12 +1,12 @@
 <template>
-	<VColorPickerField v-model="color" />
+	<VColorField v-model="color" />
 </template>
 
 <script setup>
 const color = ref(null);
 
 const templateCode = `<template>
-  <VColorPickerField v-model="color" />
+  <VColorField v-model="color" />
 </template>
 `;
 

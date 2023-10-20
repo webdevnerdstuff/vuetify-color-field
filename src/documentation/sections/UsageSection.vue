@@ -45,11 +45,11 @@ const classes = inject('classes');
 
 const usageIndividual = `import { createApp } from 'vue';
 import App from './App.vue';
-import { VColorPickerField } from 'vuetify-color-picker-field';
+import { VColorField } from 'vuetify-color-field';
 
 const app = createApp(App);
 
-app.component('VColorPickerField', VColorPickerField);
+app.component('VColorField', VColorField);
 
 app.mount('#app');`;
 </script>

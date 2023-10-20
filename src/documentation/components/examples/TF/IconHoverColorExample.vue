@@ -1,15 +1,15 @@
 <template>
-	<VColorPickerField
+	<VColorField
 		v-model="colorA"
 		icon-hover-color="primary"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorB"
 		color="primary"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorC"
 		color="primary"
 		icon-hover-color="secondary"
@@ -22,17 +22,17 @@ const colorB = ref(null);
 const colorC = ref(null);
 
 const templateCode = `<template>
-  <VColorPickerField
+  <VColorField
 	  v-model="colorA"
 	  icon-hover-color="primary"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorB"
     color="primary"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorC"
     color="primary"
     icon-hover-color="secondary"

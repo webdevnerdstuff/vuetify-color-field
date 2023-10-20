@@ -14,8 +14,8 @@
 		</v-col>
 
 		<v-col cols="12">
-			The <code class="ic">v-color-picker-field</code> component is a specialized <code class="ic">v-text-field</code>
-			for using the <code class="ic">v-color-picker</code> component for use in forms.
+			The <code class="ic">VColorField</code> component is a specialized <code class="ic">VTextField</code>
+			for using the <code class="ic">VColorPicker</code> component for use in forms.
 		</v-col>
 
 	</v-row>
