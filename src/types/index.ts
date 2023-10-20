@@ -166,7 +166,6 @@ export interface UsePipStyle {
 }
 
 export interface CardStylesObject extends CSSProperties {
-	border?: string | number;
 	bottom?: string | number;
 	display?: string;
 	left?: string | number;

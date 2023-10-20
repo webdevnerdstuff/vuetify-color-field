@@ -473,7 +473,6 @@ function setCardStyles(): void {
 	}
 
 	const styles: CardStylesObject = {
-		border: defaults.value.VCard?.border ?? 'transparent',
 		bottom: useConvertToUnit({ value: bottom }),
 		display: 'block',
 		left: useConvertToUnit({ value: left }),
