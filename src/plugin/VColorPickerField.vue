@@ -216,10 +216,7 @@ import {
 	TextFieldProperties,
 	VuetifyDefaults,
 } from '@/types';
-import {
-	useConvertToUnit,
-	useDetectOutsideClick,
-} from '@/plugin/composables/helpers';
+import { useConvertToUnit } from '@/plugin/composables/helpers';
 import {
 	useCardClasses,
 	useTextFieldClasses,
@@ -227,6 +224,7 @@ import {
 import ColorPickerIcon from '@/plugin/components/ColorPickerIcon.vue';
 import PipComponent from '@/plugin/components/PipComponent.vue';
 import type { VCard } from 'vuetify/components';
+import { onClickOutside } from '@vueuse/core';
 
 
 defineOptions({
@@ -246,11 +244,14 @@ const emit = defineEmits([
 const props = withDefaults(defineProps<Props>(), {
 	appendIcon: undefined,
 	appendInnerIcon: undefined,
+	cardFieldWidth: false,
+	cardOffsetX: 0,
+	cardOffsetY: 5,
+	cardPadding: 4,
 	cardProps: () => ({}) as const,
 	color: undefined,
 	colorPickerProps: () => ({}) as const,
 	density: 'default',
-	hideValue: false,
 	hint: '',
 	iconHoverColor: undefined,
 	label: undefined,
@@ -278,12 +279,8 @@ const props = withDefaults(defineProps<Props>(), {
 // ------------------------- VCard //
 const defaultCardProps: Props['cardProps'] = {
 	elevation: 5,
-	fullWidth: false,
-	hover: true,
+	hover: false,
 	loading: false,
-	offsetX: 0,
-	offsetY: 5,
-	padding: 4,
 	verticalOffset: 28,
 };
 
@@ -367,7 +364,7 @@ const hoverIconColor = computed<string | undefined>(() => {
 
 // ------------------------- Card #
 const cardClasses = computed(() => useCardClasses({
-	fullWidth: defaults.value.VCard?.fullWidth,
+	fullWidth: props.cardFieldWidth,
 }));
 
 
@@ -433,7 +430,7 @@ function toggleColorPicker(trigger?: string | Event): void {
 		left: positionLeft,
 		right: positionRight,
 		top: (window.scrollY + fieldElementCoords?.top ?? 0),
-		width: defaults.value.VCard?.fullWidth ? inputWidth : 'auto',
+		width: props.cardFieldWidth ? inputWidth : 'auto',
 	};
 
 	setCardStyles();
@@ -443,8 +440,8 @@ function toggleColorPicker(trigger?: string | Event): void {
 function setCardStyles(): void {
 	let top: string | number = Number(textFieldProperties.top) + Number(textFieldProperties.height);
 	let bottom: string | number = 'initial';
-	let offsetY = Number(defaults.value.VCard?.offsetY) ?? 0;
-	const offsetX = Number(defaults.value.VCard?.offsetX) ?? 0;
+	let offsetY = Number(props.cardOffsetY) ?? 0;
+	const offsetX = Number(props.cardOffsetX) ?? 0;
 
 	if (props.hint || props.messages) {
 		offsetY += defaults.value.VCard?.verticalOffset ?? 0;
@@ -462,7 +459,7 @@ function setCardStyles(): void {
 	let left: string | number = Number(textFieldProperties.left) + offsetX;
 	let right: string | number = textFieldProperties.right ?? 0;
 
-	if (defaults.value.VCard?.fullWidth) {
+	if (props.cardFieldWidth) {
 		left = textFieldProperties.left as number;
 		right = 'initial';
 	}
@@ -481,7 +478,7 @@ function setCardStyles(): void {
 		display: 'block',
 		left: useConvertToUnit({ value: left }),
 		minWidth: useConvertToUnit({ value: textFieldProperties.width }),
-		padding: useConvertToUnit({ value: defaults.value.VCard?.padding }),
+		padding: useConvertToUnit({ value: props.cardPadding }),
 		right: useConvertToUnit({ value: right }),
 		top: useConvertToUnit({ value: top }),
 		width: useConvertToUnit({ value: textFieldProperties.width }),
@@ -491,13 +488,14 @@ function setCardStyles(): void {
 }
 
 // ------------------------- Toggle Color Picker Click Outside Trigger //
-useDetectOutsideClick(fieldContainerRef, (e) => {
+onClickOutside(fieldContainerRef, (event) => {
 	const element = unref(cardRef);
 
-	if (e.target !== element && !element?.$el?.contains(e.target) && colorPickerOpen.value) {
+	if (event.target !== element && !element?.$el?.contains(event.target) && colorPickerOpen.value) {
 		toggleColorPicker('outside');
 	}
-});
+}, { ignore: [cardRef] });
+
 
 // ------------------------- Update Models //
 function updateModelValue(value: any) {

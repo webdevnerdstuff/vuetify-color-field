@@ -36,25 +36,23 @@ export interface PipProps {
 export interface VCardProps extends Omit<VCard['$props'],
 	'$children'
 > {
-	fullWidth?: boolean;
-	offsetX?: number;
-	offsetY?: number;
-	padding?: number;
 	verticalOffset?: number;
 }
 
 export interface Props extends PipProps {
 	appendIcon?: VTextField['$props']['appendIcon'];
 	appendInnerIcon?: VTextField['$props']['appendInnerIcon'];
+	cardFieldWidth?: boolean;
+	cardOffsetX?: number;
+	cardOffsetY?: number;
+	cardPadding?: number;
 	cardProps?: VCardProps;
 	color?: VTextField['$props']['color'];
 	colorPickerProps?: VColorPicker['$props'] & {
 		hideModeSwitch?: boolean;
 	};
 	density?: VTextField['$props']['density'];
-	hideValue?: boolean | null | undefined;
 	hint?: string;
-	hintColor?: string | undefined;
 	iconHoverColor?: VIcon['$props']['color'] | boolean;
 	label?: string;
 	messages?: VTextField['$props']['messages'];
@@ -122,13 +120,6 @@ export interface UseConvertToUnit {
 			value: string | number | undefined,
 		}
 	): string | undefined;
-}
-
-export interface UseDetectOutsideClick {
-	(
-		component: any,
-		callback: (event: Event) => void,
-	): void;
 }
 
 // ------------------------- Classes //
