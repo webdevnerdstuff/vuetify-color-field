@@ -1,7 +1,7 @@
-import VColorPickerField from './VColorPickerField.vue';
+import VColorField from './VColorField.vue';
 
 export {
-	VColorPickerField
+	VColorField
 };
 
-export default VColorPickerField;
+export default VColorField;

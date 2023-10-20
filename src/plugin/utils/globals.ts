@@ -1,1 +1,1 @@
-export const componentName = 'v-color-picker-field';
+export const componentName = 'v-color-field';

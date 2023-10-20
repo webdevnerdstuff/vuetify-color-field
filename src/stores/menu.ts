@@ -17,7 +17,7 @@ export const useMenuStore = defineStore('menu', () => {
 		},
 		{
 			href: '#components-v-color-picker',
-			icon: 'mdi:mdi-eyedropper',
+			icon: 'mdi:mdi-palette',
 			key: 'v-inline-text-field',
 			link: `${links.vuetify}en/api/v-color-picker/`,
 			title: 'VColorPicker',

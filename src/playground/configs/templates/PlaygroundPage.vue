@@ -7,46 +7,45 @@
 		>
 			<v-card elevation="5">
 				<v-container>
-					<VColorPickerField
+					<VColorField
 						v-model="color"
-						:append-icon="VColorPickerFieldProps.appendIcon"
-						:append-inner-icon="VColorPickerFieldProps.appendInnerIcon"
-						:card-props="VColorPickerFieldProps.cardProps"
-						:cardFieldWidth="VColorPickerFieldProps.cardFieldWidth"
-						:cardOffsetX="VColorPickerFieldProps.cardOffsetX"
-						:cardOffsetY="VColorPickerFieldProps.cardOffsetY"
-						:cardPadding="VColorPickerFieldProps.cardPadding"
-						:clearable="VColorPickerFieldProps.clearable"
-						:color="VColorPickerFieldProps.color"
-						:color-picker-props="VColorPickerFieldProps.colorPickerProps"
-						:density="VColorPickerFieldProps.density"
-						:hint="VColorPickerFieldProps.hint"
-						:hint-align="VColorPickerFieldProps.hintAlign"
-						:icon-hover-color="VColorPickerFieldProps.iconHoverColor"
-						:label="VColorPickerFieldProps.label"
-						:messages="VColorPickerFieldProps.messages"
-						:name="VColorPickerFieldProps.name"
-						:open="VColorPickerFieldProps.open"
-						:persistent-hint="VColorPickerFieldProps.persistentHint"
-						:persistent-placeholder="VColorPickerFieldProps.persistentPlaceholder"
-						:pip="VColorPickerFieldProps.pip"
-						:pipBorder="VColorPickerFieldProps.pipBorder"
-						:pipBorderRadius="VColorPickerFieldProps.pipBorderRadius"
-						:pipHeight="VColorPickerFieldProps.pipHeight"
-						:pipIcon="VColorPickerFieldProps.pipIcon"
-						:pipRadius="VColorPickerFieldProps.pipRadius"
-						:pipSize="VColorPickerFieldProps.pipSize"
-						:pipSlot="VColorPickerFieldProps.pipSlot"
-						:placeholder="VColorPickerFieldProps.placeholder"
-						:prepend-icon="VColorPickerFieldProps.prependIcon"
-						:prependInnerIcon="VColorPickerFieldProps.prependInnerIcon"
-						:readonly="VColorPickerFieldProps.readonly"
-						:readonly-input="VColorPickerFieldProps.readonlyInput"
-						:required="VColorPickerFieldProps.required"
-						:theme="VColorPickerFieldProps.theme"
-						:variant="VColorPickerFieldProps.variant"
+						:append-icon="VColorFieldProps.appendIcon"
+						:append-inner-icon="VColorFieldProps.appendInnerIcon"
+						:cardFieldWidth="VColorFieldProps.cardFieldWidth"
+						:cardOffsetX="VColorFieldProps.cardOffsetX"
+						:cardOffsetY="VColorFieldProps.cardOffsetY"
+						:cardPadding="VColorFieldProps.cardPadding"
+						:cardProps="VColorFieldProps.cardProps"
+						:clearable="VColorFieldProps.clearable"
+						:color="VColorFieldProps.color"
+						:color-picker-props="VColorFieldProps.colorPickerProps"
+						:density="VColorFieldProps.density"
+						:hint="VColorFieldProps.hint"
+						:hint-align="VColorFieldProps.hintAlign"
+						:icon-hover-color="VColorFieldProps.iconHoverColor"
+						:label="VColorFieldProps.label"
+						:messages="VColorFieldProps.messages"
+						:name="VColorFieldProps.name"
+						:open="VColorFieldProps.open"
+						:persistent-hint="VColorFieldProps.persistentHint"
+						:persistent-placeholder="VColorFieldProps.persistentPlaceholder"
+						:pip="VColorFieldProps.pip"
+						:pipBorder="VColorFieldProps.pipBorder"
+						:pipBorderRadius="VColorFieldProps.pipBorderRadius"
+						:pipHeight="VColorFieldProps.pipHeight"
+						:pipIcon="VColorFieldProps.pipIcon"
+						:pipRadius="VColorFieldProps.pipRadius"
+						:pipSize="VColorFieldProps.pipSize"
+						:pipSlot="VColorFieldProps.pipSlot"
+						:placeholder="VColorFieldProps.placeholder"
+						:prepend-icon="VColorFieldProps.prependIcon"
+						:prepend-inner-icon="VColorFieldProps.prependInnerIcon"
+						:readonly="VColorFieldProps.readonly"
+						:readonlyInput="VColorFieldProps.readonlyInput"
+						:required="VColorFieldProps.required"
+						:theme="VColorFieldProps.theme"
+						:variant="VColorFieldProps.variant"
 					>
-
 						<!-- <template #prepend="{ toggleColorPicker }">
 							<v-icon
 								icon="$vuetify"
@@ -75,12 +74,11 @@
 							/>
 						</template> -->
 
-
 						<!-- <template #label>
 							Color
 						</template> -->
 
-					</VColorPickerField>
+					</VColorField>
 				</v-container>
 			</v-card>
 		</v-col>
@@ -90,7 +88,7 @@
 <script setup>
 const color = ref(null);
 
-const VColorPickerFieldProps = ref({
+const VColorFieldProps = ref({
 	appendIcon: undefined,
 	appendInnerIcon: undefined,
 	cardFieldWidth: false,
@@ -103,13 +101,10 @@ const VColorPickerFieldProps = ref({
 		elevation: 5,
 		loading: false,
 		tag: 'div',
-		// theme: 'light',
-		// verticalOffset: 28,
 	},
 	clearable: true,
 	color: '',
 	colorPickerProps: {
-		// disabled: true,
 		// mode: 'hex',
 		// modes: ['hex'],
 		// showSwatches: true,
@@ -127,23 +122,18 @@ const VColorPickerFieldProps = ref({
 	persistentHint: true,
 	persistentPlaceholder: false,
 	pip: true,
-	pipBorder: undefined,
-	// pipBorderRadius: '50%',
-	// pipIcon: 'mdi:mdi-circle',
+	pipBorder: 'none',
+	pipBorderRadius: '50%',
+	pipIcon: '$vuetify',
 	pipSize: 'default',
 	pipSlot: undefined,
 	placeholder: 'Select Color',
 	prependIcon: undefined,
-	prependInnerIcon: undefined,
+	prependInnerIcon: null,
 	readonly: undefined,
 	readonlyInput: undefined,
 	required: false,
 	theme: 'dark',
 	variant: 'filled',
 });
-
-
 </script>
-
-<style lang="scss" scoped>
-</style>

@@ -1,7 +1,7 @@
 <template>
 	<div
 		ref="fieldContainerRef"
-		class="v-color-picker-field"
+		class="v-color-field"
 	>
 		<!-- ================================================== VTextField -->
 		<v-text-field

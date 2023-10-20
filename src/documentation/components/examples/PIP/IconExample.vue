@@ -1,5 +1,5 @@
 <template>
-	<VColorPickerField
+	<VColorField
 		v-model="colorA"
 		pip
 		pip-border="none"
@@ -8,14 +8,14 @@
 		:prepend-inner-icon="null"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorB"
 		pip
 		pip-border="none"
 		pip-icon="$vuetify"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorC"
 		pip
 		pip-border="none"
@@ -24,7 +24,7 @@
 		:prepend-inner-icon="null"
 	/>
 
-	<VColorPickerField
+	<VColorField
 		v-model="colorD"
 		pip
 		pip-border="none"
@@ -41,7 +41,7 @@ const colorC = ref(null);
 const colorD = ref(null);
 
 const templateCode = `<template>
-  <VColorPickerField
+  <VColorField
     v-model="colorA"
     pip
     pip-border="none"
@@ -50,14 +50,14 @@ const templateCode = `<template>
     :prepend-inner-icon="null"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorB"
     pip
     pip-border="none"
     pip-icon="$vuetify"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorC"
     pip
     pip-border="none"
@@ -66,7 +66,7 @@ const templateCode = `<template>
     :prepend-inner-icon="null"
   />
 
-  <VColorPickerField
+  <VColorField
     v-model="colorD"
     pip
     pip-border="none"

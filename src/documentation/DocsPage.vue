@@ -10,9 +10,10 @@
 		</v-col>
 
 		<v-col class="mb-4">
-			<h1 class="v-heading text-h3 text-sm-h3 mb-4">
-				Vuetify Color Picker Field
+			<h1 class="v-heading text-h3 text-sm-h3 mb-1">
+				Vuetify Color Field
 			</h1>
+			<p class="mb-4 text-grey-darken-1">by WebDevNerdStuff</p>
 			<v-chip
 				color="primary"
 				size="small"
@@ -40,7 +41,7 @@
 			<v-row>
 				<v-col cols="12">
 					<CodeBlock
-						code="pnpm add vuetify-color-picker-field"
+						code="pnpm add vuetify-color-field"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 						lang="plain"
 						:prismjs="codeBlockSettings.plugin === 'prismjs'"
@@ -56,7 +57,7 @@
 				</v-col>
 				<v-col cols="12">
 					<CodeBlock
-						code="npm i vuetify-color-picker-field"
+						code="npm i vuetify-color-field"
 						highlightjs
 						lang="plain"
 					>

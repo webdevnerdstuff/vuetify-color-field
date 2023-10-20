@@ -13,7 +13,7 @@
 			</h2>
 
 			<div>
-				When using the <code class="ic">v-text-field</code>, you can use the regular props
+				When using the <code class="ic">VTextField</code>, you can use the regular props
 				that are available for that component.
 			</div>
 

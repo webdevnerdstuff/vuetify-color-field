@@ -34,38 +34,30 @@ const propsHeaders = [
 	},
 ];
 
-// const propTemplate = [
-// 	{
-// 		default: 'xxx',
-// 		desc: 'xxx',
-// 		name: 'xxx',
-// 		type: 'xxx',
-// 	},
-// ];
 
 const componentProps = [
 	{
 		default: 'false',
 		desc: 'Sets the <code class="ic">VCard</code> width to the same width as the <code class="ic">VTextField</code> input.',
-		name: 'cardFieldWidth',
+		name: 'card-field-width',
 		type: 'boolean',
 	},
 	{
 		default: '0',
 		desc: 'Sets the horizontal offset of the <code class="ic">VCard</code> component.',
-		name: 'cardOffsetX',
+		name: 'card-offset-x',
 		type: 'number',
 	},
 	{
 		default: '5',
 		desc: 'Sets the vertical offset of the <code class="ic">VCard</code> component.',
-		name: 'cardOffsetY',
+		name: 'card-offset-y',
 		type: 'number',
 	},
 	{
 		default: '4',
 		desc: 'Sets the padding of the <code class="ic">VCard</code> component.',
-		name: 'cardPadding',
+		name: 'card-padding',
 		type: 'number',
 	},
 	{
@@ -88,7 +80,7 @@ const componentProps = [
 	},
 	{
 		default: 'undefined',
-		desc: 'The hover color for the <code class="ic">v-icon</code> component within the <code class="ic">prepend</code>, <code class="ic">prepend-inner</code>, <code class="ic">append-inner</code>, and <code class="ic">append</code> slots when using <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, and <code class="ic">append-icon</code> props. If <code class="ic">false</code> the hover color will be the same as the <code class="ic">VTextField</code> color.',
+		desc: 'The hover color for the <code class="ic">VIcon</code> component within the <code class="ic">prepend</code>, <code class="ic">prepend-inner</code>, <code class="ic">append-inner</code>, and <code class="ic">append</code> slots when using <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, and <code class="ic">append-icon</code> props. If <code class="ic">false</code> the hover color will be the same as the <code class="ic">VTextField</code> color.',
 		name: 'icon-hover-color',
 		type: 'string | undefined',
 	},

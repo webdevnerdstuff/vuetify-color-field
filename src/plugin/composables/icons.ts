@@ -23,13 +23,13 @@ export const useGetIcon: UseGetIcon = (options) => {
 	const iconSet = defaultIcons[iconOptions?.defaultSet as string];
 
 	if (!iconSet) {
-		throw new Error(`VColorPickerField: No VColorPickerField default ${iconOptions?.defaultSet} icon set found.`);
+		throw new Error(`VColorField: No VColorField default ${iconOptions?.defaultSet} icon set found.`);
 	}
 
 	const newIcon = iconSet[name];
 
 	if (!newIcon) {
-		throw new Error(`VColorPickerField: No ${name} icon found.`);
+		throw new Error(`VColorField: No ${name} icon found.`);
 	}
 
 	return newIcon;
