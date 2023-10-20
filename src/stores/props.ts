@@ -34,152 +34,117 @@ const propsHeaders = [
 	},
 ];
 
-const props = {
-	appendIcon: undefined,
-	appendInnerIcon: undefined,
-	// cardProps: () => ({}) as const,
-	// color: undefined,
-	// colorPickerProps: () => ({}) as const,
-	// density: 'default',
-	// hint: '',
-	// iconHoverColor: undefined,
-	// label: undefined,
-	// name: 'color',
-	persistentCard: false,
-	// persistentHint: false,
-	persistentPlaceholder: false,
-	placeholder: undefined,
-	// prependIcon: undefined,
-	// prependInnerIcon: 'mdi:mdi-palette',
-	readonly: false,
-	readonlyInput: false,
-	required: false,
-};
-
-console.log(props);
+// const propTemplate = [
+// 	{
+// 		default: 'xxx',
+// 		desc: 'xxx',
+// 		name: 'xxx',
+// 		type: 'xxx',
+// 	},
+// ];
 
 const componentProps = [
 	{
-		default: `VCard defaults & <pre class="ic"><code>{
-  align: 'bottom left',
-  border: false,
-  borderColor: 'transparent',
-  borderStyle: 'solid',
-  borderWidth: 2,
-  closeDelay: 500,
-  color: '',
-  elevation: 5,
-  fieldOffset: props.pip ? 0 : 10,
-  fullWidth: false,
-  hover: false,
-  loading: false,
-  padding: 4,
-  ripple: false,
-  tag: 'div',
-  verticalOffset: 28,
-}</code></pre>`,
-		desc: 'Props for the <code="ic">v-card</code> component that contains the <code="ic">v-color-picker</code> component. For additional props see [v-card props table]',
+		default: 'false',
+		desc: 'Sets the <code class="ic">VCard</code> width to the same width as the <code class="ic">VTextField</code> input.',
+		name: 'cardFieldWidth',
+		type: 'boolean',
+	},
+	{
+		default: '0',
+		desc: 'Sets the horizontal offset of the <code class="ic">VCard</code> component.',
+		name: 'cardOffsetX',
+		type: 'number',
+	},
+	{
+		default: '5',
+		desc: 'Sets the vertical offset of the <code class="ic">VCard</code> component.',
+		name: 'cardOffsetY',
+		type: 'number',
+	},
+	{
+		default: '4',
+		desc: 'Sets the padding of the <code class="ic">VCard</code> component.',
+		name: 'cardPadding',
+		type: 'number',
+	},
+	{
+		default: `VCard defaults & <pre class="ic"><code>{ elevation: 5 }</code></pre>`,
+		desc: 'Props for the <code="ic">VCard</code> component that contains the <code="ic">VColorPicker</code> component. See Vuetify documentation for full list of props.',
 		name: 'card-props',
-		type: `VCard['$props'] & <pre class="ic"><code>{
-  align?: string | undefined;
-  borderColor?: string;
-  borderStyle?: string;
-  borderWidth?: number;
-  closeDelay?: number;
-  fieldOffset?: number;
-  fullWidth?: boolean;
-  padding?: number;
-  verticalOffset?: number;
-}</code></pre>`,
+		type: 'VCard[\'$props\']',
 	},
 	{
 		default: 'undefined',
-		desc: 'This functions normally as the <code class="ic">v-text-field</code> color prop, but also is used for the <code class="ic">icon-hover-color</code> when that prop is not set.',
+		desc: 'This functions normally as the <code class="ic">VTextField</code> color prop, but also is used for the <code class="ic">icon-hover-color</code> when that prop is not set.',
 		name: 'color',
 		type: 'string | undefined',
 	},
 	{
-		default: `VColorPicker defaults & <pre class="ic"><code>{
-  elevation: 0,
-}</code></pre>`,
-		desc: 'Props for the <code="ic">v-color-picker</code> component. For additional props see [v-color-picker props table]',
+		default: `VColorPicker defaults & <pre class="ic"><code>{ elevation: 0 }</code></pre>`,
+		desc: 'Props for the <code="ic">VColorPicker</code> component. See Vuetify documentation for full list of props.',
 		name: 'color-picker-props',
 		type: 'VColorPicker[\'$props\']',
 	},
 	{
-		default: 'false',
-		desc: 'TBD',
-		name: 'pip',
-		type: 'boolean',
-	},
-	{
 		default: 'undefined',
-		desc: 'The hover color for the <code class="ic">v-icon</code> component within the <code class="ic">prepend</code>, <code class="ic">prepend-inner</code>, <code class="ic">append-inner</code>, and <code class="ic">append</code> slots when using <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, and <code class="ic">append-icon</code> props. If <code class="ic">false</code> the hover color will be the same as the <code class="ic">v-text-field</code> color.',
+		desc: 'The hover color for the <code class="ic">v-icon</code> component within the <code class="ic">prepend</code>, <code class="ic">prepend-inner</code>, <code class="ic">append-inner</code>, and <code class="ic">append</code> slots when using <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, and <code class="ic">append-icon</code> props. If <code class="ic">false</code> the hover color will be the same as the <code class="ic">VTextField</code> color.',
 		name: 'icon-hover-color',
 		type: 'string | undefined',
 	},
 	{
+		default: 'bottom left',
+		desc: 'Sets the position of the <code class="ic">VCard</code> component relative to the <code class="ic">VTextField</code> input when it opens. Ex. <code class="ic">bottom left</code>, <code class="ic">bottom right</code>, <code class="ic">top left</code>, <code class="ic">top right</code>',
+		name: 'open',
+		type: 'string | undefined',
+	},
+	{
 		default: 'false',
-		desc: 'Used to disable the <code class="ic">v-text-field</code> input, and <code class="ic">v-color-picker</code> component. This will also make clicking on the field open the color picker.',
+		desc: 'Sets the if the <code class="ic">pip</code> (a preview of the selected color) should be used.',
+		name: 'pip',
+		type: 'boolean',
+	},
+	{
+		default: '3px solid rgb(var(--v-theme-on-surface))',
+		desc: 'Sets the <code class="ic">pip</code> border style.',
+		name: 'pip-border',
+		type: 'string | null | undefined',
+	},
+	{
+		default: '50%',
+		desc: 'Sets the <code class="ic">pip</code> border radius.',
+		name: 'pip-border-radius',
+		type: 'string',
+	},
+	{
+		default: 'mdi:mdi-circle',
+		desc: 'Sets the <code class="ic">pip</code> <code class="ic">VIcon</code>.',
+		name: 'pip-icon',
+		type: 'VIcon[\'$props\'][\'icon\']',
+	},
+	{
+		default: 'default',
+		desc: 'Sets the size of the <code class="ic">pip</code> <code class="ic">VIcon</code>.',
+		name: 'pip-size',
+		type: 'VIcon[\'$props\'][\'size\']',
+	},
+	{
+		default: 'prepend-inner',
+		desc: 'Sets the slot where the <code class="ic">pip</code> is placed.',
+		name: 'pip-slot',
+		type: 'string | undefined',
+	},
+	{
+		default: 'false',
+		desc: 'Used to disable the <code class="ic">VTextField</code> input, and <code class="ic">VColorPicker</code> component. This will also make clicking on the field open the color picker.',
 		name: 'readonly',
 		type: 'boolean | null | undefined',
 	},
 	{
 		default: 'false',
-		desc: 'Used to disable the <code class="ic">v-text-field</code> input, but not the <code class="ic">v-color-picker</code> component. This will also make clicking on the field open the color picker.',
+		desc: 'Used to disable the <code class="ic">VTextField</code> input, but not the <code class="ic">VColorPicker</code> component. This will also make clicking on the field open the color picker.',
 		name: 'readonly-input',
 		type: 'boolean | null | undefined',
-	},
-];
-
-const vCardProps = [
-	{
-		default: ``,
-		desc: '',
-		name: 'align',
-		type: ``,
-	},
-	{
-		default: ``,
-		desc: '',
-		name: 'border-color',
-		type: ``,
-	},
-	{
-		default: ``,
-		desc: '',
-		name: 'border-style',
-		type: ``,
-	},
-	{
-		default: ``,
-		desc: '',
-		name: 'border-width',
-		type: ``,
-	},
-	{
-		default: ``,
-		desc: '',
-		name: 'field-offset',
-		type: ``,
-	},
-	{
-		default: ``,
-		desc: '',
-		name: 'full-width',
-		type: ``,
-	},
-	{
-		default: ``,
-		desc: '',
-		name: 'padding',
-		type: ``,
-	},
-	{
-		default: ``,
-		desc: '',
-		name: 'vertical-offset',
-		type: ``,
 	},
 ];
 
@@ -189,7 +154,6 @@ export const usePropsStore = defineStore('props', {
 		return {
 			componentProps,
 			propsHeaders,
-			vCardProps,
 		};
 	},
 });

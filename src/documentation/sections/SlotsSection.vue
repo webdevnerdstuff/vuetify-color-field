@@ -12,10 +12,13 @@
 				Slots
 			</h2>
 
-			For component specific slots, please refer to the <a
+			The default slot used for the <code class="ic">VColorPickerField</code> is the <code class="ic">prepend-inner</code>
+			slot. The <code class="ic">VTextField</code> slots are available. For info on the specific slots, please refer to
+			the <a
 				:href="store.links.vuetify"
 				target="_blank"
-			>Vuetify</a> documentation.
+			>Vuetify</a> documentation. There is an additional prop passed to the slots called <code
+				class="ic">toggleColorPicker</code> that can be used to toggle the color picker.
 		</v-col>
 
 		<v-col cols="12">
@@ -33,7 +36,7 @@
 					<tbody>
 						<!-- display.append slot -->
 						<tr
-							id="slots-display-default"
+							id="slots-prepend-inner"
 							:class="rowClass"
 						>
 							<td>
@@ -43,11 +46,11 @@
 										class="text-primary"
 										:class="classes.appLink"
 										href="#slots-display-default"
-									>display.default</a>
+									>prepend-inner</a>
 								</span>
 							</td>
 							<td>
-								Slot that is appended to the displayed value
+								Slot that is prepended to the input.
 							</td>
 						</tr>
 						<tr>
@@ -95,8 +98,12 @@ const rowClass = computed(() => {
 });
 
 const displaySlotsCode = `{
-  foo: string,
-  error: boolean | undefined,
+  isActive: Ref<boolean>
+  isFocused: Ref<boolean>
+  controlRef: Ref<HTMLElement>
+  focus: () => void
+  blur: () => void
+  toggleColorPicker: () => void
 }`;
 
 

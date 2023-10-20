@@ -22,17 +22,6 @@
 			<v-row>
 				<v-col cols="12">
 					<v-card>
-						<v-card-title>
-							<v-text-field
-								v-model="search"
-								append-icon="mdi:mdi-magnify"
-								hide-details
-								label="Search"
-								single-line
-								variant="underlined"
-							></v-text-field>
-						</v-card-title>
-
 						<v-data-table
 							:headers="headers"
 							hide-default-footer
@@ -65,39 +54,15 @@
 				</v-col>
 			</v-row>
 		</v-col>
-
-		<v-col cols="12">
-			<CodeBlock
-				class="mb-6"
-				:code="exampleCode"
-				:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
-				label=""
-				lang="html"
-				:prismjs="codeBlockSettings.plugin === 'prismjs'"
-				:theme="codeBlockSettings.theme"
-			>
-				<template #label>
-					<code class="ic">@update</code> Event Example
-				</template>
-			</CodeBlock>
-		</v-col>
 	</v-row>
 </template>
 
 
 <script setup>
-import { computed, inject, ref } from 'vue';
+import { inject } from 'vue';
 import { useCoreStore } from '@/stores/index';
 
 
-const props = defineProps({
-	codeBlockOptions: {
-		required: true,
-		type: Object,
-	},
-});
-
-const codeBlockSettings = computed(() => props.codeBlockOptions);
 const classes = inject('classes');
 const store = useCoreStore();
 
@@ -123,23 +88,13 @@ const items = [
 		desc: 'Emitted when the component has been updated',
 		name: 'update',
 	},
+	{
+		desc: 'Emitted when the <code class="ic">VColorPicker</code> component\'s selected <code class="ic">mode</code> has been updated',
+		name: 'update:mode',
+	},
+	{
+		desc: 'Event that is emitted when the component\'s model changes.',
+		name: 'update:modelValue',
+	},
 ];
-const search = ref('');
-
-const exampleCode = `<template>
-  <VPluginTemplate
-    v-model="componentValue"
-    @update="updatedValue"
-  />
-<\/template>
-
-<script setup>
-import { ref } from 'vue';
-
-const componentValue = ref(true);
-
-function updatedValue(value, field) {
-  // ...do something awesome
-}
-<\/script>`;
 </script>
