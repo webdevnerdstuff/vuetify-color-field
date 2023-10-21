@@ -41,7 +41,7 @@
 			<v-row>
 				<v-col cols="12">
 					<CodeBlock
-						code="pnpm add vuetify-color-field"
+						code="pnpm add @webdevnerdstuff/vuetify-color-field"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 						lang="plain"
 						:prismjs="codeBlockSettings.plugin === 'prismjs'"
@@ -57,7 +57,7 @@
 				</v-col>
 				<v-col cols="12">
 					<CodeBlock
-						code="npm i vuetify-color-field"
+						code="npm i @webdevnerdstuff/vuetify-color-field"
 						highlightjs
 						lang="plain"
 					>
