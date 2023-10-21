@@ -124,7 +124,7 @@ const VColorFieldProps = ref({
 	pip: true,
 	pipBorder: 'none',
 	pipBorderRadius: '50%',
-	pipIcon: '$vuetify',
+	// pipIcon: '$vuetify',
 	pipSize: 'default',
 	pipSlot: undefined,
 	placeholder: 'Select Color',
