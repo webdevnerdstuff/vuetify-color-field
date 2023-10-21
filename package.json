@@ -1,5 +1,5 @@
 {
-	"name": "vuetify-color-field",
+	"name": "@webdevnerdstuff/vuetify-color-field",
 	"version": "1.0.0-beta.1",
 	"description": "Vuetify Color Field is a Vuetify VTextField Color Picker Component",
 	"private": false,
