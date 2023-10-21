@@ -1,0 +1,35 @@
+.v-color-field {
+	&--text-field {
+		&-readonly,
+		&-readonly-input {
+			.v-field {
+				* {
+					cursor: pointer !important;
+				}
+			}
+		}
+	}
+
+	&--card {
+		display: none;
+		position: absolute;
+		z-index: 999999;
+
+		.v-color-picker {
+			width: 100% !important;
+
+
+			&-canvas {
+				canvas {
+					width: 100%;
+				}
+			}
+		}
+
+		&-full-width {
+			.v-color-picker {
+				max-width: 100% !important;
+			}
+		}
+	}
+}
