@@ -17,8 +17,11 @@
 			the <a
 				:href="store.links.vuetify"
 				target="_blank"
-			>Vuetify</a> documentation. There is an additional prop passed to the slots called <code
-				class="ic">toggleColorPicker</code> that can be used to toggle the color picker.
+			>Vuetify</a> documentation. There is an additional prop passed to the <code class="ic">prepend</code>, <code
+				class="ic"
+			>prepend-inner</code>, <code class="ic">append-inner</code>, and <code class="ic">append</code> slots called <code
+				class="ic"
+			>toggleColorPicker</code> that can be used to toggle the color picker.
 		</v-col>
 
 		<v-col cols="12">
