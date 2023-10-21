@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@wdns/vuetify-color-field">
-    <img src="https://www.npmjs.com/package/@wdns/vuetify-color-field?color=1867c0&logo=npm" alt="NPM Package">
+    <img src="https://img.shields.io/npm/v/@wdns/vuetify-color-field?color=1867c0&logo=npm" alt="NPM Package">
   </a>
   &nbsp;
   <a href="https://github.com/webdevnerdstuff/vuetify-color-field">
