@@ -64,7 +64,7 @@
 			<v-icon icon="mdi:mdi-github" />
 		</v-btn>
 
-		<!-- <v-btn
+		<v-btn
 			class="me-2"
 			:height="iconSize.height"
 			:href="links.npm"
@@ -73,7 +73,7 @@
 			:width="iconSize.width"
 		>
 			<v-icon icon="mdi:mdi-npm" />
-		</v-btn> -->
+		</v-btn>
 
 		<v-btn
 			class="me-3"
