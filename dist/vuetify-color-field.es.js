@@ -1,7 +1,7 @@
 import { Fragment as he, reactive as Jt, computed as f, watchEffect as Qt, toRefs as en, capitalize as tl, warn as Xl, ref as M, unref as P, provide as Ye, inject as fe, shallowRef as le, defineComponent as _t, camelize as nl, h as xt, getCurrentInstance as Gl, watch as J, onScopeDispose as Yl, effectScope as Kl, toRaw as Zl, isRef as Ke, createVNode as s, mergeProps as Z, toRef as G, Text as Jl, openBlock as ne, createBlock as ve, withCtx as oe, normalizeClass as Ql, normalizeStyle as ea, Transition as Vt, onBeforeMount as ll, nextTick as tt, withDirectives as be, resolveDirective as at, vShow as It, onBeforeUnmount as rt, resolveDynamicComponent as ta, readonly as al, onMounted as Bt, TransitionGroup as na, cloneVNode as la, useAttrs as aa, useSlots as ra, createElementBlock as Mt, createElementVNode as rl, withKeys as oa, createSlots as ia, renderList as sa, renderSlot as Me, normalizeProps as Je, createCommentVNode as Pe, guardReactiveProps as dt, createTextVNode as ua, toDisplayString as da, Teleport as ca, pushScopeId as pa, popScopeId as va } from "vue";
 import { onClickOutside as fa } from "@vueuse/core";
 /**
- * @name @webdevnerdstuff/vuetify-color-field
+ * @name @wdns/vuetify-color-field
  * @version 1.0.0-beta.1
  * @description Vuetify Color Field is a Vuetify VTextField Color Picker Component
  * @author WebDevNerdStuff & Bunnies... lots and lots of bunnies! <webdevnerdstuff@gmail.com> (https://webdevnerdstuff.com)

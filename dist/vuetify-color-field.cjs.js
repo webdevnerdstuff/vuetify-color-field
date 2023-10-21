@@ -1,5 +1,5 @@
 "use strict";/**
- * @name @webdevnerdstuff/vuetify-color-field
+ * @name @wdns/vuetify-color-field
  * @version 1.0.0-beta.1
  * @description Vuetify Color Field is a Vuetify VTextField Color Picker Component
  * @author WebDevNerdStuff & Bunnies... lots and lots of bunnies! <webdevnerdstuff@gmail.com> (https://webdevnerdstuff.com)
