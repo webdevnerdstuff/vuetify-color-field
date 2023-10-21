@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/vuetify-color-field">
+  <a href="https://www.npmjs.com/package/@wdns/vuetify-color-field">
     <img src="https://www.npmjs.com/package/@wdns/vuetify-color-field?color=1867c0&logo=npm" alt="NPM Package">
   </a>
   &nbsp;
