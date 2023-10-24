@@ -48,8 +48,14 @@
 									class="text-primary"
 									:class="classes.appLink"
 									:href="`#props-${sectionId ? `${sectionId}-${item.name}` : item.name}`"
-								>{{ item.name }}</a>
+								>{{ item.name }} <v-icon
+										v-if="item.pickerProp"
+										class=""
+										color="primary"
+										icon="mdi:mdi-palette"
+									/></a>
 							</span>
+
 						</td>
 					</template>
 

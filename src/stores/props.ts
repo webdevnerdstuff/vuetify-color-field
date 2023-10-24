@@ -34,8 +34,82 @@ const propsHeaders = [
 	},
 ];
 
+const colorPickerProps = [
+	{
+		default: '150',
+		desc: 'Height of canvas.',
+		name: 'canvas-height',
+		pickerProp: true,
+		type: `VColorPicker['$props']['canvasHeight']`,
+	},
+	{
+		default: '10',
+		desc: 'Changes the size of the selection dot on the canvas.',
+		name: 'dot-size',
+		pickerProp: true,
+		type: `VColorPicker['$props']['dotSize']`,
+	},
+	{
+		default: 'false',
+		desc: 'Hides canvas.',
+		name: 'hide-canvas',
+		pickerProp: true,
+		type: `VColorPicker['$props']['hideCanvas']`,
+	},
+	{
+		default: 'false',
+		desc: 'Hides inputs.',
+		name: 'hide-inputs',
+		pickerProp: true,
+		type: `VColorPicker['$props']['hideInputs']`,
+	},
+	{
+		default: 'false',
+		desc: 'Hides sliders.',
+		name: 'hide-sliders',
+		pickerProp: true,
+		type: `VColorPicker['$props']['hideSliders']`,
+	},
+	{
+		default: 'rgba',
+		desc: 'The current selected input type.',
+		name: 'mode',
+		pickerProp: true,
+		type: `VColorPicker['$props']['mode']`,
+	},
+	{
+		default: `['rgb', 'rgba', 'hsl', 'hsla', 'hex', 'hexa']`,
+		desc: 'Sets available input types.',
+		name: 'modes',
+		pickerProp: true,
+		type: `VColorPicker['$props']['modes']`,
+	},
+	{
+		default: 'false',
+		desc: 'Displays color swatches.',
+		name: 'show-swatches',
+		pickerProp: true,
+		type: `VColorPicker['$props']['showSwatches']`,
+	},
+	{
+		default: 'undefined',
+		desc: 'Sets the available color swatches to select from. 2D array of rows and columns, accepts any color format the picker does.',
+		name: 'swatches',
+		pickerProp: true,
+		type: `VColorPicker['$props']['swatches']`,
+	},
+	{
+		default: '150',
+		desc: 'Sets the maximum height of the swatches section.',
+		name: 'swatches-max-height',
+		pickerProp: true,
+		type: `VColorPicker['$props']['swatchesMaxHeight']`,
+	},
+];
+
 
 const componentProps = [
+	...colorPickerProps,
 	{
 		default: 'false',
 		desc: 'Sets the <code class="ic">VCard</code> width to the same width as the <code class="ic">VTextField</code> input.',
@@ -139,6 +213,17 @@ const componentProps = [
 		type: 'boolean | null | undefined',
 	},
 ];
+
+
+// canvasHeight: 150,
+// 	dotSize: 10,
+// 	hideCanvas: false,
+// 	hideInputs: false,
+// 	hideSliders: false,
+// 	mode: 'rgba',
+// 	modes: ['rgb', 'rgba', 'hsl', 'hsla', 'hex', 'hexa'],
+// 	showSwatches: true,
+// 	swatchesMaxHeight: 150,
 
 
 export const usePropsStore = defineStore('props', {

@@ -15,10 +15,24 @@
 			<v-row>
 				<v-col cols="12">
 					<CodeBlock
+						:code="usageGlobal"
+						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
+						label="Global registration"
+						lang="javascript"
+						:prismjs="codeBlockSettings.plugin === 'prismjs'"
+						:theme="codeBlockSettings.theme"
+					>
+					</CodeBlock>
+				</v-col>
+			</v-row>
+
+			<v-row>
+				<v-col cols="12">
+					<CodeBlock
 						:code="usageIndividual"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
-						label="Load individual components"
-						lang="javascript"
+						label="Local registration"
+						lang="html"
 						:prismjs="codeBlockSettings.plugin === 'prismjs'"
 						:theme="codeBlockSettings.theme"
 					>
@@ -43,13 +57,23 @@ const props = defineProps({
 const codeBlockSettings = computed(() => props.codeBlockOptions);
 const classes = inject('classes');
 
-const usageIndividual = `import { createApp } from 'vue';
+const usageGlobal = `import { createApp } from 'vue';
 import App from './App.vue';
-import { VColorField } from 'vuetify-color-field';
+import { VColorField } from '@wdns/vuetify-color-field';
 
 const app = createApp(App);
 
 app.component('VColorField', VColorField);
 
 app.mount('#app');`;
+
+const usageIndividual = `<template>
+  <VColorField v-model="color" />
+</template>
+
+\<script setup\>
+  import { VColorField } from '@wdns/vuetify-color-field';
+
+  const color = ref(null);
+\</script\>`;
 </script>
