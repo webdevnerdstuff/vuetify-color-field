@@ -2,13 +2,11 @@ import { UseGetIcon } from '@/types';
 
 const defaultIcons = {
 	fa: {
-		eyedropper: 'fa-solid fa-eyedropper',
-		palette: 'fa-solid fa-palette',
+		default: 'fa-solid fa-palette',
 		pip: 'fa-solid fa-circle',
 	},
 	mdi: {
-		eyedropper: 'mdi:mdi-eyedropper',
-		palette: 'mdi:mdi-palette',
+		default: 'mdi:mdi-palette',
 		pip: 'mdi:mdi-circle',
 	},
 };
@@ -20,7 +18,11 @@ export const useGetIcon: UseGetIcon = (options) => {
 		return icon;
 	}
 
-	const iconSet = defaultIcons[iconOptions?.defaultSet as string];
+	const defaultSet = iconOptions?.defaultSet as string;
+	let iconAbbv = defaultSet.toLowerCase();
+
+	iconAbbv = iconAbbv === 'fa' || iconAbbv === 'fasvg' ? 'fa' : iconAbbv;
+	const iconSet = defaultIcons[iconAbbv];
 
 	if (!iconSet) {
 		throw new Error(`VColorField: No VColorField default ${iconOptions?.defaultSet} icon set found.`);
