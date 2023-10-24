@@ -9,7 +9,7 @@ export type HtmlRefElement = HTMLDivElement | null | undefined;
 export interface PipProps {
     pip?: boolean;
     pipBorder?: string | null | undefined;
-    pipIcon?: VIcon['$props']['icon'];
+    pipIcon?: VIcon['$props']['icon'] | string | null | boolean;
     pipBorderRadius?: string;
     pipSize?: VIcon['$props']['size'];
     pipSlot?: string | undefined;
@@ -32,6 +32,7 @@ export interface Props extends PipProps {
     density?: VTextField['$props']['density'];
     hint?: string;
     iconHoverColor?: VIcon['$props']['color'] | boolean;
+    iconSize?: VIcon['$props']['size'];
     label?: string;
     messages?: VTextField['$props']['messages'];
     name?: any;
@@ -40,7 +41,7 @@ export interface Props extends PipProps {
     persistentPlaceholder?: VTextField['$props']['persistentPlaceholder'];
     placeholder?: VTextField['$props']['placeholder'];
     prependIcon?: VTextField['$props']['prependIcon'];
-    prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | null | false;
+    prependInnerIcon?: VTextField['$props']['prependInnerIcon'] | string | null | boolean;
     readonly?: VTextField['$props']['readonly'];
     readonlyInput?: boolean | null | undefined;
     required?: boolean;
@@ -51,7 +52,8 @@ export interface PipComponentProps extends PipProps {
 }
 export interface ColorPickerIconProps {
     color?: VIcon['$props']['color'];
-    icon?: VIcon['$props']['icon'];
+    icon?: VIcon['$props']['icon'] | string | null | boolean;
+    iconSize?: VIcon['$props']['size'];
 }
 export interface VuetifyDefaults {
     VCard: Props['cardProps'];
@@ -67,7 +69,7 @@ export interface TextFieldProperties {
 }
 export interface UseGetIcon {
     (options: {
-        icon: PipProps['pipIcon'];
+        icon: PipProps['pipIcon'] | string | null | boolean;
         iconOptions: IconOptions | undefined;
         name: string;
     }): string;
