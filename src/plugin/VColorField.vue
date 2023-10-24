@@ -506,6 +506,7 @@ function updateModelValue(value: any) {
 
 	if (returnColor.length < 7) {
 		modelValue.value = returnColor;
+		updateModelValues(returnColor);
 		return;
 	}
 
@@ -522,8 +523,11 @@ function updateModelValue(value: any) {
 	updateModelValues(returnColor);
 }
 
-function updateModelValues(val: any) {
-	colorPickerModelValue.value = val;
+function updateModelValues(val: any, updatePicker = true) {
+	if (updatePicker) {
+		colorPickerModelValue.value = val;
+	}
+
 	modelValue.value = val;
 	emit('update:modelValue', val);
 	emit('update', val);
