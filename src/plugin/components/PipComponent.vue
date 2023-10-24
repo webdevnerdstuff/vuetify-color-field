@@ -17,7 +17,6 @@ import { usePipClasses } from '@/plugin/composables/classes';
 import { usePipStyles } from '@/plugin/composables/styles';
 import { useGetIcon } from '@/plugin/composables/icons';
 
-
 const emit = defineEmits(['click']);
 
 const props = withDefaults(defineProps<PipComponentProps>(), {});
@@ -35,7 +34,7 @@ const iconOptions = inject<IconOptions>(Symbol.for('vuetify:icons'));
 
 const thePipIcon = computed(() => {
 	return useGetIcon({
-		icon: props.pipIcon,
+		icon: props.pipIcon !== 'pip' ? props.pipIcon : '',
 		iconOptions,
 		name: 'pip',
 	});

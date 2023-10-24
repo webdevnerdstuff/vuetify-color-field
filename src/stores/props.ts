@@ -85,6 +85,12 @@ const componentProps = [
 		type: 'string | undefined',
 	},
 	{
+		default: 'default',
+		desc: 'Sets the size of the <code class="ic">prepend-icon</code>, <code class="ic">prepend-inner-icon</code>, <code class="ic">append-inner-icon</code>, <code class="ic">append-icon</code> <code class="ic">VIcon</code> as well as the <code class="ic">pip-icon</code> <code class="ic">VIcon</code>.',
+		name: 'icon-size',
+		type: 'VIcon[\'$props\'][\'size\']',
+	},
+	{
 		default: 'bottom left',
 		desc: 'Sets the position of the <code class="ic">VCard</code> component relative to the <code class="ic">VTextField</code> input when it opens. Ex. <code class="ic">bottom left</code>, <code class="ic">bottom right</code>, <code class="ic">top left</code>, <code class="ic">top right</code>',
 		name: 'open',
@@ -113,12 +119,6 @@ const componentProps = [
 		desc: 'Sets the <code class="ic">pip</code> <code class="ic">VIcon</code>.',
 		name: 'pip-icon',
 		type: 'VIcon[\'$props\'][\'icon\']',
-	},
-	{
-		default: 'default',
-		desc: 'Sets the size of the <code class="ic">pip</code> <code class="ic">VIcon</code>.',
-		name: 'pip-size',
-		type: 'VIcon[\'$props\'][\'size\']',
 	},
 	{
 		default: 'prepend-inner',

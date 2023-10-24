@@ -5,6 +5,7 @@
 				v-bind="props"
 				:color="isHovering ? color : undefined"
 				:icon="theIcon"
+				:size="iconSize"
 				@click="toggleColorPicker"
 			></v-icon>
 		</template>
@@ -27,9 +28,9 @@ const iconOptions = inject<IconOptions>(Symbol.for('vuetify:icons'));
 
 const theIcon = computed(() => {
 	return useGetIcon({
-		icon: props.icon,
+		icon: props.icon !== 'default' ? props.icon : '',
 		iconOptions,
-		name: 'palette',
+		name: 'default',
 	});
 });
 

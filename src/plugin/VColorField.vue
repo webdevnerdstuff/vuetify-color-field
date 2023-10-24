@@ -62,6 +62,7 @@
 					v-else-if="prependIcon"
 					:color="hoverIconColor"
 					:icon="prependIcon"
+					:iconSize="iconSize"
 					@click="toggleColorPicker"
 				/>
 			</template>
@@ -93,6 +94,7 @@
 					v-else-if="prependInnerIcon"
 					:color="hoverIconColor"
 					:icon="prependInnerIcon"
+					:iconSize="iconSize"
 					@click="toggleCheck('textFieldIcon')"
 				/>
 			</template>
@@ -124,6 +126,7 @@
 					v-else-if="appendInnerIcon"
 					:color="hoverIconColor"
 					:icon="appendInnerIcon"
+					:iconSize="iconSize"
 					@click="toggleCheck('textFieldIcon')"
 				/>
 			</template>
@@ -155,6 +158,7 @@
 					v-else-if="appendIcon"
 					:color="hoverIconColor"
 					:icon="appendIcon"
+					:iconSize="iconSize"
 					@click="toggleColorPicker"
 				/>
 			</template>
@@ -254,6 +258,7 @@ const props = withDefaults(defineProps<Props>(), {
 	density: 'default',
 	hint: '',
 	iconHoverColor: undefined,
+	iconSize: 'default',
 	label: undefined,
 	messages: undefined,
 	name: 'color',
@@ -263,12 +268,11 @@ const props = withDefaults(defineProps<Props>(), {
 	pip: false,
 	pipBorder: '3px solid rgb(var(--v-theme-on-surface))',
 	pipBorderRadius: '50%',
-	pipIcon: undefined,
-	pipSize: 'default',
+	pipIcon: 'pip',
 	pipSlot: 'prepend-inner',
 	placeholder: undefined,
 	prependIcon: undefined,
-	prependInnerIcon: 'mdi:mdi-palette',
+	prependInnerIcon: 'default',
 	readonly: false,
 	readonlyInput: false,
 	required: false,
@@ -327,7 +331,7 @@ const pipProps = ref({
 	pipBorder: props.pipBorder,
 	pipBorderRadius: props.pipBorderRadius,
 	pipIcon: props.pipIcon,
-	pipSize: props.pipSize,
+	pipSize: props.iconSize,
 });
 
 
