@@ -300,6 +300,18 @@ const defaults = ref<VuetifyDefaults>({
 	},
 	VColorPicker: {
 		...defaultColorPickerProps,
+		...{
+			canvasHeight: props.canvasHeight,
+			dotSize: props.dotSize,
+			hideCanvas: props.hideCanvas,
+			hideInputs: props.hideInputs,
+			hideSliders: props.hideSliders,
+			mode: props.mode,
+			modes: props.modes,
+			showSwatches: props.showSwatches,
+			swatches: props.swatches,
+			swatchesMaxHeight: props.swatchesMaxHeight,
+		},
 		...props.colorPickerProps,
 	},
 });

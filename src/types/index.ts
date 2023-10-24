@@ -68,6 +68,18 @@ export interface Props extends PipProps {
 	readonlyInput?: boolean | null | undefined;
 	required?: boolean;
 	theme?: VTextField['$props']['theme'];
+
+	// Color Picker Specific //
+	canvasHeight?: VColorPicker['$props']['canvasHeight'];
+	dotSize?: VColorPicker['$props']['dotSize'];
+	hideCanvas?: VColorPicker['$props']['hideCanvas'];
+	hideInputs?: VColorPicker['$props']['hideInputs'];
+	hideSliders?: VColorPicker['$props']['hideSliders'];
+	mode?: VColorPicker['$props']['mode'];
+	modes?: VColorPicker['$props']['modes'];
+	showSwatches?: VColorPicker['$props']['showSwatches'];
+	swatches?: VColorPicker['$props']['swatches'];
+	swatchesMaxHeight?: VColorPicker['$props']['swatchesMaxHeight'];
 }
 
 export interface PipComponentProps extends PipProps {
