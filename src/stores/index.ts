@@ -7,7 +7,7 @@ export const useCoreStore = defineStore('core', () => {
 	const storageName = 'vuetify-color-field';
 
 	// Links //
-	const repoBaseUrl = `https://github.com/webdevnerdstuff/${packageName}`;
+	const repoBaseUrl = `https://github.com/webdevnerdstuff/${storageName}`;
 	const links = {
 		changeLog: `${repoBaseUrl}/blob/main/CHANGELOG.md`,
 		github: repoBaseUrl,

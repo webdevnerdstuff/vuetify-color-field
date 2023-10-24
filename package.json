@@ -1,8 +1,11 @@
 {
-	"name": "vuetify-color-field",
-	"version": "1.0.0-beta.1",
+	"name": "@wdns/vuetify-color-field",
+	"version": "1.0.0-beta.4",
 	"description": "Vuetify Color Field is a Vuetify VTextField Color Picker Component",
 	"private": false,
+	"publishConfig": {
+		"access": "public"
+	},
 	"main": "dist/vuetify-color-field.cjs.js",
 	"module": "dist/vuetify-color-field.es.js",
 	"types": "dist/types/index.d.ts",

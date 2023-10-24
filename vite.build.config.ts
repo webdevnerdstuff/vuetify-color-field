@@ -29,9 +29,9 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: './src/plugin/index.ts',
-			name: pkg.name,
+			name: 'vuetify-color-field',
 			formats: ['es', 'cjs'],
-			fileName: format => `${pkg.name}.${format}.js`,
+			fileName: format => `${'vuetify-color-field'}.${format}.js`,
 		},
 		rollupOptions: {
 			input: {
