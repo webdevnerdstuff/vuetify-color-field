@@ -23,6 +23,7 @@
 						:hint="VColorFieldProps.hint"
 						:hint-align="VColorFieldProps.hintAlign"
 						:icon-hover-color="VColorFieldProps.iconHoverColor"
+						:iconSize="VColorFieldProps.iconSize"
 						:label="VColorFieldProps.label"
 						:messages="VColorFieldProps.messages"
 						:name="VColorFieldProps.name"
@@ -35,7 +36,6 @@
 						:pipHeight="VColorFieldProps.pipHeight"
 						:pipIcon="VColorFieldProps.pipIcon"
 						:pipRadius="VColorFieldProps.pipRadius"
-						:pipSize="VColorFieldProps.pipSize"
 						:pipSlot="VColorFieldProps.pipSlot"
 						:placeholder="VColorFieldProps.placeholder"
 						:prepend-icon="VColorFieldProps.prependIcon"
@@ -113,6 +113,7 @@ const VColorFieldProps = ref({
 	hint: undefined,
 	hintAlign: undefined,
 	iconHoverColor: undefined,
+	iconSize: 'default',
 	label: undefined,
 	messages: undefined,
 	// messages: 'This is a string message',
@@ -121,15 +122,14 @@ const VColorFieldProps = ref({
 	open: 'bottom left',
 	persistentHint: true,
 	persistentPlaceholder: false,
-	pip: true,
-	pipBorder: 'none',
-	pipBorderRadius: '50%',
-	// pipIcon: '$vuetify',
-	pipSize: 'default',
+	pip: false,
+	// pipBorder: 'none',
+	// pipBorderRadius: '50%',
+	pipIcon: undefined,
 	pipSlot: undefined,
 	placeholder: 'Select Color',
 	prependIcon: undefined,
-	prependInnerIcon: null,
+	prependInnerIcon: undefined,
 	readonly: undefined,
 	readonlyInput: undefined,
 	required: false,
