@@ -1,425 +1,72 @@
+import { Props } from '../types';
 declare function toggleColorPicker(trigger?: string | Event): void;
-declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
-    color: {
-        type: globalThis.PropType<string>;
-        default: undefined;
-    };
-    theme: {
-        type: globalThis.PropType<string>;
-    };
-    density: {
-        type: globalThis.PropType<"default" | "comfortable" | "compact" | null>;
-        default: string;
-    };
-    appendIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    prependIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    appendInnerIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    cardFieldWidth: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    cardOffsetX: {
-        type: globalThis.PropType<string | number>;
-        default: number;
-    };
-    cardOffsetY: {
-        type: globalThis.PropType<string | number>;
-        default: number;
-    };
-    cardPadding: {
-        type: globalThis.PropType<string | number>;
-        default: number;
-    };
-    cardProps: {
-        type: globalThis.PropType<import('../types').VCardProps>;
-        default: () => {};
-    };
-    colorPickerProps: {
-        type: globalThis.PropType<{
-            width?: NonNullable<string | number> | undefined;
-            style?: globalThis.StyleValue | undefined;
-            disabled?: boolean | undefined;
-            tag?: string | undefined;
-            mode?: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa" | undefined;
-            rounded?: string | number | boolean | undefined;
-            dotSize?: string | number | undefined;
-            modes?: readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[] | undefined;
-            canvasHeight?: string | number | undefined;
-            hideCanvas?: boolean | undefined;
-            hideSliders?: boolean | undefined;
-            hideInputs?: boolean | undefined;
-            showSwatches?: boolean | undefined;
-            swatchesMaxHeight?: string | number | undefined;
-            key?: string | number | symbol | undefined;
-            readonly border?: string | number | boolean | undefined;
-            readonly color?: string | undefined;
-            readonly position?: "fixed" | "absolute" | "static" | "relative" | "sticky" | undefined;
-            class?: any;
-            readonly elevation?: string | number | undefined;
-            ref?: import("vue").VNodeRef | undefined;
-            ref_for?: boolean | undefined;
-            ref_key?: string | undefined;
-            readonly theme?: string | undefined;
-            onVnodeBeforeMount?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeMounted?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeBeforeUpdate?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeUpdated?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeBeforeUnmount?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeUnmounted?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            readonly modelValue?: string | Record<string, unknown> | null | undefined;
-            "onUpdate:modelValue"?: ((color: any) => any) | undefined;
-            "onUpdate:mode"?: ((mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
-            readonly swatches?: readonly (readonly (string | number | {
-                readonly r: number;
-                readonly g: number;
-                readonly b: number;
-                readonly a?: number | undefined;
-            } | {
-                readonly h: number;
-                readonly s: number;
-                readonly v: number;
-                readonly a?: number | undefined;
-            } | {
-                readonly h: number;
-                readonly s: number;
-                readonly l: number;
-                readonly a?: number | undefined;
-            })[])[] | undefined;
-        } & {
-            hideModeSwitch?: boolean | undefined;
-        }>;
-        default: () => {};
-    };
-    hint: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-    iconHoverColor: {
-        type: globalThis.PropType<string | boolean>;
-        default: undefined;
-    };
-    label: {
-        type: globalThis.PropType<string>;
-        default: undefined;
-    };
-    messages: {
-        type: globalThis.PropType<string | readonly string[]>;
-        default: undefined;
-    };
-    name: {
-        type: globalThis.PropType<any>;
-        default: string;
-    };
-    open: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-    persistentHint: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    persistentPlaceholder: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    placeholder: {
-        type: globalThis.PropType<string>;
-        default: undefined;
-    };
-    prependInnerIcon: {
-        type: globalThis.PropType<false | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null>;
-        default: string;
-    };
-    readonly: {
-        type: globalThis.PropType<boolean | null>;
-        default: boolean;
-    };
-    readonlyInput: {
-        type: globalThis.PropType<boolean | null>;
-        default: boolean;
-    };
-    required: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    pipIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    pipBorder: {
-        type: globalThis.PropType<string | null>;
-        default: string;
-    };
-    pipBorderRadius: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-    pip: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    pipSize: {
-        type: globalThis.PropType<string | number>;
-        default: string;
-    };
-    pipSlot: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<Props>, {
+    appendIcon: undefined;
+    appendInnerIcon: undefined;
+    cardFieldWidth: boolean;
+    cardOffsetX: number;
+    cardOffsetY: number;
+    cardPadding: number;
+    cardProps: () => {};
+    color: undefined;
+    colorPickerProps: () => {};
+    density: string;
+    hint: string;
+    iconHoverColor: undefined;
+    iconSize: string;
+    label: undefined;
+    messages: undefined;
+    name: string;
+    open: string;
+    persistentHint: boolean;
+    persistentPlaceholder: boolean;
+    pip: boolean;
+    pipBorder: string;
+    pipBorderRadius: string;
+    pipIcon: string;
+    pipSlot: string;
+    placeholder: undefined;
+    prependIcon: undefined;
+    prependInnerIcon: string;
+    readonly: boolean;
+    readonlyInput: boolean;
+    required: boolean;
+}>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (...args: any[]) => void;
     update: (...args: any[]) => void;
     "update:mode": (...args: any[]) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    color: {
-        type: globalThis.PropType<string>;
-        default: undefined;
-    };
-    theme: {
-        type: globalThis.PropType<string>;
-    };
-    density: {
-        type: globalThis.PropType<"default" | "comfortable" | "compact" | null>;
-        default: string;
-    };
-    appendIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    prependIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    appendInnerIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    cardFieldWidth: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    cardOffsetX: {
-        type: globalThis.PropType<string | number>;
-        default: number;
-    };
-    cardOffsetY: {
-        type: globalThis.PropType<string | number>;
-        default: number;
-    };
-    cardPadding: {
-        type: globalThis.PropType<string | number>;
-        default: number;
-    };
-    cardProps: {
-        type: globalThis.PropType<import('../types').VCardProps>;
-        default: () => {};
-    };
-    colorPickerProps: {
-        type: globalThis.PropType<{
-            width?: NonNullable<string | number> | undefined;
-            style?: globalThis.StyleValue | undefined;
-            disabled?: boolean | undefined;
-            tag?: string | undefined;
-            mode?: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa" | undefined;
-            rounded?: string | number | boolean | undefined;
-            dotSize?: string | number | undefined;
-            modes?: readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[] | undefined;
-            canvasHeight?: string | number | undefined;
-            hideCanvas?: boolean | undefined;
-            hideSliders?: boolean | undefined;
-            hideInputs?: boolean | undefined;
-            showSwatches?: boolean | undefined;
-            swatchesMaxHeight?: string | number | undefined;
-            key?: string | number | symbol | undefined;
-            readonly border?: string | number | boolean | undefined;
-            readonly color?: string | undefined;
-            readonly position?: "fixed" | "absolute" | "static" | "relative" | "sticky" | undefined;
-            class?: any;
-            readonly elevation?: string | number | undefined;
-            ref?: import("vue").VNodeRef | undefined;
-            ref_for?: boolean | undefined;
-            ref_key?: string | undefined;
-            readonly theme?: string | undefined;
-            onVnodeBeforeMount?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeMounted?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeBeforeUpdate?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeUpdated?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeBeforeUnmount?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            onVnodeUnmounted?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-                [key: string]: any;
-            }>) => void)[] | undefined;
-            readonly modelValue?: string | Record<string, unknown> | null | undefined;
-            "onUpdate:modelValue"?: ((color: any) => any) | undefined;
-            "onUpdate:mode"?: ((mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
-            readonly swatches?: readonly (readonly (string | number | {
-                readonly r: number;
-                readonly g: number;
-                readonly b: number;
-                readonly a?: number | undefined;
-            } | {
-                readonly h: number;
-                readonly s: number;
-                readonly v: number;
-                readonly a?: number | undefined;
-            } | {
-                readonly h: number;
-                readonly s: number;
-                readonly l: number;
-                readonly a?: number | undefined;
-            })[])[] | undefined;
-        } & {
-            hideModeSwitch?: boolean | undefined;
-        }>;
-        default: () => {};
-    };
-    hint: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-    iconHoverColor: {
-        type: globalThis.PropType<string | boolean>;
-        default: undefined;
-    };
-    label: {
-        type: globalThis.PropType<string>;
-        default: undefined;
-    };
-    messages: {
-        type: globalThis.PropType<string | readonly string[]>;
-        default: undefined;
-    };
-    name: {
-        type: globalThis.PropType<any>;
-        default: string;
-    };
-    open: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-    persistentHint: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    persistentPlaceholder: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    placeholder: {
-        type: globalThis.PropType<string>;
-        default: undefined;
-    };
-    prependInnerIcon: {
-        type: globalThis.PropType<false | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null>;
-        default: string;
-    };
-    readonly: {
-        type: globalThis.PropType<boolean | null>;
-        default: boolean;
-    };
-    readonlyInput: {
-        type: globalThis.PropType<boolean | null>;
-        default: boolean;
-    };
-    required: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    pipIcon: {
-        type: globalThis.PropType<string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent>;
-        default: undefined;
-    };
-    pipBorder: {
-        type: globalThis.PropType<string | null>;
-        default: string;
-    };
-    pipBorderRadius: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-    pip: {
-        type: globalThis.PropType<boolean>;
-        default: boolean;
-    };
-    pipSize: {
-        type: globalThis.PropType<string | number>;
-        default: string;
-    };
-    pipSlot: {
-        type: globalThis.PropType<string>;
-        default: string;
-    };
-}>> & {
+}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<Props>, {
+    appendIcon: undefined;
+    appendInnerIcon: undefined;
+    cardFieldWidth: boolean;
+    cardOffsetX: number;
+    cardOffsetY: number;
+    cardPadding: number;
+    cardProps: () => {};
+    color: undefined;
+    colorPickerProps: () => {};
+    density: string;
+    hint: string;
+    iconHoverColor: undefined;
+    iconSize: string;
+    label: undefined;
+    messages: undefined;
+    name: string;
+    open: string;
+    persistentHint: boolean;
+    persistentPlaceholder: boolean;
+    pip: boolean;
+    pipBorder: string;
+    pipBorderRadius: string;
+    pipIcon: string;
+    pipSlot: string;
+    placeholder: undefined;
+    prependIcon: undefined;
+    prependInnerIcon: string;
+    readonly: boolean;
+    readonlyInput: boolean;
+    required: boolean;
+}>>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
     "onUpdate:mode"?: ((...args: any[]) => any) | undefined;
     onUpdate?: ((...args: any[]) => any) | undefined;
@@ -521,6 +168,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     };
     hint: string;
     iconHoverColor: string | boolean;
+    iconSize: string | number;
     label: string;
     messages: string | readonly string[];
     name: any;
@@ -528,15 +176,14 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     persistentHint: boolean;
     persistentPlaceholder: boolean;
     placeholder: string;
-    prependInnerIcon: false | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null;
+    prependInnerIcon: boolean | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null;
     readonly: boolean | null;
     readonlyInput: boolean | null;
     required: boolean;
-    pipIcon: string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent;
+    pipIcon: boolean | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null;
     pipBorder: string | null;
     pipBorderRadius: string;
     pip: boolean;
-    pipSize: string | number;
     pipSlot: string;
 }, {}>, Partial<Record<NonNullable<string | number>, (_: any) => any>> & {
     prepend?(_: {
@@ -586,6 +233,20 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     label?(_: {}): any;
 }>;
 export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToRuntimeProps<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
+type __VLS_WithDefaults<P, D> = {
+    [K in keyof Pick<P, keyof P>]: K extends keyof D ? __VLS_Prettify<P[K] & {
+        default: D[K];
+    }> : P[K];
+};
 type __VLS_WithTemplateSlots<T, S> = T & {
     new (): {
         $slots: S;
