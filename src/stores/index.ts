@@ -3,7 +3,6 @@ import packageJson from '@root/package.json';
 
 
 export const useCoreStore = defineStore('core', () => {
-	const packageName = packageJson.name;
 	const storageName = 'vuetify-color-field';
 
 	// Links //
@@ -13,7 +12,7 @@ export const useCoreStore = defineStore('core', () => {
 		github: repoBaseUrl,
 		githubProfile: 'https://github.com/webdevnerdstuff',
 		license: `${repoBaseUrl}/blob/main/LICENSE.md`,
-		npm: `https://www.npmjs.com/package/${packageName}`,
+		npm: `https://www.npmjs.com/package/${storageName}`,
 		vue: 'https://vuejs.org/',
 		vueUse: 'https://vueuse.org/',
 		vuetify: 'https://vuetifyjs.com/',
