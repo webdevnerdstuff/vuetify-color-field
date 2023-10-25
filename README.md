@@ -34,13 +34,13 @@ Vuetify Color Field is a Vuetify VTextField Color Picker Component
 
 ## Change Log
  
-[CHANGELOG](https://github.com/webdevnerdstuff/vuetify-color-field/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/webdevnerdstuff/vuetify-color-field/blob/main/CHANGELOG.md)
 
 
 ## License
 
 Copyright (c) 2023 WebDevNerdStuff  
-Licensed under the [MIT license](https://github.com/webdevnerdstuff/vuetify-color-field/blob/master/LICENSE.md).
+Licensed under the [MIT license](https://github.com/webdevnerdstuff/vuetify-color-field/blob/main/LICENSE.md).
 
 
 ## Legal
