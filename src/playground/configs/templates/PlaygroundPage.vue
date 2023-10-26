@@ -1,98 +1,95 @@
 <template>
-	<v-row>
-
-		<v-col
-			class="offset-4 mt-15 pt-15"
-			cols="4"
-		>
-			<v-card elevation="5">
-				<v-container>
-					<VColorField
-						v-model="color"
-						:append-icon="VColorFieldProps.appendIcon"
-						:append-inner-icon="VColorFieldProps.appendInnerIcon"
-						:canvasHeight="VColorFieldProps.canvasHeight"
-						:cardFieldWidth="VColorFieldProps.cardFieldWidth"
-						:cardOffsetX="VColorFieldProps.cardOffsetX"
-						:cardOffsetY="VColorFieldProps.cardOffsetY"
-						:cardPadding="VColorFieldProps.cardPadding"
-						:cardProps="VColorFieldProps.cardProps"
-						:clearable="VColorFieldProps.clearable"
-						:color="VColorFieldProps.color"
-						:color-picker-props="VColorFieldProps.colorPickerProps"
-						:density="VColorFieldProps.density"
-						:dotSize="VColorFieldProps.dotSize"
-						:hideCanvas="VColorFieldProps.hideCanvas"
-						:hideInputs="VColorFieldProps.hideInputs"
-						:hideSliders="VColorFieldProps.hideSliders"
-						:hint="VColorFieldProps.hint"
-						:hint-align="VColorFieldProps.hintAlign"
-						:icon-hover-color="VColorFieldProps.iconHoverColor"
-						:iconSize="VColorFieldProps.iconSize"
-						:label="VColorFieldProps.label"
-						:messages="VColorFieldProps.messages"
-						:mode="VColorFieldProps.mode"
-						:modes="VColorFieldProps.modes"
-						:name="VColorFieldProps.name"
-						:open="VColorFieldProps.open"
-						:persistent-hint="VColorFieldProps.persistentHint"
-						:persistent-placeholder="VColorFieldProps.persistentPlaceholder"
-						:pip="VColorFieldProps.pip"
-						:pipBorder="VColorFieldProps.pipBorder"
-						:pipBorderRadius="VColorFieldProps.pipBorderRadius"
-						:pipHeight="VColorFieldProps.pipHeight"
-						:pipIcon="VColorFieldProps.pipIcon"
-						:pipRadius="VColorFieldProps.pipRadius"
-						:pipSlot="VColorFieldProps.pipSlot"
-						:placeholder="VColorFieldProps.placeholder"
-						:prepend-icon="VColorFieldProps.prependIcon"
-						:prepend-inner-icon="VColorFieldProps.prependInnerIcon"
-						:readonly="VColorFieldProps.readonly"
-						:readonlyInput="VColorFieldProps.readonlyInput"
-						:required="VColorFieldProps.required"
-						:showSwatches="VColorFieldProps.showSwatches"
-						:swatches="VColorFieldProps.swatches"
-						:swatchesMaxHeight="VColorFieldProps.swatchesMaxHeight"
-						:theme="VColorFieldProps.theme"
-						:variant="VColorFieldProps.variant"
-					>
-						<!-- <template #prepend="{ toggleColorPicker }">
+	<v-col
+		class="offset-4 mt-15 pt-15"
+		cols="4"
+	>
+		<v-card elevation="5">
+			<v-container>
+				<VColorField
+					v-model="color"
+					:append-icon="VColorFieldProps.appendIcon"
+					:append-inner-icon="VColorFieldProps.appendInnerIcon"
+					:canvasHeight="VColorFieldProps.canvasHeight"
+					:cardFieldWidth="VColorFieldProps.cardFieldWidth"
+					:cardOffsetX="VColorFieldProps.cardOffsetX"
+					:cardOffsetY="VColorFieldProps.cardOffsetY"
+					:cardPadding="VColorFieldProps.cardPadding"
+					:cardProps="VColorFieldProps.cardProps"
+					:clearable="VColorFieldProps.clearable"
+					:color="VColorFieldProps.color"
+					:color-picker-props="VColorFieldProps.colorPickerProps"
+					:density="VColorFieldProps.density"
+					:dotSize="VColorFieldProps.dotSize"
+					:hideCanvas="VColorFieldProps.hideCanvas"
+					:hideInputs="VColorFieldProps.hideInputs"
+					:hideSliders="VColorFieldProps.hideSliders"
+					:hint="VColorFieldProps.hint"
+					:hint-align="VColorFieldProps.hintAlign"
+					:icon-hover-color="VColorFieldProps.iconHoverColor"
+					:iconSize="VColorFieldProps.iconSize"
+					:label="VColorFieldProps.label"
+					:messages="VColorFieldProps.messages"
+					:mode="VColorFieldProps.mode"
+					:modes="VColorFieldProps.modes"
+					:name="VColorFieldProps.name"
+					:open="VColorFieldProps.open"
+					:persistent-hint="VColorFieldProps.persistentHint"
+					:persistent-placeholder="VColorFieldProps.persistentPlaceholder"
+					:pip="VColorFieldProps.pip"
+					:pipBorder="VColorFieldProps.pipBorder"
+					:pipBorderRadius="VColorFieldProps.pipBorderRadius"
+					:pipHeight="VColorFieldProps.pipHeight"
+					:pipIcon="VColorFieldProps.pipIcon"
+					:pipRadius="VColorFieldProps.pipRadius"
+					:pipSlot="VColorFieldProps.pipSlot"
+					:placeholder="VColorFieldProps.placeholder"
+					:prepend-icon="VColorFieldProps.prependIcon"
+					:prepend-inner-icon="VColorFieldProps.prependInnerIcon"
+					:readonly="VColorFieldProps.readonly"
+					:readonlyInput="VColorFieldProps.readonlyInput"
+					:required="VColorFieldProps.required"
+					:showSwatches="VColorFieldProps.showSwatches"
+					:swatches="VColorFieldProps.swatches"
+					:swatchesMaxHeight="VColorFieldProps.swatchesMaxHeight"
+					:theme="VColorFieldProps.theme"
+					:variant="VColorFieldProps.variant"
+				>
+					<!-- <template #prepend="{ toggleColorPicker }">
 							<v-icon
 								icon="$vuetify"
 								@click="toggleColorPicker"
 							/>
 						</template> -->
 
-						<!-- <template #prepend-inner="{ toggleColorPicker }">
+					<!-- <template #prepend-inner="{ toggleColorPicker }">
 							<v-icon
 								icon="$vuetify"
 								@click="toggleColorPicker"
 							/>
 						</template> -->
 
-						<!-- <template #append-inner="{ toggleColorPicker }">
+					<!-- <template #append-inner="{ toggleColorPicker }">
 							<v-icon
 								icon="$vuetify"
 								@click="toggleColorPicker"
 							/>
 						</template> -->
 
-						<!-- <template #append="{ toggleColorPicker }">
+					<!-- <template #append="{ toggleColorPicker }">
 							<v-icon
 								icon="$vuetify"
 								@click="toggleColorPicker"
 							/>
 						</template> -->
 
-						<!-- <template #label>
+					<!-- <template #label>
 							Color
 						</template> -->
 
-					</VColorField>
-				</v-container>
-			</v-card>
-		</v-col>
-	</v-row>
+				</VColorField>
+			</v-container>
+		</v-card>
+	</v-col>
 </template>
 
 <script setup>
