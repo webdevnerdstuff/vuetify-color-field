@@ -81,72 +81,43 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     cardOffsetY: string | number;
     cardPadding: string | number;
     cardProps: import('../types').VCardProps;
-    colorPickerProps: {
-        width?: NonNullable<string | number> | undefined;
-        style?: globalThis.StyleValue | undefined;
-        disabled?: boolean | undefined;
-        tag?: string | undefined;
-        mode?: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa" | undefined;
-        rounded?: string | number | boolean | undefined;
-        dotSize?: string | number | undefined;
-        modes?: readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[] | undefined;
-        canvasHeight?: string | number | undefined;
-        hideCanvas?: boolean | undefined;
-        hideSliders?: boolean | undefined;
-        hideInputs?: boolean | undefined;
-        showSwatches?: boolean | undefined;
-        swatchesMaxHeight?: string | number | undefined;
-        key?: string | number | symbol | undefined;
+    colorPickerProps: Partial<{
+        width: NonNullable<string | number>;
+        style: globalThis.StyleValue;
+        disabled: boolean;
+        tag: string;
+        mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa";
+        rounded: string | number | boolean;
+        dotSize: string | number;
+        modes: readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[];
+        canvasHeight: string | number;
+        hideCanvas: boolean;
+        hideSliders: boolean;
+        hideInputs: boolean;
+        showSwatches: boolean;
+        swatchesMaxHeight: string | number;
+    }> & Omit<{
+        readonly width: NonNullable<string | number>;
+        readonly style: globalThis.StyleValue;
+        readonly disabled: boolean;
+        readonly tag: string;
+        readonly mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa";
+        readonly dotSize: string | number;
+        readonly modes: readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[];
+        readonly canvasHeight: string | number;
+        readonly hideCanvas: boolean;
+        readonly hideSliders: boolean;
+        readonly hideInputs: boolean;
+        readonly showSwatches: boolean;
+        readonly swatchesMaxHeight: string | number;
         readonly border?: string | number | boolean | undefined;
         readonly color?: string | undefined;
         readonly position?: "fixed" | "absolute" | "static" | "relative" | "sticky" | undefined;
-        class?: any;
+        readonly class?: any;
         readonly elevation?: string | number | undefined;
-        ref?: import("vue").VNodeRef | undefined;
-        ref_for?: boolean | undefined;
-        ref_key?: string | undefined;
         readonly theme?: string | undefined;
-        onVnodeBeforeMount?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void)[] | undefined;
-        onVnodeMounted?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void)[] | undefined;
-        onVnodeBeforeUpdate?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void)[] | undefined;
-        onVnodeUpdated?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>, oldVNode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void)[] | undefined;
-        onVnodeBeforeUnmount?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void)[] | undefined;
-        onVnodeUnmounted?: ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void) | ((vnode: globalThis.VNode<import("vue").RendererNode, import("vue").RendererElement, {
-            [key: string]: any;
-        }>) => void)[] | undefined;
+        readonly rounded?: string | number | boolean | undefined;
         readonly modelValue?: string | Record<string, unknown> | null | undefined;
-        "onUpdate:modelValue"?: ((color: any) => any) | undefined;
-        "onUpdate:mode"?: ((mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
         readonly swatches?: readonly (readonly (string | number | {
             readonly r: number;
             readonly g: number;
@@ -163,7 +134,87 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
             readonly l: number;
             readonly a?: number | undefined;
         })[])[] | undefined;
-    } & {
+        "onUpdate:modelValue"?: ((color: any) => any) | undefined;
+        "onUpdate:mode"?: ((mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
+    } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & Readonly<import("vue").ExtractPropTypes<{
+        width: {
+            type: globalThis.PropType<NonNullable<string | number>>;
+            default: NonNullable<string | number>;
+        };
+        border: (BooleanConstructor | StringConstructor | NumberConstructor)[];
+        color: StringConstructor;
+        position: {
+            type: globalThis.PropType<"fixed" | "absolute" | "static" | "relative" | "sticky">;
+            validator: (v: any) => boolean;
+        };
+        style: {
+            type: globalThis.PropType<globalThis.StyleValue>;
+            default: null;
+        };
+        class: globalThis.PropType<any>;
+        tag: {
+            type: StringConstructor;
+            default: string;
+        };
+        elevation: {
+            type: (StringConstructor | NumberConstructor)[];
+            validator(v: any): boolean;
+        };
+        theme: StringConstructor;
+        rounded: {
+            type: (BooleanConstructor | StringConstructor | NumberConstructor)[];
+            default: undefined;
+        };
+        canvasHeight: {
+            type: (StringConstructor | NumberConstructor)[];
+            default: number;
+        };
+        disabled: BooleanConstructor;
+        dotSize: {
+            type: (StringConstructor | NumberConstructor)[];
+            default: number;
+        };
+        hideCanvas: BooleanConstructor;
+        hideSliders: BooleanConstructor;
+        hideInputs: BooleanConstructor;
+        mode: {
+            type: globalThis.PropType<"rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa">;
+            default: string;
+            validator: (v: string) => boolean;
+        };
+        modes: {
+            type: globalThis.PropType<readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[]>;
+            default: () => string[];
+            validator: (v: any) => boolean;
+        };
+        showSwatches: BooleanConstructor;
+        swatches: globalThis.PropType<readonly (readonly (string | number | {
+            readonly r: number;
+            readonly g: number;
+            readonly b: number;
+            readonly a?: number | undefined;
+        } | {
+            readonly h: number;
+            readonly s: number;
+            readonly v: number;
+            readonly a?: number | undefined;
+        } | {
+            readonly h: number;
+            readonly s: number;
+            readonly l: number;
+            readonly a?: number | undefined;
+        })[])[]>;
+        swatchesMaxHeight: {
+            type: (StringConstructor | NumberConstructor)[];
+            default: number;
+        };
+        modelValue: {
+            type: globalThis.PropType<string | Record<string, unknown> | null | undefined>;
+        };
+    }>> & {
+        "onUpdate:modelValue"?: ((color: any) => any) | undefined;
+        "onUpdate:mode"?: ((mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
+    }, "width" | "style" | "tag" | "rounded" | "canvasHeight" | "disabled" | "dotSize" | "hideCanvas" | "hideSliders" | "hideInputs" | "mode" | "modes" | "showSwatches" | "swatchesMaxHeight"> & {
         hideModeSwitch?: boolean | undefined;
     };
     hint: string;
@@ -247,6 +298,9 @@ type __VLS_WithDefaults<P, D> = {
         default: D[K];
     }> : P[K];
 };
+type __VLS_Prettify<T> = {
+    [K in keyof T]: T[K];
+} & {};
 type __VLS_WithTemplateSlots<T, S> = T & {
     new (): {
         $slots: S;
