@@ -19,3 +19,6 @@ type __VLS_WithDefaults<P, D> = {
         default: D[K];
     }> : P[K];
 };
+type __VLS_Prettify<T> = {
+    [K in keyof T]: T[K];
+} & {};
