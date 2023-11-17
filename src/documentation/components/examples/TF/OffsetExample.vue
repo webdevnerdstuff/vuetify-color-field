@@ -35,6 +35,7 @@ const scriptCode = `\<script setup\>
 defineExpose({
 	exampleCode: {
 		desc: 'Using the <code class="ic">card-offset-x</code> & <code class="ic">card-offset-y</code> prop to offset the color picker card.',
+		name: 'Card Offset Props',
 		script: scriptCode,
 		template: templateCode,
 	}

@@ -61,8 +61,14 @@
 		</ExampleContainer>
 
 		<!-- ================================================== Pip Examples -->
-		<v-col :class="h2Classes">
-			<h2 class="text-secondary">Pip Examples</h2>
+		<v-col
+			id="examples-pips"
+			:class="h2Classes"
+		>
+			<h2><a
+					class="text-secondary"
+					href="#examples-pips"
+				>Pip Examples</a></h2>
 		</v-col>
 
 		<ExampleContainer

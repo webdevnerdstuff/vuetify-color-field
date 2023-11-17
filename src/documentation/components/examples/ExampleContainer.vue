@@ -1,9 +1,13 @@
 <template>
 	<v-col
 		v-if="code.name"
+		:id="`${getHrefId}`"
 		class="v-col-12 offset-lg-2 offset-xl-1 v-col-sm-12 v-col-lg-8 v-col-xl-10 mb-0 pb-0"
 	>
-		<h3 class="text-info mb-1">{{ code.name }}</h3>
+		<h3 class="text-info mb-1"><a
+				class="text-info"
+				:href="`#${getHrefId}`"
+			>{{ code.name }}</a></h3>
 	</v-col>
 
 	<v-col
@@ -129,6 +133,12 @@ function showCodeBlocks() {
 	showCode.value = !showCode.value;
 	emit('closePicker', showCode.value);
 }
+
+const getHrefId = computed(() => {
+	const id = props.code.name?.toLowerCase().replace(/\s+/g, '-');
+
+	return `examples-${id}`;
+})
 
 </script>
 
