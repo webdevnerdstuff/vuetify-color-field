@@ -83,6 +83,28 @@ html {
 	scroll-padding-top: 70px;
 }
 
+a {
+	&:not(.v-list-item, .v-btn, .v-icon, .app-link) {
+		color: #bb86fc;
+
+		&:hover {
+			color: #b39ddb;
+		}
+	}
+}
+
+.v-theme--light {
+	a {
+		&:not(.v-list-item, .v-btn, .v-icon, .app-link) {
+			color: #6200ee;
+
+			&:hover {
+				color: #3700b3;
+			}
+		}
+	}
+}
+
 .top-app-bar {
 	z-index: 99 !important;
 
