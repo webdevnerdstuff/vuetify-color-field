@@ -102,6 +102,4 @@ function smoothScroll() {
 		margin-right: 1em !important;
 	}
 }
-
-// .v-list-group__items {}
 </style>
