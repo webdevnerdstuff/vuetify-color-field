@@ -1,6 +1,6 @@
 import '@/libraries/fontawesome';
 import PlaygroundApp from './PlaygroundApp.vue';
-import CodeBlock from 'vue3-code-block';
+import CodeBlock from '@wdns/vue-code-block';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { registerPlugins } from '../../plugins';

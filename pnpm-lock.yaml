@@ -67,6 +67,9 @@ devDependencies:
   '@vue/eslint-config-typescript':
     specifier: ^12.0.0
     version: 12.0.0(eslint-plugin-vue@9.18.1)(eslint@8.53.0)(typescript@5.2.2)
+  '@wdns/vue-code-block':
+    specifier: ^2.2.15
+    version: 2.2.15(typescript@5.2.2)
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.31)
@@ -172,9 +175,6 @@ devDependencies:
   vue-tsc:
     specifier: ^1.8.22
     version: 1.8.22(typescript@5.2.2)
-  vue3-code-block:
-    specifier: ^2.2.14
-    version: 2.2.14(typescript@5.2.2)
   webfontloader:
     specifier: ^1.6.28
     version: 1.6.28
@@ -1958,6 +1958,17 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
+
+  /@wdns/vue-code-block@2.2.15(typescript@5.2.2):
+    resolution: {integrity: sha512-iTnRM2I10yf+eN7cG83k1xRKjHj4ambiho2Tc9TS7fZPmQ95n227nDKd2v1zWZqbqgpGj/nE4eIJN+3utY0p+Q==}
+    dependencies:
+      highlight.js: 11.9.0
+      prismjs: 1.29.0
+      ua-parser-js: 1.0.37
+      vue: 3.3.8(typescript@5.2.2)
+    transitivePeerDependencies:
+      - typescript
+    dev: true
 
   /@webassemblyjs/ast@1.11.6:
     resolution: {integrity: sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==}
@@ -8498,18 +8509,6 @@ packages:
       '@vue/language-core': 1.8.22(typescript@5.2.2)
       semver: 7.5.4
       typescript: 5.2.2
-    dev: true
-
-  /vue3-code-block@2.2.14(typescript@5.2.2):
-    resolution: {integrity: sha512-+s02waO6/IGNUCLzJOZqpQG2Jj2RxVFJIajXEGG7EL8eWC5JPdziC7C2myiK1XmRrkRxmvcTf5id6eC3KvJ2pA==}
-    deprecated: The Vue 3 Code block component has been changed. Please update your packages to it's new location. https://www.npmjs.com/package/@wdns/vue-code-block
-    dependencies:
-      highlight.js: 11.9.0
-      prismjs: 1.29.0
-      ua-parser-js: 1.0.37
-      vue: 3.3.8(typescript@5.2.2)
-    transitivePeerDependencies:
-      - typescript
     dev: true
 
   /vue@3.3.8(typescript@5.2.2):
