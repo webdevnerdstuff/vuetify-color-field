@@ -14,7 +14,7 @@
 
 			<v-row>
 				<v-col cols="12">
-					<CodeBlock
+					<VCodeBlock
 						:code="usageGlobal"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 						label="Global registration"
@@ -22,13 +22,13 @@
 						:prismjs="codeBlockSettings.plugin === 'prismjs'"
 						:theme="codeBlockSettings.theme"
 					>
-					</CodeBlock>
+					</VCodeBlock>
 				</v-col>
 			</v-row>
 
 			<v-row>
 				<v-col cols="12">
-					<CodeBlock
+					<VCodeBlock
 						:code="usageIndividual"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 						label="Local registration"
@@ -36,7 +36,7 @@
 						:prismjs="codeBlockSettings.plugin === 'prismjs'"
 						:theme="codeBlockSettings.theme"
 					>
-					</CodeBlock>
+					</VCodeBlock>
 				</v-col>
 			</v-row>
 		</v-col>

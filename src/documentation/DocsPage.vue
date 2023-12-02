@@ -40,7 +40,7 @@
 
 			<v-row>
 				<v-col cols="12">
-					<CodeBlock
+					<VCodeBlock
 						code="pnpm add @wdns/vuetify-color-field"
 						:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 						lang="plain"
@@ -53,16 +53,16 @@
 								target="_blank"
 							>pnpm</a>:
 						</template>
-					</CodeBlock>
+					</VCodeBlock>
 				</v-col>
 				<v-col cols="12">
-					<CodeBlock
+					<VCodeBlock
 						code="npm i @wdns/vuetify-color-field"
 						highlightjs
 						lang="plain"
 					>
 						<template #label>Using npm:</template>
-					</CodeBlock>
+					</VCodeBlock>
 				</v-col>
 			</v-row>
 		</v-col>
