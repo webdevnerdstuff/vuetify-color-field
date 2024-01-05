@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Classes Composable > should return class object 1`] = `
+{
+  "v-color-field--card": true,
+  "v-color-field--card-full-width": true,
+}
+`;
+
+exports[`Classes Composable > useCardClasses > should return class object 1`] = `
+{
+  "v-color-field--card": true,
+  "v-color-field--card-full-width": false,
+}
+`;
+
+exports[`Classes Composable > useHintClasses > should return class object 1`] = `
+{
+  "v-color-field--text-field": true,
+}
+`;
+
+exports[`Classes Composable > usePipClasses > should return class object 1`] = `
+{
+  "v-color-field--pip": true,
+}
+`;
