@@ -4,12 +4,15 @@ import {
 	CSSProperties,
 } from 'vue';
 import type { IconOptions } from 'vuetify';
+import VColorField from '../VColorField.vue';
 import type {
 	VCard,
 	VColorPicker,
 	VIcon,
 	VTextField,
 } from 'vuetify/components';
+
+export * from '../index';
 
 
 // -------------------------------------------------- Vuetify Types //
@@ -81,6 +84,8 @@ export interface Props extends PipProps {
 	swatches?: VColorPicker['$props']['swatches'];
 	swatchesMaxHeight?: VColorPicker['$props']['swatchesMaxHeight'];
 }
+
+export interface GlobalOptions extends Props { }
 
 export interface PipComponentProps extends PipProps {
 	modelValue?: any;
@@ -188,4 +193,13 @@ export interface CardStylesObject extends CSSProperties {
 	right?: string | number;
 	top?: string | number;
 	width?: string | number;
+}
+
+
+declare module "vue" {
+	interface ComponentCustomProperties { }
+
+	interface GlobalComponents {
+		VColorField: typeof VColorField;
+	}
 }

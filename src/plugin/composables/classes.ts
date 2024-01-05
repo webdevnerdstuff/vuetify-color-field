@@ -3,8 +3,8 @@ import {
 	UseHintClasses,
 	UsePipClasses,
 	UseTextFieldClasses,
-} from '@/types';
-import { componentName } from '../utils/globals';
+} from '@/plugin/types';
+import { componentName } from '@utils/globals';
 
 
 // ------------------------------------------------ Pip //
@@ -17,10 +17,10 @@ export const usePipClasses: UsePipClasses = () => {
 
 // ------------------------------------------------ Text Field //
 export const useTextFieldClasses: UseTextFieldClasses = (options) => {
-	const { name, readonly, readonlyInput } = options;
+	const { name = '', readonly, readonlyInput } = options;
 
 	return {
-		[`${componentName}--text-field-${name}`]: true,
+		[`${componentName}--text-field-${name}`]: name !== '',
 		[`${componentName}--text-field-readonly`]: readonly ?? false,
 		[`${componentName}--text-field-readonly-input`]: readonlyInput && !readonly ? true : false,
 		[`${componentName}--text-field`]: true,

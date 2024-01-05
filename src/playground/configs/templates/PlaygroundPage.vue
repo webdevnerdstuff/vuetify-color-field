@@ -29,8 +29,8 @@
 					:iconSize="VColorFieldProps.iconSize"
 					:label="VColorFieldProps.label"
 					:messages="VColorFieldProps.messages"
-					:mode="VColorFieldProps.mode"
-					:modes="VColorFieldProps.modes"
+					:mode="(VColorFieldProps.mode as VColorPicker['mode'])"
+					:modes="(VColorFieldProps.modes as VColorPicker['modes'])"
 					:name="VColorFieldProps.name"
 					:open="VColorFieldProps.open"
 					:persistent-hint="VColorFieldProps.persistentHint"
@@ -49,7 +49,7 @@
 					:readonlyInput="VColorFieldProps.readonlyInput"
 					:required="VColorFieldProps.required"
 					:showSwatches="VColorFieldProps.showSwatches"
-					:swatches="VColorFieldProps.swatches"
+					:swatches="(VColorFieldProps.swatches as VColorPicker['swatches'])"
 					:swatchesMaxHeight="VColorFieldProps.swatchesMaxHeight"
 					:theme="VColorFieldProps.theme"
 					:variant="VColorFieldProps.variant"
@@ -92,7 +92,8 @@
 	</v-col>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { VColorPicker } from 'vuetify/components';
 const color = ref(null);
 
 const colorPickerProps = {
@@ -104,6 +105,7 @@ const colorPickerProps = {
 	mode: 'rgba',
 	modes: ['rgb', 'rgba', 'hsl', 'hsla', 'hex', 'hexa'],
 	showSwatches: true,
+	swatches: undefined,
 	// swatches: [
 	// 	['#FF0000', '#AA0000', '#550000'],
 	// 	['#FFFF00', '#AAAA00', '#555500'],
@@ -150,10 +152,12 @@ const VColorFieldProps = ref({
 	open: 'bottom left',
 	persistentHint: true,
 	persistentPlaceholder: false,
-	pip: false,
-	// pipBorder: 'none',
-	// pipBorderRadius: '50%',
+	pip: true,
+	pipBorder: undefined,
+	pipBorderRadius: undefined,
+	pipHeight: undefined,
 	pipIcon: undefined,
+	pipRadius: undefined,
 	pipSlot: undefined,
 	placeholder: 'Select Color',
 	prependIcon: undefined,

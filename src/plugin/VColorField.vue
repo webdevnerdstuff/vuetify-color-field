@@ -219,14 +219,14 @@ import {
 	Props,
 	TextFieldProperties,
 	VuetifyDefaults,
-} from '@/types';
-import { useConvertToUnit } from '@/plugin/composables/helpers';
+} from '@/plugin/types';
+import { useConvertToUnit } from '@composables/helpers';
 import {
 	useCardClasses,
 	useTextFieldClasses,
-} from '@/plugin/composables/classes';
-import ColorPickerIcon from '@/plugin/components/ColorPickerIcon.vue';
-import PipComponent from '@/plugin/components/PipComponent.vue';
+} from '@composables/classes';
+import ColorPickerIcon from '@components/ColorPickerIcon.vue';
+import PipComponent from '@components/PipComponent.vue';
 import type { VCard } from 'vuetify/components';
 import { onClickOutside } from '@vueuse/core';
 

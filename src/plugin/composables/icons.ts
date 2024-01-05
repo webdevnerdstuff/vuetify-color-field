@@ -1,4 +1,4 @@
-import { UseGetIcon } from '@/types';
+import { UseGetIcon } from '@/plugin/types';
 
 const defaultIcons = {
 	fa: {
@@ -18,20 +18,20 @@ export const useGetIcon: UseGetIcon = (options) => {
 		return icon;
 	}
 
-	const defaultSet = iconOptions?.defaultSet as string;
+	const defaultSet = iconOptions?.defaultSet as string ?? '';
 	let iconAbbv = defaultSet.toLowerCase();
 
 	iconAbbv = iconAbbv === 'fa' || iconAbbv === 'fasvg' ? 'fa' : iconAbbv;
 	const iconSet = defaultIcons[iconAbbv];
 
 	if (!iconSet) {
-		throw new Error(`VColorField: No VColorField default ${iconOptions?.defaultSet} icon set found.`);
+		throw new Error(`[VColorField]: No VColorField default ${iconOptions?.defaultSet} icon set found.`);
 	}
 
 	const newIcon = iconSet[name];
 
 	if (!newIcon) {
-		throw new Error(`VColorField: No ${name} icon found.`);
+		throw new Error(`[VColorField]: No ${name} icon found.`);
 	}
 
 	return newIcon;

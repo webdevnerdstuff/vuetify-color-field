@@ -1,6 +1,6 @@
 import {
 	UseConvertToUnit,
-} from '@/types';
+} from '@/plugin/types';
 
 
 /**
