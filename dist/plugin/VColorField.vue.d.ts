@@ -8,6 +8,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     cardOffsetY: number;
     cardPadding: number;
     cardProps: () => {};
+    clearable: boolean;
     color: undefined;
     colorPickerProps: () => {};
     density: string;
@@ -31,6 +32,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     readonly: boolean;
     readonlyInput: boolean;
     required: boolean;
+    variant: string;
 }>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     update: (...args: any[]) => void;
     "update:mode": (...args: any[]) => void;
@@ -43,6 +45,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     cardOffsetY: number;
     cardPadding: number;
     cardProps: () => {};
+    clearable: boolean;
     color: undefined;
     colorPickerProps: () => {};
     density: string;
@@ -66,6 +69,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     readonly: boolean;
     readonlyInput: boolean;
     required: boolean;
+    variant: string;
 }>>> & {
     onUpdate?: ((...args: any[]) => any) | undefined;
     "onUpdate:mode"?: ((...args: any[]) => any) | undefined;
@@ -79,6 +83,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     cardOffsetY: string | number;
     cardPadding: string | number;
     cardProps: import('./types').VCardProps;
+    clearable: boolean;
     colorPickerProps: Partial<{
         width: NonNullable<string | number>;
         style: globalThis.StyleValue;
@@ -212,9 +217,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     }>> & {
         "onUpdate:modelValue"?: ((color: any) => any) | undefined;
         "onUpdate:mode"?: ((mode: "rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
-    }, "canvasHeight" | "dotSize" | "hideCanvas" | "hideInputs" | "hideSliders" | "mode" | "modes" | "showSwatches" | "swatchesMaxHeight" | "tag" | "style" | "rounded" | "width" | "disabled"> & {
-        hideModeSwitch?: boolean | undefined;
-    };
+    }, "canvasHeight" | "dotSize" | "hideCanvas" | "hideInputs" | "hideSliders" | "mode" | "modes" | "showSwatches" | "swatchesMaxHeight" | "tag" | "style" | "rounded" | "width" | "disabled">;
     density: "default" | "comfortable" | "compact" | null;
     hint: string;
     iconHoverColor: string | boolean;
@@ -236,6 +239,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     readonly: boolean | null;
     readonlyInput: boolean | null;
     required: boolean;
+    variant: "filled" | "outlined" | "plain" | "underlined" | "solo" | "solo-inverted" | "solo-filled";
 }, {}>, Partial<Record<NonNullable<string | number>, (_: any) => any>> & {
     prepend?(_: {
         toggleColorPicker: typeof toggleColorPicker;
