@@ -12,6 +12,7 @@ const app = createApp(PlaygroundApp);
 app.use(createVColorField());
 app.use(createPinia());
 app.component('font-awesome-icon', FontAwesomeIcon);
+
 app.component('FaIcon', FontAwesomeIcon);
 
 registerPlugins(app);

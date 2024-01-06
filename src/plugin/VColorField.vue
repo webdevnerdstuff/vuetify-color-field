@@ -329,11 +329,11 @@ const pickerMode = ref<Mode>(defaults.value.VColorPicker?.mode);
 const themeAll = ref(settings.theme ?? undefined);
 let textFieldProperties = reactive<TextFieldProperties>({
 	bottom: 0,
-	height: 0,
+	height: 150,
 	left: 0,
 	right: 0,
 	top: 0,
-	width: 0,
+	width: 300,
 });
 
 // ------------------------- Pip //
@@ -432,6 +432,7 @@ function toggleColorPicker(trigger?: string | Event): void {
 	let inputWidth: number = 300;
 	let positionLeft = fieldElementCoords?.left ?? 0;
 	let positionRight = fieldElementCoords?.right ?? 0;
+	const positionTop = fieldElementCoords?.top ?? 0;
 
 	const fieldInputContainer: HtmlRefElement = fieldContainerRef?.value?.querySelector('.v-field__input');
 	const fieldContainerInputCoords = fieldInputContainer?.getBoundingClientRect() ?? defaultCoords;
@@ -446,7 +447,7 @@ function toggleColorPicker(trigger?: string | Event): void {
 		height: inputHeight as number,
 		left: positionLeft,
 		right: positionRight,
-		top: (window.scrollY + fieldElementCoords?.top ?? 0),
+		top: (window.scrollY + positionTop),
 		width: settings.cardFieldWidth ? inputWidth : 'auto',
 	};
 
