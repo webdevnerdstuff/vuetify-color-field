@@ -24,7 +24,6 @@
 					:hideInputs="VColorFieldProps.hideInputs"
 					:hideSliders="VColorFieldProps.hideSliders"
 					:hint="VColorFieldProps.hint"
-					:hint-align="VColorFieldProps.hintAlign"
 					:icon-hover-color="VColorFieldProps.iconHoverColor"
 					:iconSize="VColorFieldProps.iconSize"
 					:label="VColorFieldProps.label"
@@ -38,9 +37,7 @@
 					:pip="VColorFieldProps.pip"
 					:pipBorder="VColorFieldProps.pipBorder"
 					:pipBorderRadius="VColorFieldProps.pipBorderRadius"
-					:pipHeight="VColorFieldProps.pipHeight"
 					:pipIcon="VColorFieldProps.pipIcon"
-					:pipRadius="VColorFieldProps.pipRadius"
 					:pipSlot="VColorFieldProps.pipSlot"
 					:placeholder="VColorFieldProps.placeholder"
 					:prepend-icon="VColorFieldProps.prependIcon"
@@ -52,7 +49,7 @@
 					:swatches="(VColorFieldProps.swatches as VColorPicker['swatches'])"
 					:swatchesMaxHeight="VColorFieldProps.swatchesMaxHeight"
 					:theme="VColorFieldProps.theme"
-					:variant="VColorFieldProps.variant"
+					:variant="(VColorFieldProps.variant as VTextField['variant'])"
 				>
 					<!-- <template #prepend="{ toggleColorPicker }">
 							<v-icon
@@ -93,7 +90,7 @@
 </template>
 
 <script setup lang="ts">
-import type { VColorPicker } from 'vuetify/components';
+import type { VColorPicker, VTextField } from 'vuetify/components';
 const color = ref(null);
 
 const colorPickerProps = {
@@ -134,14 +131,13 @@ const VColorFieldProps = ref({
 	clearable: true,
 	color: '',
 	colorPickerProps: {
-		dotSize: 30,
+		// dotSize: 30,
 		// mode: 'hex',
 		// modes: ['hex'],
 		// showSwatches: true,
 	},
 	density: undefined,
 	hint: undefined,
-	hintAlign: undefined,
 	iconHoverColor: undefined,
 	iconSize: 'default',
 	label: undefined,
@@ -155,9 +151,7 @@ const VColorFieldProps = ref({
 	pip: true,
 	pipBorder: undefined,
 	pipBorderRadius: undefined,
-	pipHeight: undefined,
 	pipIcon: undefined,
-	pipRadius: undefined,
 	pipSlot: undefined,
 	placeholder: 'Select Color',
 	prependIcon: undefined,

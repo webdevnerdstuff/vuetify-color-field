@@ -1,4 +1,4 @@
-import { Props } from '../types';
+import { Props } from './types';
 declare function toggleColorPicker(trigger?: string | Event): void;
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<Props>, {
     appendIcon: undefined;
@@ -32,10 +32,10 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     readonlyInput: boolean;
     required: boolean;
 }>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (...args: any[]) => void;
     update: (...args: any[]) => void;
     "update:mode": (...args: any[]) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<Props>, {
+    "update:modelValue": (...args: any[]) => void;
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<Props>, {
     appendIcon: undefined;
     appendInnerIcon: undefined;
     cardFieldWidth: boolean;
@@ -67,29 +67,27 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     readonlyInput: boolean;
     required: boolean;
 }>>> & {
-    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
-    "onUpdate:mode"?: ((...args: any[]) => any) | undefined;
     onUpdate?: ((...args: any[]) => any) | undefined;
+    "onUpdate:mode"?: ((...args: any[]) => any) | undefined;
+    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
     color: string;
-    density: "default" | "comfortable" | "compact" | null;
     appendIcon: string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent;
-    prependIcon: string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent;
     appendInnerIcon: string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent;
     cardFieldWidth: boolean;
     cardOffsetX: string | number;
     cardOffsetY: string | number;
     cardPadding: string | number;
-    cardProps: import('../types').VCardProps;
+    cardProps: import('./types').VCardProps;
     colorPickerProps: Partial<{
         width: NonNullable<string | number>;
         style: globalThis.StyleValue;
         disabled: boolean;
         tag: string;
-        mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa";
+        mode: "rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa";
         rounded: string | number | boolean;
         dotSize: string | number;
-        modes: readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[];
+        modes: readonly ("rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa")[];
         canvasHeight: string | number;
         hideCanvas: boolean;
         hideSliders: boolean;
@@ -97,27 +95,21 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
         showSwatches: boolean;
         swatchesMaxHeight: string | number;
     }> & Omit<{
-        readonly width: NonNullable<string | number>;
-        readonly style: globalThis.StyleValue;
-        readonly disabled: boolean;
-        readonly tag: string;
-        readonly mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa";
-        readonly dotSize: string | number;
-        readonly modes: readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[];
         readonly canvasHeight: string | number;
+        readonly dotSize: string | number;
         readonly hideCanvas: boolean;
-        readonly hideSliders: boolean;
         readonly hideInputs: boolean;
+        readonly hideSliders: boolean;
+        readonly mode: "rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa";
+        readonly modes: readonly ("rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa")[];
         readonly showSwatches: boolean;
         readonly swatchesMaxHeight: string | number;
-        readonly border?: string | number | boolean | undefined;
+        readonly tag: string;
+        readonly style: globalThis.StyleValue;
+        readonly width: NonNullable<string | number>;
+        readonly disabled: boolean;
         readonly color?: string | undefined;
-        readonly position?: "fixed" | "absolute" | "static" | "relative" | "sticky" | undefined;
-        readonly class?: any;
-        readonly elevation?: string | number | undefined;
         readonly theme?: string | undefined;
-        readonly rounded?: string | number | boolean | undefined;
-        readonly modelValue?: string | Record<string, unknown> | null | undefined;
         readonly swatches?: readonly (readonly (string | number | {
             readonly r: number;
             readonly g: number;
@@ -134,8 +126,14 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
             readonly l: number;
             readonly a?: number | undefined;
         })[])[] | undefined;
+        readonly class?: any;
+        readonly rounded?: string | number | boolean | undefined;
+        readonly position?: "fixed" | "absolute" | "static" | "sticky" | "relative" | undefined;
+        readonly elevation?: string | number | undefined;
+        readonly border?: string | number | boolean | undefined;
+        readonly modelValue?: string | Record<string, unknown> | null | undefined;
         "onUpdate:modelValue"?: ((color: any) => any) | undefined;
-        "onUpdate:mode"?: ((mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
+        "onUpdate:mode"?: ((mode: "rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
     } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps & Readonly<import("vue").ExtractPropTypes<{
         width: {
             type: globalThis.PropType<NonNullable<string | number>>;
@@ -144,7 +142,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
         border: (BooleanConstructor | StringConstructor | NumberConstructor)[];
         color: StringConstructor;
         position: {
-            type: globalThis.PropType<"fixed" | "absolute" | "static" | "relative" | "sticky">;
+            type: globalThis.PropType<"fixed" | "absolute" | "static" | "sticky" | "relative">;
             validator: (v: any) => boolean;
         };
         style: {
@@ -178,12 +176,12 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
         hideSliders: BooleanConstructor;
         hideInputs: BooleanConstructor;
         mode: {
-            type: globalThis.PropType<"rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa">;
+            type: globalThis.PropType<"rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa">;
             default: string;
             validator: (v: string) => boolean;
         };
         modes: {
-            type: globalThis.PropType<readonly ("rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa")[]>;
+            type: globalThis.PropType<readonly ("rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa")[]>;
             default: () => string[];
             validator: (v: any) => boolean;
         };
@@ -213,10 +211,11 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
         };
     }>> & {
         "onUpdate:modelValue"?: ((color: any) => any) | undefined;
-        "onUpdate:mode"?: ((mode: "rgb" | "rgba" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
-    }, "width" | "style" | "tag" | "rounded" | "canvasHeight" | "disabled" | "dotSize" | "hideCanvas" | "hideSliders" | "hideInputs" | "mode" | "modes" | "showSwatches" | "swatchesMaxHeight"> & {
+        "onUpdate:mode"?: ((mode: "rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
+    }, "canvasHeight" | "dotSize" | "hideCanvas" | "hideInputs" | "hideSliders" | "mode" | "modes" | "showSwatches" | "swatchesMaxHeight" | "tag" | "style" | "rounded" | "width" | "disabled"> & {
         hideModeSwitch?: boolean | undefined;
     };
+    density: "default" | "comfortable" | "compact" | null;
     hint: string;
     iconHoverColor: string | boolean;
     iconSize: string | number;
@@ -226,16 +225,17 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     open: string;
     persistentHint: boolean;
     persistentPlaceholder: boolean;
+    pip: boolean;
+    pipBorder: string | null;
+    pipBorderRadius: string;
+    pipIcon: boolean | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null;
+    pipSlot: string;
     placeholder: string;
+    prependIcon: string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent;
     prependInnerIcon: boolean | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null;
     readonly: boolean | null;
     readonlyInput: boolean | null;
     required: boolean;
-    pipIcon: boolean | (string | (string | [path: string, opacity: number])[] | import("vue").JSXComponent) | null;
-    pipBorder: string | null;
-    pipBorderRadius: string;
-    pip: boolean;
-    pipSlot: string;
 }, {}>, Partial<Record<NonNullable<string | number>, (_: any) => any>> & {
     prepend?(_: {
         toggleColorPicker: typeof toggleColorPicker;
