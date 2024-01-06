@@ -12,12 +12,11 @@
 
 	&--card {
 		display: none;
-		position: absolute;
+		position: absolute !important;
 		z-index: 999999;
 
 		.v-color-picker {
 			width: 100% !important;
-
 
 			&-canvas {
 				canvas {
