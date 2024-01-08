@@ -4,12 +4,15 @@ import {
 	CSSProperties,
 } from 'vue';
 import type { IconOptions } from 'vuetify';
+import VColorField from '../VColorField.vue';
 import type {
 	VCard,
 	VColorPicker,
 	VIcon,
 	VTextField,
 } from 'vuetify/components';
+
+export * from '../index';
 
 
 // -------------------------------------------------- Vuetify Types //
@@ -47,10 +50,9 @@ export interface Props extends PipProps {
 	cardOffsetY?: number | string;
 	cardPadding?: number | string;
 	cardProps?: VCardProps;
+	clearable?: VTextField['$props']['clearable'];
 	color?: VTextField['$props']['color'];
-	colorPickerProps?: VColorPicker['$props'] & {
-		hideModeSwitch?: boolean;
-	};
+	colorPickerProps?: VColorPicker['$props'];
 	density?: VTextField['$props']['density'];
 	hint?: string;
 	iconHoverColor?: VIcon['$props']['color'] | boolean;
@@ -80,7 +82,10 @@ export interface Props extends PipProps {
 	showSwatches?: VColorPicker['$props']['showSwatches'];
 	swatches?: VColorPicker['$props']['swatches'];
 	swatchesMaxHeight?: VColorPicker['$props']['swatchesMaxHeight'];
+	variant?: VTextField['$props']['variant'];
 }
+
+export interface GlobalOptions extends Props { }
 
 export interface PipComponentProps extends PipProps {
 	modelValue?: any;
@@ -188,4 +193,13 @@ export interface CardStylesObject extends CSSProperties {
 	right?: string | number;
 	top?: string | number;
 	width?: string | number;
+}
+
+
+declare module "vue" {
+	interface ComponentCustomProperties { }
+
+	interface GlobalComponents {
+		VColorField: typeof VColorField;
+	}
 }

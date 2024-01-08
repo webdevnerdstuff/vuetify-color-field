@@ -14,7 +14,7 @@
 
 			<h3 class="mb-2 text-secondary">Setup the Playground</h3>
 
-			<CodeBlock
+			<VCodeBlock
 				class="mb-6"
 				code="git clone git@github.com:webdevnerdstuff/vuetify-color-field.git"
 				:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
@@ -28,9 +28,9 @@
 						target="blank"
 					>repository:</a>
 				</template>
-			</CodeBlock>
+			</VCodeBlock>
 
-			<CodeBlock
+			<VCodeBlock
 				code="pnpm i && pnpm play"
 				:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 				lang="plain"
@@ -40,7 +40,7 @@
 				<template #label>
 					Next run the following command to setup the Playground:
 				</template>
-			</CodeBlock>
+			</VCodeBlock>
 		</v-col>
 
 		<v-col cols="12">

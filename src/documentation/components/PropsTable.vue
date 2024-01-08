@@ -12,6 +12,9 @@
 				v-if="subtitle"
 				v-html="subtitle"
 			></div>
+
+			<div>Props can be used as a global property in <code class="ic">createVColorField</code>.
+			</div>
 		</v-col>
 	</v-row>
 

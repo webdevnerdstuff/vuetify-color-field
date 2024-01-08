@@ -11,11 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import type { PipComponentProps } from '@/types';
+import type { PipComponentProps } from '@/plugin/types';
 import { IconOptions } from 'vuetify';
-import { usePipClasses } from '@/plugin/composables/classes';
-import { usePipStyles } from '@/plugin/composables/styles';
-import { useGetIcon } from '@/plugin/composables/icons';
+import { usePipClasses } from '@composables/classes';
+import { usePipStyles } from '@composables/styles';
+import { useGetIcon } from '@composables/icons';
 
 const emit = defineEmits(['click']);
 

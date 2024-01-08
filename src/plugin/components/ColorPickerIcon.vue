@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { ColorPickerIconProps } from '@/types';
+import { ColorPickerIconProps } from '@/plugin/types';
 import { IconOptions } from 'vuetify';
-import { useGetIcon } from '@/plugin/composables/icons';
+import { useGetIcon } from '@composables/icons';
 
 
 const emit = defineEmits(['click']);

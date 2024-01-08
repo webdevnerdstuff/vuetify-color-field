@@ -8,16 +8,18 @@
 			ref="textFieldRef"
 			v-bind="$attrs"
 			:class="textFieldClasses"
-			:color="color"
-			:density="density"
-			:hint="hint"
-			:messages="messages"
+			:clearable="settings.clearable"
+			:color="settings.color"
+			:density="settings.density"
+			:hint="settings.hint"
+			:messages="settings.messages"
 			:model-value="modelValue"
-			:persistent-hint="persistentHint"
-			:persistent-placeholder="persistentPlaceholder"
-			:placeholder="placeholder"
+			:persistent-hint="settings.persistentHint"
+			:persistent-placeholder="settings.persistentPlaceholder"
+			:placeholder="settings.placeholder"
 			:readonly="textFieldReadonly"
 			:theme="themeAll"
+			:variant="settings.variant"
 			@click:clear="toggleColorPicker('clear')"
 			@click:control="toggleCheck('textField')"
 			@keyup.enter="toggleColorPicker('keyup')"
@@ -50,19 +52,19 @@
 			</template>
 
 			<template
-				v-if="(prependIcon || (pipSlot === 'prepend' && pip)) && !slots['prepend']"
+				v-if="(settings.prependIcon || (settings.pipSlot === 'prepend' && settings.pip)) && !slots['prepend']"
 				#prepend
 			>
 				<PipComponent
-					v-if="pip"
+					v-if="settings.pip"
 					v-bind="pipProps"
 					@click="toggleColorPicker"
 				/>
 				<ColorPickerIcon
-					v-else-if="prependIcon"
+					v-else-if="settings.prependIcon"
 					:color="hoverIconColor"
-					:icon="prependIcon"
-					:iconSize="iconSize"
+					:icon="settings.prependIcon"
+					:iconSize="settings.iconSize"
 					@click="toggleColorPicker"
 				/>
 			</template>
@@ -82,19 +84,19 @@
 			</template>
 
 			<template
-				v-if="(prependInnerIcon || (pipSlot === 'prepend-inner' && pip)) && !slots['prepend-inner']"
+				v-if="(settings.prependInnerIcon || (settings.pipSlot === 'prepend-inner' && settings.pip)) && !slots['prepend-inner']"
 				#prepend-inner
 			>
 				<PipComponent
-					v-if="pip"
+					v-if="settings.pip"
 					v-bind="pipProps"
 					@click="toggleColorPicker"
 				/>
 				<ColorPickerIcon
-					v-else-if="prependInnerIcon"
+					v-else-if="settings.prependInnerIcon"
 					:color="hoverIconColor"
-					:icon="prependInnerIcon"
-					:iconSize="iconSize"
+					:icon="settings.prependInnerIcon"
+					:iconSize="settings.iconSize"
 					@click="toggleCheck('textFieldIcon')"
 				/>
 			</template>
@@ -114,19 +116,19 @@
 			</template>
 
 			<template
-				v-if="(appendInnerIcon || (pipSlot === 'append-inner' && pip)) && !slots['append-inner']"
+				v-if="(settings.appendInnerIcon || (settings.pipSlot === 'append-inner' && settings.pip)) && !slots['append-inner']"
 				#append-inner
 			>
 				<PipComponent
-					v-if="pip"
+					v-if="settings.pip"
 					v-bind="pipProps"
 					@click="toggleColorPicker"
 				/>
 				<ColorPickerIcon
-					v-else-if="appendInnerIcon"
+					v-else-if="settings.appendInnerIcon"
 					:color="hoverIconColor"
-					:icon="appendInnerIcon"
-					:iconSize="iconSize"
+					:icon="settings.appendInnerIcon"
+					:iconSize="settings.iconSize"
 					@click="toggleCheck('textFieldIcon')"
 				/>
 			</template>
@@ -146,26 +148,26 @@
 			</template>
 
 			<template
-				v-if="(appendIcon || (pipSlot === 'append' && pip)) && !slots['append']"
+				v-if="(settings.appendIcon || (settings.pipSlot === 'append' && settings.pip)) && !slots['append']"
 				#append
 			>
 				<PipComponent
-					v-if="pip"
+					v-if="settings.pip"
 					v-bind="pipProps"
 					@click="toggleColorPicker"
 				/>
 				<ColorPickerIcon
-					v-else-if="appendIcon"
+					v-else-if="settings.appendIcon"
 					:color="hoverIconColor"
-					:icon="appendIcon"
-					:iconSize="iconSize"
+					:icon="settings.appendIcon"
+					:iconSize="settings.iconSize"
 					@click="toggleColorPicker"
 				/>
 			</template>
 
 			<!-- Label Slot -->
 			<template
-				v-if="slots.label || label"
+				v-if="slots.label || settings.label"
 				#label
 			>
 				<slot
@@ -173,10 +175,10 @@
 					name="label"
 				></slot>
 
-				<div v-else-if="label">
-					{{ label }}
+				<div v-else-if="settings.label">
+					{{ settings.label }}
 					<span
-						v-if="required"
+						v-if="settings.required"
 						class="text-error ms-1"
 					>*</span>
 				</div>
@@ -190,7 +192,6 @@
 
 		<v-defaults-provider :defaults="defaults">
 			<v-card
-				v-bind="defaultCardProps"
 				ref="cardRef"
 				:class="cardClasses"
 				:style="cardStyles"
@@ -200,7 +201,7 @@
 				<v-color-picker
 					v-model="colorPickerModelValue"
 					class="v-color-selection"
-					:disabled="readonly || defaults.VColorPicker?.disabled"
+					:disabled="settings.readonly || defaults.VColorPicker?.disabled"
 					:mode="pickerMode"
 					:theme="defaults.VColorPicker?.theme ?? themeAll"
 					@update:mode="updateMode"
@@ -219,16 +220,17 @@ import {
 	Props,
 	TextFieldProperties,
 	VuetifyDefaults,
-} from '@/types';
-import { useConvertToUnit } from '@/plugin/composables/helpers';
+} from '@/plugin/types';
+import { useConvertToUnit } from '@composables/helpers';
 import {
 	useCardClasses,
 	useTextFieldClasses,
-} from '@/plugin/composables/classes';
-import ColorPickerIcon from '@/plugin/components/ColorPickerIcon.vue';
-import PipComponent from '@/plugin/components/PipComponent.vue';
+} from '@composables/classes';
+import ColorPickerIcon from '@components/ColorPickerIcon.vue';
+import PipComponent from '@components/PipComponent.vue';
 import type { VCard } from 'vuetify/components';
 import { onClickOutside } from '@vueuse/core';
+import { globalOptions } from './';
 
 
 defineOptions({
@@ -253,6 +255,7 @@ const props = withDefaults(defineProps<Props>(), {
 	cardOffsetY: 5,
 	cardPadding: 4,
 	cardProps: () => ({}) as const,
+	clearable: false,
 	color: undefined,
 	colorPickerProps: () => ({}) as const,
 	density: 'default',
@@ -276,43 +279,41 @@ const props = withDefaults(defineProps<Props>(), {
 	readonly: false,
 	readonlyInput: false,
 	required: false,
+	variant: 'filled',
+});
+
+const injectedOptions = inject(globalOptions, {});
+let settings = reactive({ ...props, ...injectedOptions });
+
+watchEffect(() => {
+	settings = { ...props, ...injectedOptions };
 });
 
 
 // -------------------------------------------------- Defaults //
-// ------------------------- VCard //
-const defaultCardProps: Props['cardProps'] = {
-	elevation: 5,
-	hover: false,
-	loading: false,
-	verticalOffset: 28,
-};
-
-// ------------------------- VColorPicker //
-const defaultColorPickerProps: Props['colorPickerProps'] = {
-	elevation: 0,
-};
-
 const defaults = ref<VuetifyDefaults>({
 	VCard: {
-		...defaultCardProps,
-		...props.cardProps,
+		elevation: 5,
+		hover: false,
+		loading: false,
+		verticalOffset: 28,
+
+		...settings.cardProps as Partial<Props['cardProps']>,
 	},
 	VColorPicker: {
-		...defaultColorPickerProps,
-		...{
-			canvasHeight: props.canvasHeight,
-			dotSize: props.dotSize,
-			hideCanvas: props.hideCanvas,
-			hideInputs: props.hideInputs,
-			hideSliders: props.hideSliders,
-			mode: props.mode,
-			modes: props.modes,
-			showSwatches: props.showSwatches,
-			swatches: props.swatches,
-			swatchesMaxHeight: props.swatchesMaxHeight,
-		},
-		...props.colorPickerProps,
+		canvasHeight: settings.canvasHeight,
+		dotSize: settings.dotSize,
+		elevation: 0,
+		hideCanvas: settings.hideCanvas,
+		hideInputs: settings.hideInputs,
+		hideSliders: settings.hideSliders,
+		mode: settings.mode,
+		modes: settings.modes,
+		showSwatches: settings.showSwatches,
+		swatches: settings.swatches,
+		swatchesMaxHeight: settings.swatchesMaxHeight,
+
+		...settings.colorPickerProps as Partial<Props['colorPickerProps']>,
 	},
 });
 
@@ -325,25 +326,25 @@ const fieldContainerRef = ref<HtmlRefElement>(null);
 const colorPickerModelValue = ref<any>(attrs.modelValue);
 const modelValue = ref<any>(attrs.modelValue);
 const pickerMode = ref<Mode>(defaults.value.VColorPicker?.mode);
-const themeAll = ref(props.theme ?? undefined);
+const themeAll = ref(settings.theme ?? undefined);
 let textFieldProperties = reactive<TextFieldProperties>({
 	bottom: 0,
-	height: 0,
+	height: 150,
 	left: 0,
 	right: 0,
 	top: 0,
-	width: 0,
+	width: 300,
 });
 
 // ------------------------- Pip //
 const pipProps = ref({
-	density: props.density,
+	density: settings.density,
 	modelValue,
-	pip: props.pip,
-	pipBorder: props.pipBorder,
-	pipBorderRadius: props.pipBorderRadius,
-	pipIcon: props.pipIcon,
-	pipSize: props.iconSize,
+	pip: settings.pip,
+	pipBorder: settings.pipBorder,
+	pipBorderRadius: settings.pipBorderRadius,
+	pipIcon: settings.pipIcon,
+	pipSize: settings.iconSize,
 });
 
 
@@ -357,30 +358,30 @@ watch(() => attrs.modelValue, (newVal) => {
 
 // ------------------------- Text Field #
 const textFieldClasses = computed(() => useTextFieldClasses({
-	name: props.name,
-	readonly: props.readonly,
-	readonlyInput: props.readonlyInput,
+	name: settings.name,
+	readonly: settings.readonly,
+	readonlyInput: settings.readonlyInput,
 }));
 
 const textFieldReadonly = computed(() => {
-	return props.readonly || props.readonlyInput;
+	return settings.readonly || settings.readonlyInput;
 });
 
 const hoverIconColor = computed<string | undefined>(() => {
-	if (props.iconHoverColor === false) {
+	if (settings.iconHoverColor === false) {
 		return undefined;
 	}
 
-	if (typeof props.iconHoverColor === 'string') {
-		return props.iconHoverColor;
+	if (typeof settings.iconHoverColor === 'string') {
+		return settings.iconHoverColor;
 	}
 
-	return props.color ?? undefined;
+	return settings.color ?? undefined;
 });
 
 // ------------------------- Card #
 const cardClasses = computed(() => useCardClasses({
-	fullWidth: props.cardFieldWidth,
+	fullWidth: settings.cardFieldWidth,
 }));
 
 
@@ -389,11 +390,11 @@ const cardClasses = computed(() => useCardClasses({
 // ------------------------- Toggle Check //
 // ? Checks to prevent double triggers //
 function toggleCheck(trigger: string) {
-	if (trigger === 'textField' && !props.readonlyInput && !props.readonly) {
+	if (trigger === 'textField' && !settings.readonlyInput && !settings.readonly) {
 		return;
 	}
 
-	if (trigger === 'textFieldIcon' && (props.readonlyInput || props.readonly)) {
+	if (trigger === 'textFieldIcon' && (settings.readonlyInput || settings.readonly)) {
 		return;
 	}
 
@@ -431,6 +432,7 @@ function toggleColorPicker(trigger?: string | Event): void {
 	let inputWidth: number = 300;
 	let positionLeft = fieldElementCoords?.left ?? 0;
 	let positionRight = fieldElementCoords?.right ?? 0;
+	const positionTop = fieldElementCoords?.top ?? 0;
 
 	const fieldInputContainer: HtmlRefElement = fieldContainerRef?.value?.querySelector('.v-field__input');
 	const fieldContainerInputCoords = fieldInputContainer?.getBoundingClientRect() ?? defaultCoords;
@@ -445,8 +447,8 @@ function toggleColorPicker(trigger?: string | Event): void {
 		height: inputHeight as number,
 		left: positionLeft,
 		right: positionRight,
-		top: (window.scrollY + fieldElementCoords?.top ?? 0),
-		width: props.cardFieldWidth ? inputWidth : 'auto',
+		top: (window.scrollY + positionTop),
+		width: settings.cardFieldWidth ? inputWidth : 'auto',
 	};
 
 	setCardStyles();
@@ -456,17 +458,17 @@ function toggleColorPicker(trigger?: string | Event): void {
 function setCardStyles(): void {
 	let top: string | number = Number(textFieldProperties.top) + Number(textFieldProperties.height);
 	let bottom: string | number = 'initial';
-	let offsetY = Number(props.cardOffsetY) ?? 0;
-	const offsetX = Number(props.cardOffsetX) ?? 0;
+	let offsetY = Number(settings.cardOffsetY) ?? 0;
+	const offsetX = Number(settings.cardOffsetX) ?? 0;
 
-	if (props.hint || props.messages) {
+	if (settings.hint || props.messages) {
 		offsetY += defaults.value.VCard?.verticalOffset ?? 0;
 	}
 
 	top = top + offsetY;
 
 	// Top/Bottom Card Alignment //
-	if (props.open?.includes('top')) {
+	if (settings.open?.includes('top')) {
 		bottom = (window.innerHeight - top) + Number(textFieldProperties.height) + (offsetY * 2);
 		top = 'initial';
 	}
@@ -475,14 +477,14 @@ function setCardStyles(): void {
 	let left: string | number = Number(textFieldProperties.left) + offsetX;
 	let right: string | number = textFieldProperties.right ?? 0;
 
-	if (props.cardFieldWidth) {
+	if (settings.cardFieldWidth) {
 		left = textFieldProperties.left as number;
 		right = 'initial';
 	}
 	else {
 		right = 'initial';
 
-		if (props.open?.includes('right')) {
+		if (settings.open?.includes('right')) {
 			left = 'initial' as string;
 			right = Number(textFieldProperties.right) + offsetX;
 		}
@@ -493,7 +495,7 @@ function setCardStyles(): void {
 		display: 'block',
 		left: useConvertToUnit({ value: left }),
 		minWidth: useConvertToUnit({ value: textFieldProperties.width }),
-		padding: useConvertToUnit({ value: props.cardPadding }),
+		padding: useConvertToUnit({ value: settings.cardPadding }),
 		right: useConvertToUnit({ value: right }),
 		top: useConvertToUnit({ value: top }),
 		width: useConvertToUnit({ value: textFieldProperties.width }),

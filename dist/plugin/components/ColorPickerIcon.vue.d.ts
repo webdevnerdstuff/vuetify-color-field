@@ -1,9 +1,9 @@
-import { ColorPickerIconProps } from '../../types';
+import { ColorPickerIconProps } from '../types';
 declare const _default: import("vue").DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<ColorPickerIconProps>, {
     icon: string;
 }>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     click: (...args: any[]) => void;
-}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<ColorPickerIconProps>, {
+}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<ColorPickerIconProps>, {
     icon: string;
 }>>> & {
     onClick?: ((...args: any[]) => any) | undefined;

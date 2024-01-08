@@ -70,26 +70,26 @@
 					>
 						<v-window-item value="template">
 							<v-theme-provider>
-								<CodeBlock
+								<VCodeBlock
 									:code="code.template"
 									:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 									lang="html"
 									:prismjs="codeBlockSettings.plugin === 'prismjs'"
 									:theme="codeBlockSettings.theme"
 								>
-								</CodeBlock>
+								</VCodeBlock>
 							</v-theme-provider>
 						</v-window-item>
 						<v-window-item value="script">
 							<v-theme-provider>
-								<CodeBlock
+								<VCodeBlock
 									:code="code.script"
 									:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 									lang="html"
 									:prismjs="codeBlockSettings.plugin === 'prismjs'"
 									:theme="codeBlockSettings.theme"
 								>
-								</CodeBlock>
+								</VCodeBlock>
 							</v-theme-provider>
 						</v-window-item>
 					</v-window>

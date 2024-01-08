@@ -1,7 +1,7 @@
 import { CSSProperties } from 'vue';
 import {
 	UsePipStyle,
-} from '@/types';
+} from '@/plugin/types';
 
 
 // ------------------------------------------------ Pip //
