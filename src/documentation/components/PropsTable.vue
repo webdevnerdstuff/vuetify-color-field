@@ -13,11 +13,7 @@
 				v-html="subtitle"
 			></div>
 
-			<div>Props with the <v-icon
-					color="primary"
-					icon="mdi:mdi-earth"
-					size="x-small"
-				/> icon next to it can be used as a global property in <code class="ic">createVDrilldownTable</code>.
+			<div>Props can be used as a global property in <code class="ic">createVColorField</code>.
 			</div>
 		</v-col>
 	</v-row>
