@@ -25,7 +25,7 @@ export const useGetIcon: UseGetIcon = (options) => {
 	const iconSet = defaultIcons[iconAbbv];
 
 	if (!iconSet) {
-		throw new Error(`[VColorField]: No VColorField default ${iconOptions?.defaultSet} icon set found.`);
+		throw new Error(`[VColorField]: No default ${iconOptions?.defaultSet} icon set found.`);
 	}
 
 	const newIcon = iconSet[name];
