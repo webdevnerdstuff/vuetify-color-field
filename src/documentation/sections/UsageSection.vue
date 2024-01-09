@@ -43,7 +43,6 @@
 		<v-col cols="12">
 			<CodeBlock
 				:code="usageIndividual"
-				F
 				:highlightjs="codeBlockSettings.plugin === 'highlightjs'"
 				label="Local Registration"
 				lang="html"
