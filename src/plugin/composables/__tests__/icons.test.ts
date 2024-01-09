@@ -36,7 +36,7 @@ describe('Icon Composable', () => {
 				icon: undefined,
 				iconOptions: {},
 				name: 'loading',
-			})).toThrowError('[VColorField]: No VColorField default undefined icon set found.');
+			})).toThrowError('[VColorField]: No default undefined icon set found.');
 		});
 
 		it('throws error if supplied name not found', () => {
