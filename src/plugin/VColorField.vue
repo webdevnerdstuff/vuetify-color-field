@@ -221,6 +221,7 @@ import {
 	TextFieldProperties,
 	VuetifyDefaults,
 } from '@/plugin/types';
+import type { VCard } from 'vuetify/components';
 import { useConvertToUnit } from '@composables/helpers';
 import {
 	useCardClasses,
@@ -228,7 +229,6 @@ import {
 } from '@composables/classes';
 import ColorPickerIcon from '@components/ColorPickerIcon.vue';
 import PipComponent from '@components/PipComponent.vue';
-import type { VCard } from 'vuetify/components';
 import { onClickOutside } from '@vueuse/core';
 import { globalOptions } from './';
 
