@@ -2,7 +2,7 @@ import { Fragment as be, reactive as bt, computed as v, watchEffect as _t, toRef
 import { onClickOutside as ba } from "@vueuse/core";
 /**
  * @name @wdns/vuetify-color-field
- * @version 1.1.0
+ * @version 1.1.1
  * @description Vuetify Color Field is a Vuetify VTextField Color Picker Component
  * @author WebDevNerdStuff & Bunnies... lots and lots of bunnies! <webdevnerdstuff@gmail.com> (https://webdevnerdstuff.com)
  * @copyright Copyright 2024, WebDevNerdStuff
@@ -22,7 +22,7 @@ const Ee = (e) => {
   o = o === "fa" || o === "fasvg" ? "fa" : o;
   const a = ka[o];
   if (!a)
-    throw new Error(`[VColorField]: No VColorField default ${n == null ? void 0 : n.defaultSet} icon set found.`);
+    throw new Error(`[VColorField]: No default ${n == null ? void 0 : n.defaultSet} icon set found.`);
   const i = a[l];
   if (!i)
     throw new Error(`[VColorField]: No ${l} icon found.`);
@@ -1787,7 +1787,7 @@ const Hr = ["color", "file", "time", "date", "datetime-local", "week", "month"],
       }
     } });
   }({}, g, $, k);
-} }), qr = { key: 1 }, Xr = { key: 0, class: "text-error ms-1" }, Gr = ((e) => (ha("data-v-e2745fd7"), e = e(), ya(), e))(() => ol("div", { class: "position-elm-helper" }, null, -1)), Yr = xt({ inheritAttrs: !1, __name: "VColorField", props: { appendIcon: { default: void 0 }, appendInnerIcon: { default: void 0 }, cardFieldWidth: { type: Boolean, default: !1 }, cardOffsetX: { default: 0 }, cardOffsetY: { default: 5 }, cardPadding: { default: 4 }, cardProps: { default: () => ({}) }, clearable: { default: !1 }, color: { default: void 0 }, colorPickerProps: { default: () => ({}) }, density: { default: "default" }, hint: { default: "" }, iconHoverColor: { type: Boolean, default: void 0 }, iconSize: { default: "default" }, label: { default: void 0 }, messages: { default: void 0 }, name: { default: "color" }, open: { default: "bottom left" }, persistentHint: { type: Boolean, default: !1 }, persistentPlaceholder: { default: !1 }, placeholder: { default: void 0 }, prependIcon: { default: void 0 }, prependInnerIcon: { type: [String, null, Boolean], default: "default" }, readonly: { default: !1 }, readonlyInput: { type: [Boolean, null], default: !1 }, required: { type: Boolean, default: !1 }, theme: {}, canvasHeight: {}, dotSize: {}, hideCanvas: {}, hideInputs: {}, hideSliders: {}, mode: {}, modes: {}, showSwatches: {}, swatches: {}, swatchesMaxHeight: {}, variant: { default: "filled" }, pip: { type: Boolean, default: !1 }, pipBorder: { default: "3px solid rgb(var(--v-theme-on-surface))" }, pipIcon: { type: [String, null, Boolean], default: "pip" }, pipBorderRadius: { default: "50%" }, pipSize: {}, pipSlot: { default: "prepend-inner" } }, emits: ["update", "update:mode", "update:modelValue"], setup(e, { emit: t }) {
+} }), qr = { key: 1 }, Xr = { key: 0, class: "text-error ms-1" }, Gr = ((e) => (ha("data-v-070e9f6c"), e = e(), ya(), e))(() => ol("div", { class: "position-elm-helper" }, null, -1)), Yr = xt({ inheritAttrs: !1, __name: "VColorField", props: { appendIcon: { default: void 0 }, appendInnerIcon: { default: void 0 }, cardFieldWidth: { type: Boolean, default: !1 }, cardOffsetX: { default: 0 }, cardOffsetY: { default: 5 }, cardPadding: { default: 4 }, cardProps: { default: () => ({}) }, clearable: { default: !1 }, color: { default: void 0 }, colorPickerProps: { default: () => ({}) }, density: { default: "default" }, hint: { default: "" }, iconHoverColor: { type: Boolean, default: void 0 }, iconSize: { default: "default" }, label: { default: void 0 }, messages: { default: void 0 }, name: { default: "color" }, open: { default: "bottom left" }, persistentHint: { type: Boolean, default: !1 }, persistentPlaceholder: { default: !1 }, placeholder: { default: void 0 }, prependIcon: { default: void 0 }, prependInnerIcon: { type: [String, null, Boolean], default: "default" }, readonly: { default: !1 }, readonlyInput: { type: [Boolean, null], default: !1 }, required: { type: Boolean, default: !1 }, theme: {}, canvasHeight: {}, dotSize: {}, hideCanvas: {}, hideInputs: {}, hideSliders: {}, mode: {}, modes: {}, showSwatches: {}, swatches: {}, swatchesMaxHeight: {}, variant: { default: "filled" }, pip: { type: Boolean, default: !1 }, pipBorder: { default: "3px solid rgb(var(--v-theme-on-surface))" }, pipIcon: { type: [String, null, Boolean], default: "pip" }, pipBorderRadius: { default: "50%" }, pipSize: {}, pipSlot: { default: "prepend-inner" } }, emits: ["update", "update:mode", "update:modelValue"], setup(e, { emit: t }) {
   var E;
   const n = ua(), l = ca(), o = t, a = e, i = pe(Xl, {});
   let r = bt({ ...a, ...i });
@@ -1862,7 +1862,7 @@ const Hr = ["color", "file", "time", "date", "datetime-local", "week", "month"],
   for (const [l, o] of t)
     n[l] = o;
   return n;
-})(Yr, [["__scopeId", "data-v-e2745fd7"]]), Xl = Symbol();
+})(Yr, [["__scopeId", "data-v-070e9f6c"]]), Xl = Symbol();
 function Qr(e = {}) {
   return { install: (t) => {
     t.provide(Xl, e), t.component("VColorField", Kr);
@@ -1874,4 +1874,4 @@ export {
   Kr as default,
   Xl as globalOptions
 };
-(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode(".v-color-field--text-field-readonly .v-field *,.v-color-field--text-field-readonly-input .v-field *{cursor:pointer!important}.v-color-field--card{display:none;position:absolute!important;z-index:999999}.v-color-field--card .v-color-picker{width:100%!important}.v-color-field--card .v-color-picker-canvas canvas{width:100%}.v-color-field--card-full-width .v-color-picker{max-width:100%!important}.position-elm-helper[data-v-e2745fd7]{background-color:red;border-radius:50%;display:none;height:10px;left:0;position:absolute;top:0;width:10px;z-index:99999999999}")),document.head.appendChild(e)}}catch(o){console.error("vite-plugin-css-injected-by-js",o)}})();
+(function(){"use strict";try{if(typeof document<"u"){var e=document.createElement("style");e.appendChild(document.createTextNode(".v-color-field--text-field-readonly .v-field *,.v-color-field--text-field-readonly-input .v-field *{cursor:pointer!important}.v-color-field--card{display:none;position:absolute!important;z-index:999999}.v-color-field--card .v-color-picker{width:100%!important}.v-color-field--card .v-color-picker-canvas canvas{width:100%}.v-color-field--card-full-width .v-color-picker{max-width:100%!important}.v-color-field--text-field-readonly .v-field *[data-v-070e9f6c],.v-color-field--text-field-readonly-input .v-field *[data-v-070e9f6c]{cursor:pointer!important}.v-color-field--card[data-v-070e9f6c]{display:none;position:absolute!important;z-index:999999}.v-color-field--card .v-color-picker[data-v-070e9f6c]{width:100%!important}.v-color-field--card .v-color-picker-canvas canvas[data-v-070e9f6c]{width:100%}.v-color-field--card-full-width .v-color-picker[data-v-070e9f6c]{max-width:100%!important}.position-elm-helper[data-v-070e9f6c]{background-color:red;border-radius:50%;display:none;height:10px;left:0;position:absolute;top:0;width:10px;z-index:99999999999}")),document.head.appendChild(e)}}catch(o){console.error("vite-plugin-css-injected-by-js",o)}})();
