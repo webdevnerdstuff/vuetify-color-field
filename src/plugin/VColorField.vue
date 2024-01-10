@@ -556,6 +556,8 @@ function updateMode(mode: Mode) {
 </script>
 
 <style lang="scss" scoped>
+@use './styles/main';
+
 .position-elm-helper {
 	background-color: #f00;
 	border-radius: 50%;
