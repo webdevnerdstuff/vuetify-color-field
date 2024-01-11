@@ -145,7 +145,7 @@ provide('classes', classes);
 :deep(pre),
 :deep(code) {
 	&.ic {
-		background-color: rgba(255, 255, 255, 0.1) !important;
+		background-color: rgb(255 255 255 / 10%) !important;
 		border-radius: 3px;
 		font-size: 85%;
 		font-weight: normal;
@@ -159,7 +159,7 @@ provide('classes', classes);
 	pre,
 	code {
 		&.ic {
-			background-color: rgba(0, 0, 0, 0.1) !important;
+			background-color: rgb(0 0 0 / 10%) !important;
 		}
 	}
 }
