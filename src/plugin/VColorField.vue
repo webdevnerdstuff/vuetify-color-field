@@ -283,10 +283,10 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const injectedOptions = inject(globalOptions, {});
-let settings = reactive({ ...props, ...injectedOptions });
+const settings = reactive({ ...props, ...injectedOptions });
 
 watchEffect(() => {
-	settings = { ...props, ...injectedOptions };
+	Object.assign(settings, { ...props, ...injectedOptions });
 });
 
 
