@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to the "vuetify-color-field" plugin will be documented in this file.
 
+## v1.1.3
+02-23-24
+[main] (@webdevnerdstuff)
+* Update packages
+
 ## v1.1.2
 01-11-24
 [main] (@webdevnerdstuff)
