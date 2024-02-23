@@ -91,6 +91,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
         tag: string;
         mode: "rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa";
         rounded: string | number | boolean;
+        tile: boolean;
         dotSize: string | number;
         modes: readonly ("rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa")[];
         canvasHeight: string | number;
@@ -111,6 +112,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
         readonly swatchesMaxHeight: string | number;
         readonly tag: string;
         readonly style: globalThis.StyleValue;
+        readonly tile: boolean;
         readonly width: NonNullable<string | number>;
         readonly disabled: boolean;
         readonly color?: string | undefined;
@@ -168,6 +170,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
             type: (BooleanConstructor | StringConstructor | NumberConstructor)[];
             default: undefined;
         };
+        tile: BooleanConstructor;
         canvasHeight: {
             type: (StringConstructor | NumberConstructor)[];
             default: number;
@@ -217,7 +220,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
     }>> & {
         "onUpdate:modelValue"?: ((color: any) => any) | undefined;
         "onUpdate:mode"?: ((mode: "rgba" | "rgb" | "hsl" | "hsla" | "hex" | "hexa") => any) | undefined;
-    }, "canvasHeight" | "dotSize" | "hideCanvas" | "hideInputs" | "hideSliders" | "mode" | "modes" | "showSwatches" | "swatchesMaxHeight" | "tag" | "style" | "rounded" | "width" | "disabled">;
+    }, "canvasHeight" | "dotSize" | "hideCanvas" | "hideInputs" | "hideSliders" | "mode" | "modes" | "showSwatches" | "swatchesMaxHeight" | "tag" | "style" | "rounded" | "tile" | "width" | "disabled">;
     density: "default" | "comfortable" | "compact" | null;
     hint: string;
     iconHoverColor: string | boolean;
