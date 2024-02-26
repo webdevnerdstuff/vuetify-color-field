@@ -1,24 +1,29 @@
 # Change Log
 All notable changes to the "vuetify-color-field" plugin will be documented in this file.
 
+## v1.1.4
+2024-02-26
+[main] (@webdevnerdstuff)
+* Fix external rollup config
+
 ## v1.1.3
-02-23-24
+2024-02-23
 [main] (@webdevnerdstuff)
 * Update packages
 
 ## v1.1.2
-01-11-24
+2024-01-11
 [main] (@webdevnerdstuff)
 * Fix settings reactivity
 * Update packages
 
 ## v1.1.1
-01-10-24
+2024-01-10
 [main] (@webdevnerdstuff)
 * Fix missing styles import in component
 
 ## v1.1.0
-01-05-24
+2024-01-05
 [main] (@webdevnerdstuff)
 * Fix typescript issues
 * Reorganizing
@@ -26,7 +31,7 @@ All notable changes to the "vuetify-color-field" plugin will be documented in th
 * Update node version to v20.10.0
 
 ## v1.0.1
-11-09-23
+2023-11-09
 [main] (@webdevnerdstuff)
 * Update lab components to regular components due to Vuetify official releases
 * Update packages
@@ -34,6 +39,6 @@ All notable changes to the "vuetify-color-field" plugin will be documented in th
 * Update docs
 
 ## v1.0.0
-10-25-23
+2023-10-25
 [main] (@webdevnerdstuff)
 * Initial release
