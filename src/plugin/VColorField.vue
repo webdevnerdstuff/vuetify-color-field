@@ -390,7 +390,6 @@ const cardClasses = computed(() => useCardClasses({
 // ------------------------- Toggle Check //
 // ? Checks to prevent double triggers //
 function toggleCheck(trigger: string) {
-	console.log('toggleCheck', trigger);
 	if (trigger === 'textField' && !settings.readonlyInput && !settings.readonly) {
 		return;
 	}
@@ -404,7 +403,6 @@ function toggleCheck(trigger: string) {
 
 // ------------------------- Toggle Color Picker //
 function toggleColorPicker(trigger?: string | Event): void {
-	console.log('toggleColorPicker', trigger);
 	const defaultCoords = { left: 0, right: 0, top: 0, width: 0 };
 	const fieldContainer = fieldContainerRef.value;
 
@@ -419,10 +417,7 @@ function toggleColorPicker(trigger?: string | Event): void {
 		return;
 	}
 
-	console.log('foo', colorPickerOpen.value);
-
 	colorPickerOpen.value = !colorPickerOpen.value;
-	console.log('foo', colorPickerOpen.value);
 
 	// If color picker is closed no further action is needed //
 	if (!colorPickerOpen.value) {
