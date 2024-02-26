@@ -48,7 +48,7 @@ const x = (r) => {
     a("click");
   }
   return (C, f) => (c(), v(me, { class: ce(o(y)), color: o(s) || "--v-theme-on-surface", icon: o(S), size: C.pipSize, style: ue(o(k)), tag: "div", onClick: z }, null, 8, ["class", "color", "icon", "size", "style"]));
-} }), je = { key: 1 }, De = { key: 0, class: "text-error ms-1" }, Ke = ((r) => (Oe("data-v-10866cc1"), r = r(), We(), r))(() => fe("div", { class: "position-elm-helper" }, null, -1)), Le = ((r, p) => {
+} }), je = { key: 1 }, De = { key: 0, class: "text-error ms-1" }, Ke = ((r) => (Oe("data-v-781d35c8"), r = r(), We(), r))(() => fe("div", { class: "position-elm-helper" }, null, -1)), Le = ((r, p) => {
   const a = r.__vccOpts || r;
   for (const [l, s] of p)
     a[l] = s;
@@ -122,7 +122,7 @@ const x = (r) => {
       return [O(Me, { modelValue: o(I), "onUpdate:modelValue": [n[7] || (n[7] = (A) => Ne(I) ? I.value = A : null), K], class: "v-color-selection", disabled: o(e).readonly || ((d = o(S).VColorPicker) == null ? void 0 : d.disabled), mode: o(j), theme: ((B = o(S).VColorPicker) == null ? void 0 : B.theme) ?? o(D), "onUpdate:mode": Se }, null, 8, ["modelValue", "disabled", "mode", "theme"])];
     }), _: 1 }, 8, ["class", "style", "theme", "width"])];
   }), _: 1 }, 8, ["defaults"])]))], 64));
-} }), [["__scopeId", "data-v-10866cc1"]]), ve = Symbol();
+} }), [["__scopeId", "data-v-781d35c8"]]), ve = Symbol();
 function to(r = {}) {
   return { install: (p) => {
     p.provide(ve, r), p.component("VColorField", Le);
@@ -134,4 +134,4 @@ export {
   Le as default,
   ve as globalOptions
 };
-(function(){"use strict";try{if(typeof document<"u"){var o=document.createElement("style");o.appendChild(document.createTextNode(".v-color-field--text-field-readonly .v-field *,.v-color-field--text-field-readonly-input .v-field *{cursor:pointer!important}.v-color-field--card{display:none;position:absolute!important;z-index:999999}.v-color-field--card .v-color-picker{width:100%!important}.v-color-field--card .v-color-picker-canvas canvas{width:100%}.v-color-field--card-full-width .v-color-picker{max-width:100%!important}.v-color-field--text-field-readonly .v-field *[data-v-10866cc1],.v-color-field--text-field-readonly-input .v-field *[data-v-10866cc1]{cursor:pointer!important}.v-color-field--card[data-v-10866cc1]{display:none;position:absolute!important;z-index:999999}.v-color-field--card .v-color-picker[data-v-10866cc1]{width:100%!important}.v-color-field--card .v-color-picker-canvas canvas[data-v-10866cc1]{width:100%}.v-color-field--card-full-width .v-color-picker[data-v-10866cc1]{max-width:100%!important}.position-elm-helper[data-v-10866cc1]{background-color:red;border-radius:50%;display:none;height:10px;left:0;position:absolute;top:0;width:10px;z-index:99999999999}")),document.head.appendChild(o)}}catch(e){console.error("vite-plugin-css-injected-by-js",e)}})();
+(function(){"use strict";try{if(typeof document<"u"){var o=document.createElement("style");o.appendChild(document.createTextNode(".v-color-field--text-field-readonly .v-field *,.v-color-field--text-field-readonly-input .v-field *{cursor:pointer!important}.v-color-field--card{display:none;position:absolute!important;z-index:999999}.v-color-field--card .v-color-picker{width:100%!important}.v-color-field--card .v-color-picker-canvas canvas{width:100%}.v-color-field--card-full-width .v-color-picker{max-width:100%!important}.v-color-field--text-field-readonly .v-field *[data-v-781d35c8],.v-color-field--text-field-readonly-input .v-field *[data-v-781d35c8]{cursor:pointer!important}.v-color-field--card[data-v-781d35c8]{display:none;position:absolute!important;z-index:999999}.v-color-field--card .v-color-picker[data-v-781d35c8]{width:100%!important}.v-color-field--card .v-color-picker-canvas canvas[data-v-781d35c8]{width:100%}.v-color-field--card-full-width .v-color-picker[data-v-781d35c8]{max-width:100%!important}.position-elm-helper[data-v-781d35c8]{background-color:red;border-radius:50%;display:none;height:10px;left:0;position:absolute;top:0;width:10px;z-index:99999999999}")),document.head.appendChild(o)}}catch(d){console.error("vite-plugin-css-injected-by-js",d)}})();
