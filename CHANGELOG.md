@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to the "vuetify-color-field" plugin will be documented in this file.
 
+## v1.1.6
+2024-02-26
+[main] (@webdevnerdstuff)
+* Fix readonly-input inner icons not triggering toggle
+
 ## v1.1.5
 2024-02-26
 [main] (@webdevnerdstuff)
