@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to the "vuetify-color-field" plugin will be documented in this file.
 
+## v1.1.7
+2024-02-27
+[main] (@webdevnerdstuff)
+* Fix pip opacity
+
 ## v1.1.6
 2024-02-26
 [main] (@webdevnerdstuff)
