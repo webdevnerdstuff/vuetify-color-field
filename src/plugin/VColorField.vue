@@ -188,8 +188,6 @@
 
 	<!-- ================================================== Card Picker Container  -->
 	<Teleport to="body">
-		<div class="position-elm-helper"></div>
-
 		<v-defaults-provider :defaults="defaults">
 			<v-card
 				ref="cardRef"
@@ -557,16 +555,4 @@ function updateMode(mode: Mode) {
 
 <style lang="scss" scoped>
 @use './styles/main';
-
-.position-elm-helper {
-	background-color: #f00;
-	border-radius: 50%;
-	display: none;
-	height: 10px;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 10px;
-	z-index: 99999999999;
-}
 </style>
