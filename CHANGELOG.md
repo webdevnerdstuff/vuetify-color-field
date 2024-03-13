@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to the "vuetify-color-field" plugin will be documented in this file.
 
+## v1.1.8
+2024-03-13
+[main] (@webdevnerdstuff)
+* Change component to use `defineAsyncComponent`
+
 ## v1.1.7
 2024-02-27
 [main] (@webdevnerdstuff)
